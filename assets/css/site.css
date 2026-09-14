@@ -1,0 +1,305 @@
+/* =============================================================================
+   TuS Dabergotz – eigene Stile
+   Reines CSS ohne @apply, damit die Datei sowohl mit dem Tailwind-Play-CDN
+   als auch mit einem Tailwind-Build funktioniert.
+   Reihenfolge im <head>: erst Tailwind (CDN oder Build), dann diese Datei.
+   ========================================================================== */
+
+:root {
+  /* Farben – aus der Designvorlage gepickt */
+  --club-red: #F51A21;
+  --club-red-dark: #D2141A;
+  --ink: #111111;
+  --ink-soft: #4A4A4A;
+  --shelf: #F7F7F7;
+  --chalk: #FFFFFF;
+
+  /* Maße aus der Vorlage (Canvas 1366 px) */
+  --nav-height: 4.75rem;   /* 76 px */
+  --gutter: 1.5rem;
+  --content-max: 1200px;
+
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  --font-sans: Figtree, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Gochi Hand", ui-rounded, cursive;
+}
+
+/* ── Basis ─────────────────────────────────────────────────────────────── */
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  background-color: var(--club-red);
+  color: var(--chalk);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Sprungziele nicht unter der klebenden Kopfleiste verstecken */
+[id] { scroll-margin-top: var(--nav-height); }
+
+:focus-visible {
+  outline: none;
+  border-radius: 3px;
+  box-shadow: 0 0 0 4px var(--club-red), 0 0 0 8px var(--chalk);
+}
+.on-light :focus-visible {
+  box-shadow: 0 0 0 4px var(--chalk), 0 0 0 8px var(--club-red);
+}
+
+/* ── Layout ────────────────────────────────────────────────────────────── */
+
+.shell {
+  margin-inline: auto;
+  width: 100%;
+  max-width: var(--content-max);
+  padding-inline: var(--gutter);
+}
+
+/* Flächen zur Unterscheidung der Sektionen */
+.surface-deep  { background-color: var(--club-red-dark); }
+.surface-light { background-color: var(--chalk); color: var(--club-red); }
+
+.band-photo {
+  position: relative;
+  width: 100%;
+  height: clamp(240px, 41vw, 560px);
+  overflow: hidden;
+  background-color: var(--club-red-dark);
+}
+
+/* ── Typografie ────────────────────────────────────────────────────────── */
+
+.heading-section {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(1.875rem, 3.6vw, 3.125rem);
+  line-height: 1.15;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Buttons ───────────────────────────────────────────────────────────── */
+
+.btn-pill,
+.btn-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  background-color: var(--chalk);
+  color: var(--club-red);
+  font-family: var(--font-sans);
+  text-align: center;
+  transition: transform 0.2s var(--ease-out);
+}
+
+/* Flächiger Button (Formulare) – 66 px hoch wie in der Vorlage */
+.btn-pill {
+  width: 100%;
+  min-height: 66px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.25rem;
+  line-height: 1.42;
+}
+
+/* Kompakter Button – ersetzt nackte Textlinks („lesen“) */
+.btn-chip {
+  padding: 0.625rem 1.5rem;
+  font-size: 1rem;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.btn-pill:hover,
+.btn-pill:focus-visible { transform: scale(1.04); }
+.btn-chip:hover,
+.btn-chip:focus-visible { transform: scale(1.06); }
+
+/* Auf weißer Fläche drehen sich die Button-Farben um */
+.surface-light .btn-pill,
+.surface-light .btn-chip {
+  background-color: var(--club-red);
+  color: var(--chalk);
+}
+
+/* Handschriftlicher Kontakt-Ruf in den Teamsektionen */
+.contact-scribble {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.8vw, 2.375rem);
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: transform 0.2s var(--ease-out);
+}
+.contact-scribble:hover { transform: scale(1.05); }
+
+/* ── Navigation ────────────────────────────────────────────────────────── */
+
+.nav-link {
+  position: relative;
+  display: block;
+  padding-block: 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.125rem;
+  height: 2px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.28s var(--ease-out);
+}
+.nav-link:hover::after,
+.nav-link:focus-visible::after,
+.nav-link[aria-current="true"]::after { transform: scaleX(1); }
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+}
+.skip-link:focus {
+  left: var(--gutter);
+  top: 1rem;
+  z-index: 100;
+  border-radius: 3px;
+  background-color: var(--chalk);
+  color: var(--ink);
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+}
+
+/* ── Bild-Zoom bei Hover ───────────────────────────────────────────────── */
+
+.zoom { overflow: hidden; }
+.zoom > img {
+  height: 100%;
+  width: 100%;
+  transition: transform 0.5s var(--ease-out);
+}
+.zoom:hover > img,
+.group:hover .zoom > img,
+.group:focus-visible .zoom > img { transform: scale(1.06); }
+
+/* ── TUS-Maske ─────────────────────────────────────────────────────────────
+   Der Buchstabe ist echter Text, das Bild liegt als Hintergrund dahinter und
+   wird auf die Glyphe zugeschnitten. background-attachment: fixed verankert
+   das Motiv am Viewport – beim Scrollen wandert nur der Buchstabe darüber.
+   Vorlage: Versalhöhe 496 px bei 1366 px Breite.
+   -------------------------------------------------------------------------- */
+
+.mask-letter {
+  display: block;
+  font-family: var(--font-sans);
+  font-weight: 900;
+  line-height: 0.8;
+  letter-spacing: -0.02em;
+  text-align: center;
+  font-size: clamp(9rem, 49vw, 42rem);
+  color: transparent;
+  background-color: rgba(255, 255, 255, 0.25); /* sichtbar, falls das Bild fehlt */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+@media (max-width: 639px) {
+  .mask-letter { font-size: 60vw; }
+}
+/* iOS/Android setzen background-attachment: fixed nicht zuverlässig um */
+@media (max-width: 1023px), (prefers-reduced-motion: reduce) {
+  .mask-letter { background-attachment: scroll; }
+}
+@supports not ((-webkit-background-clip: text) or (background-clip: text)) {
+  .mask-letter { color: var(--chalk); background-image: none !important; }
+}
+
+/* ── Einblenden beim Scrollen ──────────────────────────────────────────────
+   Richtungsabhängig: abwärts kommen Elemente von unten, aufwärts von oben.
+   Gesteuert von assets/js/site.js über data-scroll-dir am <html>.
+   -------------------------------------------------------------------------- */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-shift, 32px), 0);
+  transition:
+    opacity 0.7s var(--ease-out) var(--reveal-delay, 0ms),
+    transform 0.7s var(--ease-out) var(--reveal-delay, 0ms);
+}
+html[data-scroll-dir="up"] [data-reveal] { --reveal-shift: -32px; }
+[data-reveal].is-visible { opacity: 1; transform: none; }
+
+[data-parallax] { will-change: transform; }
+
+/* ── Zeitstrahl ────────────────────────────────────────────────────────────
+   --progress (0…1) wird stufenlos aus der Scrollposition berechnet und treibt
+   Linie, Ball, Jahreszahlen und Bilder. Zurückscrollen dreht den Wert zurück.
+   -------------------------------------------------------------------------- */
+
+.timeline { --progress: 0; }
+
+.timeline__rail-fill {
+  transform: scaleY(var(--progress));
+  transform-origin: top;
+}
+
+.timeline__item {
+  opacity: 0.62;
+  transition: opacity 0.45s ease;
+}
+.timeline__item.is-active { opacity: 1; }
+
+.timeline__year {
+  display: inline-block;
+  transition: transform 0.45s var(--ease-out), letter-spacing 0.45s ease;
+}
+.timeline__item.is-active .timeline__year {
+  transform: scale(1.18);
+  letter-spacing: 0.02em;
+}
+
+.timeline__photo {
+  transform: scale(0.86);
+  filter: saturate(0.2) contrast(1.05);
+  transition: transform 0.55s var(--ease-out), filter 0.55s ease;
+}
+.timeline__item.is-active .timeline__photo {
+  transform: scale(1);
+  filter: none;
+}
+
+.timeline__ball { transition: opacity 0.3s ease; }
+
+/* ── Bewegung reduzieren ───────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+  [data-parallax] { transform: none !important; }
+  .zoom > img { transform: none !important; }
+  .timeline__item { opacity: 1; }
+  .timeline__photo { transform: none; filter: none; }
+  .timeline__ball { display: none; }
+}
