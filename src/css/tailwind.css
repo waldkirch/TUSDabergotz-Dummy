@@ -1,7 +1,6 @@
 /* Eingangsdatei für den Tailwind-Build.
-   Ausgabe: assets/css/tailwind.css (siehe package.json → npm run build).
-   Die projekteigenen Stile stehen bewusst separat in assets/css/site.css und
-   werden im <head> danach eingebunden. */
+   Ausgabe: assets/css/tailwind.css (npm run build).
+   Die projekteigenen Stile stehen separat in assets/css/site.css. */
 
 @tailwind base;
 @tailwind components;
