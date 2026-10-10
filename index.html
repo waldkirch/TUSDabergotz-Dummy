@@ -14,6 +14,8 @@
   <meta property="og:title" content="TuS Dabergotz – Willkommen im Club!">
   <meta property="og:description" content="Training, Teams und Vereinsleben in Dabergotz. Schreib uns – wir freuen uns auf dich.">
 
+  <link rel="icon" href="assets/img/TUSDabergotz_Logo.svg" type="image/svg+xml">
+
   <!-- Schriften: Gochi Hand für die handschriftlichen Versalien,
        Figtree für Fließtext und die TUS-Maske (900) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,14 +35,16 @@
   <script src="assets/js/site.js" defer></script>
 </head>
 <body>
-
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
   <!-- ═══ WP: header.php → template-parts/header/site-nav.php ═══════════════ -->
   <header id="site-header" class="sticky top-0 z-50 bg-club-red">
     <div class="mx-auto flex h-nav w-full max-w-[1366px] items-center justify-between px-gutter lg:px-6">
 
-      <a href="#top" class="font-sans text-nav text-chalk">TuS Dabergotz</a>
+      <a href="#top" class="flex items-center gap-3 text-chalk">
+        <img src="assets/img/TUSDabergotz_Logo.svg" alt="" aria-hidden="true" width="44" height="44" class="site-logo h-11 w-11">
+        <span class="font-sans text-nav">TuS Dabergotz</span>
+      </a>
 
       <!-- Rechte Gruppe: Menü und Burger liegen zusammen, damit der Burger
            auf jeder Breite am rechten Rand bleibt. -->
@@ -49,7 +53,7 @@
           <ul
             id="primary-menu"
             class="hidden absolute inset-x-0 top-full flex-col gap-1 border-t border-chalk/25 bg-club-red px-gutter pb-6 pt-3 shadow-card
-                   lg:static lg:flex lg:flex-row lg:items-center lg:gap-9 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none xl:gap-[52px]"
+                   lg:static lg:flex lg:flex-row lg:items-center lg:gap-7 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none xl:gap-10"
           >
             <li><a href="#aktuelles" class="nav-link text-chalk">Aktuelles</a></li>
             <li><a href="#b-jugend"  class="nav-link text-chalk">B-Jugend</a></li>
@@ -57,6 +61,7 @@
             <li><a href="#chronik"   class="nav-link text-chalk">Chronik</a></li>
             <li><a href="#formulare" class="nav-link text-chalk">Formulare</a></li>
             <li><a href="#fanshop"   class="nav-link text-chalk">Fanshop</a></li>
+            <li><a href="#kontakt"   class="nav-link text-chalk">Kontakt</a></li>
           </ul>
         </nav>
 
@@ -95,6 +100,7 @@
         fetchpriority="high" decoding="async"
       >
 
+      <!-- Abdunklung oben: hält Weiß auf hellem Himmel über 3:1 (WCAG 1.4.3) -->
       <div class="absolute inset-x-0 top-0 -z-10 h-2/5 bg-gradient-to-b from-black/40 to-transparent" aria-hidden="true"></div>
 
       <div class="relative mx-auto flex min-h-[540px] w-full max-w-[1366px] flex-col md:min-h-[500px] lg:block lg:h-[clamp(480px,41.4vw,565px)]">
@@ -104,12 +110,9 @@
         </h1>
 
         <a
-          href="/kontakt"
+          href="#kontakt"
           data-reveal style="--reveal-delay: 160ms"
-          class="group relative mx-gutter mt-8 flex aspect-square w-[clamp(11rem,19vw,16.25rem)] items-center justify-center self-end
-                 rounded-full bg-club-red text-center font-display text-badge uppercase leading-[1.05] text-chalk shadow-card
-                 transition-transform duration-200 hover:scale-[1.04] focus-visible:scale-[1.04] motion-reduce:transform-none
-                 lg:absolute lg:left-[61.35%] lg:top-[144px] lg:m-0"
+          class="badge-round badge-round--red group mx-gutter mt-8 self-end lg:absolute lg:left-[61.35%] lg:top-[144px] lg:m-0"
         >
           <span class="block px-7">Kontakt?<br>Schreibt uns!</span>
 
@@ -130,15 +133,15 @@
       <div class="shell">
         <h2 id="aktuelles-title" data-reveal class="heading-section text-chalk">Aktuelles</h2>
 
-        <ul class="mt-10 grid grid-cols-1 gap-y-14 sm:grid-cols-3 sm:gap-x-0 lg:mt-12">
+        <!-- Spaltenabstand und Schriftgrad der Buchstaben kommen aus .mask-grid -->
+        <ul class="mask-grid mt-10 grid grid-cols-1 gap-y-14 sm:grid-cols-3 lg:mt-12">
 
           <li data-reveal style="--reveal-delay: 0ms">
             <a href="/aktuelles/training-im-winter" class="group flex flex-col items-center">
-              <span class="mask-letter"
-                    style="background-image: url('assets/img/TUSD-Web-img-Header-01.jpg')" aria-hidden="true">T</span>
+              <span class="mask-letter" style="background-image: url('assets/img/TUSD-Web-img-Header-01.jpg')" aria-hidden="true">T</span>
               <h3 class="mt-8 px-2 text-center text-card font-bold text-chalk">Training im Winter</h3>
               <span class="btn-chip mt-4">
-                <svg class="h-4 w-3 shrink-0" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+                <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
                 lesen
               </span>
             </a>
@@ -146,11 +149,10 @@
 
           <li data-reveal style="--reveal-delay: 120ms">
             <a href="/aktuelles/social-media" class="group flex flex-col items-center">
-              <span class="mask-letter"
-                    style="background-image: url('assets/img/TUSD-Web-img-MannschaftU30-01.jpg')" aria-hidden="true">U</span>
+              <span class="mask-letter" style="background-image: url('assets/img/TUSD-Web-img-MannschaftU30-01.jpg')" aria-hidden="true">U</span>
               <h3 class="mt-8 px-2 text-center text-card font-bold text-chalk">TuS Dabergotz auf social media</h3>
               <span class="btn-chip mt-4">
-                <svg class="h-4 w-3 shrink-0" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+                <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
                 lesen
               </span>
             </a>
@@ -158,11 +160,10 @@
 
           <li data-reveal style="--reveal-delay: 240ms">
             <a href="/aktuelles/feiern-mit-dem-verein" class="group flex flex-col items-center">
-              <span class="mask-letter"
-                    style="background-image: url('assets/img/TUSD-Web-img-MannschaftHistorisch-01.jpg')" aria-hidden="true">S</span>
+              <span class="mask-letter" style="background-image: url('assets/img/TUSD-Web-img-MannschaftHistorisch-01.jpg')" aria-hidden="true">S</span>
               <h3 class="mt-8 px-2 text-center text-card font-bold text-chalk">Feiern mit dem Verein</h3>
               <span class="btn-chip mt-4">
-                <svg class="h-4 w-3 shrink-0" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+                <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
                 lesen
               </span>
             </a>
@@ -177,9 +178,9 @@
 
       <figure class="band-photo">
         <img
-          src="assets/img/TUSD-Web-img-MannschaftU30-01.jpg"
+          src="assets/img/B%20Jugend.jpg"
           width="1344" height="896" data-parallax
-          alt="Mannschaftskreis der B-Jugend, von unten in den Himmel fotografiert"
+          alt="Die B-Jugend des TuS Dabergotz auf dem Sportplatz"
           class="h-[115%] w-full object-cover" loading="lazy" decoding="async"
         >
       </figure>
@@ -194,7 +195,7 @@
             <p>Wir sind Doublesieger in der Saison 2024/2025, Pokalsieger und Kreismeister. Mit dir erreichen wir noch mehr. Willkommen im Club!</p>
           </div>
 
-          <a href="/kontakt" data-reveal style="--reveal-delay: 120ms" class="contact-scribble text-chalk lg:mt-12 lg:justify-self-center">
+          <a href="#kontakt" data-reveal style="--reveal-delay: 120ms" class="contact-scribble text-chalk lg:mt-12 lg:justify-self-center">
             Kontakt?<br>Schreibt uns!
             <svg class="pointer-events-none absolute -bottom-8 -right-8 w-10" viewBox="0 0 30 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true" focusable="false">
               <path d="M4.2 2.6 L4.6 30.4 L11.3 23.6 L15.9 35.6 L21.2 33.3 L16.6 21.6 L26.2 20.4 Z" />
@@ -203,12 +204,8 @@
 
           <figure data-reveal style="--reveal-delay: 200ms" class="text-center text-chalk">
             <div class="zoom mx-auto aspect-square w-[14.75rem] rounded-full bg-club-red-dark">
-              <img
-                src="assets/img/TUSD-Web-img-TrainerU30-01.jpg"
-                width="896" height="588"
-                alt="Porträt von Trainer Robert Schröder"
-                class="object-cover" loading="lazy" decoding="async"
-              >
+              <img src="assets/img/TUSD-Web-img-TrainerU30-01.jpg" width="896" height="588"
+                   alt="Porträt von Trainer Robert Schröder" class="object-cover" loading="lazy" decoding="async">
             </div>
             <figcaption class="mt-4 text-lead">Trainer Robert Schröder</figcaption>
           </figure>
@@ -222,10 +219,10 @@
 
       <figure class="band-photo">
         <img
-          src="assets/img/TUSD-Web-img-MannschaftU30-01.jpg"
+          src="assets/img/%C3%9C35.jpg"
           width="1344" height="896" data-parallax
-          alt="Mannschaftskreis der Altherren, von unten in den Himmel fotografiert"
-          class="h-[115%] w-full object-cover object-[50%_35%]" loading="lazy" decoding="async"
+          alt="Die Altherrenmannschaft des TuS Dabergotz auf dem Sportplatz"
+          class="h-[115%] w-full object-cover" loading="lazy" decoding="async"
         >
       </figure>
 
@@ -239,7 +236,7 @@
             <p>Der Spaß und die Gemeinschaft stehen bei uns im Vordergrund. Mit dir haben wir noch mehr Freude am Sport. Willkommen im Club!</p>
           </div>
 
-          <a href="/kontakt" data-reveal style="--reveal-delay: 120ms" class="contact-scribble text-chalk lg:mt-12 lg:justify-self-center">
+          <a href="#kontakt" data-reveal style="--reveal-delay: 120ms" class="contact-scribble text-chalk lg:mt-12 lg:justify-self-center">
             Kontakt?<br>Schreibt uns!
             <svg class="pointer-events-none absolute -bottom-8 -right-8 w-10" viewBox="0 0 30 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true" focusable="false">
               <path d="M4.2 2.6 L4.6 30.4 L11.3 23.6 L15.9 35.6 L21.2 33.3 L16.6 21.6 L26.2 20.4 Z" />
@@ -248,12 +245,8 @@
 
           <figure data-reveal style="--reveal-delay: 200ms" class="text-center text-chalk">
             <div class="zoom mx-auto aspect-square w-[14.75rem] rounded-full bg-club-red">
-              <img
-                src="assets/img/TUSD-Web-img-TrainerU30-01.jpg"
-                width="896" height="588"
-                alt="Porträt von Trainer Patrick Renner"
-                class="object-cover" loading="lazy" decoding="async"
-              >
+              <img src="assets/img/TUSD-Web-img-TrainerU30-01.jpg" width="896" height="588"
+                   alt="Porträt von Trainer Patrick Renner" class="object-cover" loading="lazy" decoding="async">
             </div>
             <figcaption class="mt-4 text-lead">Trainer Patrick Renner</figcaption>
           </figure>
@@ -319,8 +312,7 @@
 
             <li class="timeline__item lg:pb-28 lg:text-center" data-timeline-item>
               <figure>
-                <img src="assets/img/TUSD-Web-img-MannschaftHistorisch-01.jpg"
-                     width="1400" height="868" loading="lazy" decoding="async"
+                <img src="assets/img/TUSD-Web-img-MannschaftHistorisch-01.jpg" width="1400" height="868" loading="lazy" decoding="async"
                      alt="Spielszene auf dem alten Sportplatz in den 1930er Jahren"
                      class="timeline__photo aspect-square w-32 rounded-full bg-ink object-cover lg:mx-auto lg:w-full lg:max-w-[9rem]">
               </figure>
@@ -335,8 +327,7 @@
 
             <li class="timeline__item lg:pb-28 lg:text-center" data-timeline-item>
               <figure>
-                <img src="assets/img/TUSD-Web-img-MannschaftHistorisch-01.jpg"
-                     width="1400" height="868" loading="lazy" decoding="async"
+                <img src="assets/img/TUSD-Web-img-MannschaftHistorisch-01.jpg" width="1400" height="868" loading="lazy" decoding="async"
                      alt="Mannschaftsfoto mit Medaillen aus der Nachkriegszeit"
                      class="timeline__photo aspect-square w-32 rounded-full bg-ink object-cover object-[30%_50%] lg:mx-auto lg:w-full lg:max-w-[9rem]">
               </figure>
@@ -346,8 +337,7 @@
 
             <li class="timeline__item lg:pt-28 lg:text-center" data-timeline-item>
               <figure>
-                <img src="assets/img/TUSD-Web-img-MannschaftHistorisch-01.jpg"
-                     width="1400" height="868" loading="lazy" decoding="async"
+                <img src="assets/img/TUSD-Web-img-MannschaftHistorisch-01.jpg" width="1400" height="868" loading="lazy" decoding="async"
                      alt="Mannschaft nach dem Aufstieg in die Bezirksklasse"
                      class="timeline__photo aspect-square w-32 rounded-full bg-ink object-cover object-[70%_50%] lg:mx-auto lg:w-full lg:max-w-[9rem]">
               </figure>
@@ -362,8 +352,7 @@
 
             <li class="timeline__item lg:pt-28 lg:text-center" data-timeline-item>
               <figure>
-                <img src="assets/img/TUSD-Web-img-MannschaftU30-01.jpg"
-                     width="1344" height="896" loading="lazy" decoding="async"
+                <img src="assets/img/TUSD-Web-img-MannschaftU30-01.jpg" width="1344" height="896" loading="lazy" decoding="async"
                      alt="Vereinsgelände nach dem Ausbau mit Tribüne und Flutlicht"
                      class="timeline__photo aspect-square w-32 rounded-full bg-ink object-cover lg:mx-auto lg:w-full lg:max-w-[9rem]">
               </figure>
@@ -374,26 +363,119 @@
           </ol>
         </div>
 
+        <!-- Aufklappbare Langfassung der Chronik -->
         <p data-reveal class="mt-12 text-center">
-          <a href="/chronik-lang" class="btn-chip">
-            <svg class="h-4 w-3 shrink-0" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
-            die ganze Chronik lesen
-          </a>
+          <button
+            type="button"
+            class="btn-chip"
+            data-disclosure="chronik-lang"
+            aria-expanded="false"
+            aria-controls="chronik-lang"
+          >
+            <span class="toggle-icon" aria-hidden="true">
+              <svg class="icon-open h-4 w-3" viewBox="0 0 12 14" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+              <svg class="icon-close h-4 w-4" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" focusable="false"><path d="M2 2l10 10M12 2L2 12"/></svg>
+            </span>
+            <span data-disclosure-label>ganze Chronik</span>
+          </button>
         </p>
+
+        <div id="chronik-lang" class="disclosure">
+          <div>
+            <div class="mx-auto mt-10 max-w-[72ch] space-y-5 text-left" tabindex="-1" data-disclosure-focus>
+              <h3 class="font-display text-[clamp(1.5rem,2.6vw,2.25rem)] uppercase leading-tight text-club-red">Die ganze Chronik</h3>
+          <p>Platzhaltertext. Die folgenden Absätze stehen stellvertretend für die ausführliche Vereinschronik und werden durch den endgültigen Text ersetzt. Umfang und Gliederung entsprechen dem, was an dieser Stelle vorgesehen ist. Die Schiedsrichterfrage veränderte sich trotz knapper Kassen, sodass der Spielbetrieb nie ernsthaft gefährdet war. Der Wochenendspielplan verschob sich in diesen Jahren, ohne dass jemand darüber viele Worte verlor. Das Vereinsleben wuchs parallel zum Ausbau des Geländes, und gab dem Verein ein eigenes Gesicht. Einige Namen tauchen über Jahrzehnte hinweg in den Aufstellungen auf. Der Platzbau festigte sich nach einer langen Pause, und sorgte für volle Ränge an den Spieltagen.</p>
+          <p>Die Zusammenarbeit mit den Nachbarvereinen verschob sich dank der vielen freiwilligen Stunden, und prägte den Verein bis heute. Die Zahlen schwankten, der Kern der Mannschaft blieb jedoch über Jahre zusammen. Die Frauenabteilung veränderte sich dank der vielen freiwilligen Stunden, und blieb über Jahrzehnte die Grundlage der Arbeit. Wer damals dabei war, erinnert sich vor allem an die langen Abende nach dem Abpfiff. Die Schiedsrichterfrage veränderte sich dank der vielen freiwilligen Stunden, und sorgte für volle Ränge an den Spieltagen. Die Trainingsgruppe organisierte sich neu mit jedem neuen Jahrgang, und gab dem Verein ein eigenes Gesicht. Die Mitgliederversammlung veränderte sich trotz knapper Kassen, was den Zusammenhalt sichtbar stärkte. Die Vereinsfeste finanzierten einen guten Teil der laufenden Kosten mit.</p>
+          <figure class="zoom my-10 aspect-[16/9] w-full rounded-note bg-ink">
+            <img src="assets/img/TUSD-Web-img-MannschaftHistorisch-01.jpg" width="1400" height="868" loading="lazy" decoding="async"
+                 alt="Mannschaftsaufnahme aus der Frühzeit des Vereins" class="object-cover">
+          </figure>
+          <p>Die Altherrenmannschaft entwickelte sich nach einer langen Pause, was den Zusammenhalt sichtbar stärkte. Die Vereinsfeste finanzierten einen guten Teil der laufenden Kosten mit. Die Jugendarbeit erholte sich über mehrere Spielzeiten hinweg, weil immer jemand bereit war, mit anzupacken. Zwischen den Generationen gab es wenig Abstand, auf dem Platz wie daneben. Die Zusammenarbeit mit den Nachbarvereinen verschob sich im Zuge des Umbaus, was den Zusammenhalt sichtbar stärkte. Die Zusammenarbeit mit den Nachbarvereinen entwickelte sich mit Unterstützung der Gemeinde, und prägte den Verein bis heute. Das Sommerfest erholte sich nach einer langen Pause, und prägte den Verein bis heute.</p>
+          <p>Der Spielbetrieb erholte sich dank der vielen freiwilligen Stunden, und wurde zur festen Größe im Dorfkalender. Der Förderverein veränderte sich trotz knapper Kassen, weil immer jemand bereit war, mit anzupacken. Die Mitgliederversammlung verschob sich über mehrere Spielzeiten hinweg, und prägte den Verein bis heute. Die Trainingsgruppe entwickelte sich dank der vielen freiwilligen Stunden, was den Zusammenhalt sichtbar stärkte. Die Zahlen schwankten, der Kern der Mannschaft blieb jedoch über Jahre zusammen.</p>
+          <p>Die Frauenabteilung veränderte sich nach dem Wechsel im Vorstand, sodass der Spielbetrieb nie ernsthaft gefährdet war. Das Vereinsleben festigte sich im Zuge des Umbaus, und gab dem Verein ein eigenes Gesicht. Fahrten zu Auswärtsspielen wurden gemeinsam organisiert, oft mit privaten Fahrzeugen. Die Altherrenmannschaft festigte sich nach dem Wechsel im Vorstand, und prägte den Verein bis heute. Die Trainingsgruppe veränderte sich nach einer langen Pause, und sorgte für volle Ränge an den Spieltagen. Das Vereinsleben veränderte sich parallel zum Ausbau des Geländes, was sich im Rückblick als Glücksfall erwies.</p>
+          <figure class="zoom my-10 aspect-[16/9] w-full rounded-note bg-ink">
+            <img src="assets/img/TUSD-Web-img-MannschaftU30-01.jpg" width="1344" height="896" loading="lazy" decoding="async"
+                 alt="Mannschaftskreis vor dem Anpfiff" class="object-cover">
+          </figure>
+          <p>Die Vereinsfeste finanzierten einen guten Teil der laufenden Kosten mit. Fahrten zu Auswärtsspielen wurden gemeinsam organisiert, oft mit privaten Fahrzeugen. Die Kabine am Sportplatz entwickelte sich dank der vielen freiwilligen Stunden, sodass der Spielbetrieb nie ernsthaft gefährdet war. Das Trainerteam festigte sich dank der vielen freiwilligen Stunden, und sorgte für volle Ränge an den Spieltagen. Die Jugendarbeit festigte sich mit Unterstützung der Gemeinde, sodass der Spielbetrieb nie ernsthaft gefährdet war. Wer damals dabei war, erinnert sich vor allem an die langen Abende nach dem Abpfiff.</p>
+          <p>Die Schiedsrichterfrage erholte sich trotz knapper Kassen, sodass der Spielbetrieb nie ernsthaft gefährdet war. Die Protokolle aus dieser Zeit sind knapp gehalten, aber sie lassen erkennen, wie viel Arbeit hinter jedem Heimspiel steckte. Zwischen den Generationen gab es wenig Abstand, auf dem Platz wie daneben. Das Trainerteam organisierte sich neu trotz knapper Kassen, was den Zusammenhalt sichtbar stärkte. Wer damals dabei war, erinnert sich vor allem an die langen Abende nach dem Abpfiff. Die Protokolle aus dieser Zeit sind knapp gehalten, aber sie lassen erkennen, wie viel Arbeit hinter jedem Heimspiel steckte. Der Platzbau verschob sich parallel zum Ausbau des Geländes, und wurde zur festen Größe im Dorfkalender. Die Frauenabteilung stabilisierte sich mit jedem neuen Jahrgang, und wurde zur festen Größe im Dorfkalender.</p>
+          <p>Die Kabine am Sportplatz veränderte sich in diesen Jahren, sodass der Spielbetrieb nie ernsthaft gefährdet war. Die Vereinsfeste finanzierten einen guten Teil der laufenden Kosten mit. Die Protokolle aus dieser Zeit sind knapp gehalten, aber sie lassen erkennen, wie viel Arbeit hinter jedem Heimspiel steckte. Zwischen den Generationen gab es wenig Abstand, auf dem Platz wie daneben. Das Vereinsleben festigte sich nach einer langen Pause, ohne dass jemand darüber viele Worte verlor. Der Spielbetrieb veränderte sich im Zuge des Umbaus, ohne dass jemand darüber viele Worte verlor. Der Förderverein veränderte sich dank der vielen freiwilligen Stunden, und gab dem Verein ein eigenes Gesicht.</p>
+          <figure class="zoom my-10 aspect-[16/9] w-full rounded-note bg-ink">
+            <img src="assets/img/TUSD-Web-img-Header-01.jpg" width="1456" height="840" loading="lazy" decoding="async"
+                 alt="Ball auf dem Sportplatz in Dabergotz" class="object-cover">
+          </figure>
+          <p>Die Vereinsfeste finanzierten einen guten Teil der laufenden Kosten mit. Aus den Jugendmannschaften kamen regelmäßig Spieler in die erste Mannschaft nach. Der Förderverein festigte sich dank der vielen freiwilligen Stunden, was sich im Rückblick als Glücksfall erwies. Der Platzbau erholte sich mit Unterstützung der Gemeinde, und prägte den Verein bis heute. Die Schiedsrichterfrage organisierte sich neu über mehrere Spielzeiten hinweg, und gab dem Verein ein eigenes Gesicht. Der Spielbetrieb wuchs über mehrere Spielzeiten hinweg, sodass der Spielbetrieb nie ernsthaft gefährdet war. Einige Namen tauchen über Jahrzehnte hinweg in den Aufstellungen auf. Wer damals dabei war, erinnert sich vor allem an die langen Abende nach dem Abpfiff.</p>
+          <p>Die Protokolle aus dieser Zeit sind knapp gehalten, aber sie lassen erkennen, wie viel Arbeit hinter jedem Heimspiel steckte. Das Sommerfest organisierte sich neu in diesen Jahren, und sorgte für volle Ränge an den Spieltagen. Der Spielbetrieb erholte sich nach einer langen Pause, und sorgte für volle Ränge an den Spieltagen. Der Förderverein verschob sich nach dem Wechsel im Vorstand, weil immer jemand bereit war, mit anzupacken. Das Vereinsleben wuchs parallel zum Ausbau des Geländes, und sorgte für volle Ränge an den Spieltagen.</p>
+          <p>Die Vereinsfeste finanzierten einen guten Teil der laufenden Kosten mit. Der Platz musste nach jedem nassen Winter neu hergerichtet werden. Die Mitgliederversammlung erholte sich mit jedem neuen Jahrgang, weil immer jemand bereit war, mit anzupacken. Einige Namen tauchen über Jahrzehnte hinweg in den Aufstellungen auf. Der Platzbau festigte sich in diesen Jahren, und gab dem Verein ein eigenes Gesicht. Das Sommerfest erholte sich mit Unterstützung der Gemeinde, und gab dem Verein ein eigenes Gesicht. Der Förderverein erholte sich im Zuge des Umbaus, weil immer jemand bereit war, mit anzupacken. Die Protokolle aus dieser Zeit sind knapp gehalten, aber sie lassen erkennen, wie viel Arbeit hinter jedem Heimspiel steckte.</p>
+          <p>Der Förderverein organisierte sich neu parallel zum Ausbau des Geländes, was den Zusammenhalt sichtbar stärkte. Die Schiedsrichterfrage organisierte sich neu parallel zum Ausbau des Geländes, und gab dem Verein ein eigenes Gesicht. Die Schiedsrichterfrage erholte sich nach dem Wechsel im Vorstand, und wurde zur festen Größe im Dorfkalender. Zwischen den Generationen gab es wenig Abstand, auf dem Platz wie daneben. Das Vereinsleben stabilisierte sich über mehrere Spielzeiten hinweg, was sich im Rückblick als Glücksfall erwies.</p>
+          <p>Zwischen den Generationen gab es wenig Abstand, auf dem Platz wie daneben. Die Mitgliederversammlung wuchs über mehrere Spielzeiten hinweg, weil immer jemand bereit war, mit anzupacken. Die Mitgliederversammlung wuchs mit jedem neuen Jahrgang, und prägte den Verein bis heute. Einige Namen tauchen über Jahrzehnte hinweg in den Aufstellungen auf. Die Schiedsrichterfrage veränderte sich mit jedem neuen Jahrgang, ohne dass jemand darüber viele Worte verlor. Das Trainerteam organisierte sich neu in diesen Jahren, sodass der Spielbetrieb nie ernsthaft gefährdet war. Der Wochenendspielplan erholte sich im Zuge des Umbaus, und blieb über Jahrzehnte die Grundlage der Arbeit. Die Trainingsgruppe stabilisierte sich nach einer langen Pause, ohne dass jemand darüber viele Worte verlor.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ═══ 06 · Formulare ═══════════════════════════════════════════════════ -->
+    <!-- ═══ 06 · Formulare · Direktdownloads ═════════════════════════════════ -->
     <section id="formulare" aria-labelledby="formulare-title" class="py-section">
       <div class="shell">
         <h2 id="formulare-title" data-reveal class="heading-section text-chalk">Formulare</h2>
 
-        <ul class="mt-10 grid grid-cols-1 gap-x-10 gap-y-9 sm:grid-cols-2 lg:grid-cols-4">
-          <li data-reveal style="--reveal-delay: 0ms"><a class="btn-pill" href="assets/dokumente/Beitrittserklaerung.pdf" download>Beitrittserklärung<span class="sr-only"> (PDF herunterladen)</span></a></li>
-          <li data-reveal style="--reveal-delay: 60ms"><a class="btn-pill" href="assets/dokumente/Kinderschutz.pdf" download>Kinderschutz<span class="sr-only"> (PDF herunterladen)</span></a></li>
-          <li data-reveal style="--reveal-delay: 120ms"><a class="btn-pill" href="assets/dokumente/Unfallmeldung.pdf" download>Unfallmeldung<span class="sr-only"> (PDF herunterladen)</span></a></li>
-          <li data-reveal style="--reveal-delay: 180ms"><a class="btn-pill" href="assets/dokumente/AGB.pdf" download>AGB<span class="sr-only"> (PDF herunterladen)</span></a></li>
-          <li data-reveal style="--reveal-delay: 240ms"><a class="btn-pill" href="assets/dokumente/Datenschutz.pdf" download>Datenschutz<span class="sr-only"> (PDF herunterladen)</span></a></li>
+        <ul class="mt-10 grid grid-cols-1 gap-x-10 gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
+
+          <li data-reveal style="--reveal-delay: 0ms">
+            <a class="btn-pill" href="assets/dokumente/1012726%20-%20Beitrittserkl%C3%A4rung_Aufnahmevertrag.docx" download>
+              <svg class="icon h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M12 3v11m0 0 4-4m-4 4-4-4M4 19h16"/>
+              </svg>
+              Beitrittserklärung<span class="sr-only"> (Word-Datei herunterladen)</span>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 60ms">
+            <a class="btn-pill" href="assets/dokumente/Datenschutzerkl%C3%A4rung%20TuS.pdf" download>
+              <svg class="icon h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M12 3v11m0 0 4-4m-4 4-4-4M4 19h16"/>
+              </svg>
+              Datenschutzerklärung<span class="sr-only"> (PDF herunterladen)</span>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 120ms">
+            <a class="btn-pill" href="assets/dokumente/unfallmeldung_TuS_.pdf" download>
+              <svg class="icon h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M12 3v11m0 0 4-4m-4 4-4-4M4 19h16"/>
+              </svg>
+              Unfallmeldung<span class="sr-only"> (PDF herunterladen)</span>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 180ms">
+            <a class="btn-pill" href="assets/dokumente/Einverst%C3%A4ndniserkl%C3%A4rung%20Spielerbild%20TuS.pdf" download>
+              <svg class="icon h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M12 3v11m0 0 4-4m-4 4-4-4M4 19h16"/>
+              </svg>
+              Spielerbilderklärung<span class="sr-only"> (PDF herunterladen)</span>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 240ms">
+            <a class="btn-pill" href="assets/dokumente/antrag_zweitspielrecht_fuer_altherren-31-08-15.pdf" download>
+              <svg class="icon h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M12 3v11m0 0 4-4m-4 4-4-4M4 19h16"/>
+              </svg>
+              Zweitspielrecht<span class="sr-only"> (PDF herunterladen)</span>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 300ms">
+            <a class="btn-pill" href="assets/dokumente/003_antrag_spielrecht_fussball_2022.pdf" download>
+              <svg class="icon h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M12 3v11m0 0 4-4m-4 4-4-4M4 19h16"/>
+              </svg>
+              Spielrecht<span class="sr-only"> (PDF herunterladen)</span>
+            </a>
+          </li>
+
         </ul>
       </div>
     </section>
@@ -411,12 +493,10 @@
         <ul class="mt-8 grid grid-cols-2 gap-3.5 lg:mt-10 lg:grid-cols-4">
 
           <li data-reveal style="--reveal-delay: 0ms">
-            <a href="/fanshop" class="group block">
+            <a href="https://tus-dabergotz.fan12.de/" target="_blank" rel="noopener" class="group block">
               <div class="zoom aspect-[3/4] bg-shelf">
-                <img src="assets/img/TUSD-Web-img-TrainerU30-01.jpg"
-                     width="896" height="588" loading="lazy" decoding="async"
-                     alt="Beiger Oversize-Hoodie für Herren mit Vereinswappen auf der Brust"
-                     class="object-cover">
+                <img src="assets/img/TUSD-Web-img-TrainerU30-01.jpg" width="896" height="588" loading="lazy" decoding="async"
+                     alt="Beiger Oversize-Hoodie für Herren mit Vereinswappen auf der Brust" class="object-cover">
               </div>
               <h4 class="mt-3 text-small text-ink group-hover:underline">Hoodie Heavyweight Oversize Herren</h4>
               <p class="mt-0.5 text-small font-bold text-ink">49,95&nbsp;€</p>
@@ -424,12 +504,10 @@
           </li>
 
           <li data-reveal style="--reveal-delay: 80ms">
-            <a href="/fanshop" class="group block">
+            <a href="https://tus-dabergotz.fan12.de/" target="_blank" rel="noopener" class="group block">
               <div class="zoom aspect-[3/4] bg-shelf">
-                <img src="assets/img/TUSD-Web-img-MannschaftU30-01.jpg"
-                     width="1344" height="896" loading="lazy" decoding="async"
-                     alt="Roter Hoodie für Herren mit Dabergotz-Schriftzug"
-                     class="object-cover">
+                <img src="assets/img/TUSD-Web-img-MannschaftU30-01.jpg" width="1344" height="896" loading="lazy" decoding="async"
+                     alt="Roter Hoodie für Herren mit Dabergotz-Schriftzug" class="object-cover">
               </div>
               <h4 class="mt-3 text-small text-ink group-hover:underline">Hoodie Hometown Herren</h4>
               <p class="mt-0.5 text-small font-bold text-ink">39,95&nbsp;€</p>
@@ -437,12 +515,10 @@
           </li>
 
           <li data-reveal style="--reveal-delay: 160ms">
-            <a href="/fanshop" class="group block">
+            <a href="https://tus-dabergotz.fan12.de/" target="_blank" rel="noopener" class="group block">
               <div class="zoom aspect-[3/4] bg-shelf">
-                <img src="assets/img/TUSD-Web-img-Header-01.jpg"
-                     width="1456" height="840" loading="lazy" decoding="async"
-                     alt="Rote Kinder-Sweatjacke mit Reißverschluss und Vereinswappen"
-                     class="object-cover">
+                <img src="assets/img/TUSD-Web-img-Header-01.jpg" width="1456" height="840" loading="lazy" decoding="async"
+                     alt="Rote Kinder-Sweatjacke mit Reißverschluss und Vereinswappen" class="object-cover">
               </div>
               <h4 class="mt-3 text-small text-ink group-hover:underline">Zipper Basic Kids</h4>
               <p class="mt-0.5 text-small font-bold text-ink">39,95&nbsp;€</p>
@@ -450,12 +526,10 @@
           </li>
 
           <li data-reveal style="--reveal-delay: 240ms">
-            <a href="/fanshop" class="group block">
+            <a href="https://tus-dabergotz.fan12.de/" target="_blank" rel="noopener" class="group block">
               <div class="zoom aspect-[3/4] bg-shelf">
-                <img src="assets/img/TUSD-Web-img-MannschaftHistorisch-01.jpg"
-                     width="1400" height="868" loading="lazy" decoding="async"
-                     alt="Brotdose aus Edelstahl mit aufgedrucktem Vereinswappen"
-                     class="object-cover">
+                <img src="assets/img/TUSD-Web-img-MannschaftHistorisch-01.jpg" width="1400" height="868" loading="lazy" decoding="async"
+                     alt="Brotdose aus Edelstahl mit aufgedrucktem Vereinswappen" class="object-cover">
               </div>
               <h4 class="mt-3 text-small text-ink group-hover:underline">Brotdose Logo</h4>
               <p class="mt-0.5 text-small font-bold text-ink">19,95&nbsp;€</p>
@@ -465,32 +539,171 @@
         </ul>
 
         <p data-reveal class="mt-10 text-center">
-          <a href="/fanshop" class="btn-chip">
-            <svg class="h-4 w-3 shrink-0" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
-            zum Fanshop
+          <a href="https://tus-dabergotz.fan12.de/" target="_blank" rel="noopener" class="btn-chip">
+            <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+            zum Fanshop<span class="sr-only"> (öffnet tus-dabergotz.fan12.de in einem neuen Tab)</span>
           </a>
         </p>
       </div>
     </section>
 
-    <!-- ═══ 08 · Spielergebnisse ═════════════════════════════════════════════ -->
+    <!-- ═══ 08 · Fanshop · zweiter Block mit echten Shop-Artikeln ════════════ -->
+    <section id="fanshop-shop" aria-labelledby="fanshop-shop-title" class="surface-light on-light pb-section">
+      <div class="shell">
+        <h2 id="fanshop-shop-title" data-reveal class="heading-section">Direkt aus dem Shop</h2>
+
+        <h3 data-reveal class="mt-10 text-center font-sans text-shop font-extrabold italic uppercase text-ink">Neu im Sortiment</h3>
+        <p data-reveal class="mx-auto mt-4 max-w-[62ch] text-center text-micro text-ink-soft">
+          Diese Artikel liegen aktuell im Vereinsshop bei Fan12. Jeder Link führt direkt zum Produkt.
+        </p>
+
+        <ul class="mt-8 grid grid-cols-2 gap-3.5 lg:mt-10 lg:grid-cols-5">
+
+          <li data-reveal style="--reveal-delay: 0ms">
+            <a href="https://tus-dabergotz.fan12.de/schluesselanhaenger-trikot/" target="_blank" rel="noopener" class="group block">
+              <div class="zoom aspect-[3/4] bg-shelf">
+                <img src="assets/img/TUSD-Web-img-Header-01.jpg" width="1456" height="840" loading="lazy" decoding="async"
+                     alt="Schlüsselanhänger im Trikotdesign" class="object-cover">
+              </div>
+              <h4 class="mt-3 text-small text-ink group-hover:underline">Schlüsselanhänger Trikot</h4>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 60ms">
+            <a href="https://tus-dabergotz.fan12.de/farbige-beanie/" target="_blank" rel="noopener" class="group block">
+              <div class="zoom aspect-[3/4] bg-shelf">
+                <img src="assets/img/TUSD-Web-img-MannschaftU30-01.jpg" width="1344" height="896" loading="lazy" decoding="async"
+                     alt="Beanie mit gesticktem Vereinslogo" class="object-cover">
+              </div>
+              <h4 class="mt-3 text-small text-ink group-hover:underline">Beanie mit Sticklogo</h4>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 120ms">
+            <a href="https://tus-dabergotz.fan12.de/fanschal-identity/" target="_blank" rel="noopener" class="group block">
+              <div class="zoom aspect-[3/4] bg-shelf">
+                <img src="assets/img/TUSD-Web-img-MannschaftHistorisch-01.jpg" width="1400" height="868" loading="lazy" decoding="async"
+                     alt="Fanschal in den Vereinsfarben" class="object-cover">
+              </div>
+              <h4 class="mt-3 text-small text-ink group-hover:underline">Fanschal Identity</h4>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 180ms">
+            <a href="https://tus-dabergotz.fan12.de/kabinenposter/" target="_blank" rel="noopener" class="group block">
+              <div class="zoom aspect-[3/4] bg-shelf">
+                <img src="assets/img/TUSD-Web-img-TrainerU30-01.jpg" width="896" height="588" loading="lazy" decoding="async"
+                     alt="Kabinenposter für die Mannschaft" class="object-cover">
+              </div>
+              <h4 class="mt-3 text-small text-ink group-hover:underline">Kabinenposter</h4>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 240ms">
+            <a href="https://tus-dabergotz.fan12.de/shirt-forza/" target="_blank" rel="noopener" class="group block">
+              <div class="zoom aspect-[3/4] bg-shelf">
+                <img src="assets/img/TUSD-Web-img-MannschaftU30-01.jpg" width="1344" height="896" loading="lazy" decoding="async"
+                     alt="Vereinsshirt Forza" class="object-cover">
+              </div>
+              <h4 class="mt-3 text-small text-ink group-hover:underline">Shirt Forza</h4>
+            </a>
+          </li>
+
+        </ul>
+
+        <ul class="mt-10 flex flex-wrap justify-center gap-4">
+          <li data-reveal>
+            <a href="https://tus-dabergotz.fan12.de/kollektion-travel" target="_blank" rel="noopener" class="btn-chip">
+              <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+              Kollektion Travel
+            </a>
+          </li>
+          <li data-reveal style="--reveal-delay: 60ms">
+            <a href="https://tus-dabergotz.fan12.de/kollektion-vintage/" target="_blank" rel="noopener" class="btn-chip">
+              <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+              Kollektion Vintage
+            </a>
+          </li>
+          <li data-reveal style="--reveal-delay: 120ms">
+            <a href="https://tus-dabergotz.fan12.de/shop/?product_tag=bestseller&amp;label=Bestseller" target="_blank" rel="noopener" class="btn-chip">
+              <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+              Bestseller
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══ 09 · Spielergebnisse ═════════════════════════════════════════════ -->
     <section id="spielergebnisse" aria-labelledby="spielergebnisse-title" class="py-section">
       <div class="shell">
         <h2 id="spielergebnisse-title" data-reveal class="heading-section text-chalk">Aktuelle Spielergebnisse</h2>
 
-        <div data-reveal class="zoom mt-5 aspect-[1195/360] w-full bg-club-red-dark">
-          <!-- WP: hier den Shortcode des Ergebnis-Plugins ausgeben, z. B. echo do_shortcode('[football_leagues]'); -->
-          <img
-            src="assets/img/TUSD-Web-img-Header-01.jpg"
-            width="1456" height="840" loading="lazy" decoding="async"
-            alt="Platzhalter für die Tabellen- und Ergebnisansicht des Spielplan-Plugins"
-            class="object-cover"
-          >
+        <!-- Nächstes Spiel -->
+        <div data-reveal class="mx-auto mt-10 max-w-[46rem] rounded-[2rem] bg-chalk p-6 text-ink on-light lg:p-8">
+          <p class="text-micro font-semibold uppercase tracking-wide text-club-red">Nächstes Spiel</p>
+          <p class="mt-2 text-lead font-bold">SpG MSV Neuruppin/TuS Dabergotz – TSV Wustrau</p>
+          <p class="mt-1 text-body text-ink-soft">
+            <time datetime="2026-10-14T19:00">Mittwoch, 14.10.2026, 19:00 Uhr</time> · Herren Ü35, Alt-Herren Kreispokal 11er
+          </p>
         </div>
+
+        <!-- Vereinsüberblick -->
+        <div data-reveal class="mt-10">
+          <h3 class="text-center font-sans text-lead font-bold text-chalk">Die nächsten Begegnungen</h3>
+
+          <ul class="mx-auto mt-6 max-w-[56rem] text-chalk">
+            <li class="fixture">
+              <span><time datetime="2026-11-06T19:30">Fr, 06.11.2026, 19:30</time></span>
+              <span>SV Rot-Weiß Kyritz – SpG MSV Neuruppin/TuS Dabergotz</span>
+              <span class="text-micro opacity-80">Ü35, 1. Kreisklasse</span>
+            </li>
+            <li class="fixture">
+              <span><time datetime="2026-11-07T11:30">Sa, 07.11.2026, 11:30</time></span>
+              <span>SV Union Neuruppin – TuS Dabergotz (9)</span>
+              <span class="text-micro opacity-80">B-Junioren, Kreisliga</span>
+            </li>
+            <li class="fixture">
+              <span><time datetime="2026-11-13T19:00">Fr, 13.11.2026, 19:00</time></span>
+              <span>SpG MSV Neuruppin/TuS Dabergotz – SpG Schwarz-Weiß Zaatzke/MTV Freyenstein</span>
+              <span class="text-micro opacity-80">Ü35, 1. Kreisklasse</span>
+            </li>
+            <li class="fixture">
+              <span><time datetime="2026-11-14T10:00">Sa, 14.11.2026, 10:00</time></span>
+              <span>SG Eintracht Friesack (9) – TuS Dabergotz (9)</span>
+              <span class="text-micro opacity-80">B-Junioren, Kreisliga</span>
+            </li>
+            <li class="fixture">
+              <span><time datetime="2026-11-27T19:00">Fr, 27.11.2026, 19:00</time></span>
+              <span>SpG MSV Neuruppin/TuS Dabergotz – SV Rot-Weiß Kyritz</span>
+              <span class="text-micro opacity-80">Ü35, 1. Kreisklasse</span>
+            </li>
+          </ul>
+
+          <p class="mx-auto mt-6 max-w-[56rem] text-micro text-chalk/85">
+            Stand 10.10.2026, Quelle fussball.de. Für die laufende Saison sind dort noch keine Ergebnisse
+            eingetragen, der Spielplan ist vom Staffelleiter noch nicht freigegeben. Sobald Ergebnisse
+            vorliegen, erscheinen sie hier.
+          </p>
+
+          <!-- WordPress: an dieser Stelle entweder das offizielle fussball.de-Vereinswidget
+               einsetzen (Widget-Generator auf fussball.de, liefert eine Kennung für
+               https://widget2.fussball.de/…) oder den Shortcode des Ergebnis-Plugins ausgeben.
+               Ein <iframe> direkt auf die Vereinsseite funktioniert nicht, fussball.de
+               unterbindet das Einbetten per X-Frame-Options. -->
+        </div>
+
+        <p data-reveal class="mt-10 text-center">
+          <a href="https://www.fussball.de/verein/tus-dabergotz-1929-brandenburg/-/id/00ES8GNBL000004HVV0AG08LVUPGND5I#!/"
+             target="_blank" rel="noopener" class="btn-chip">
+            <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+            alle Spiele auf fussball.de<span class="sr-only"> (öffnet in einem neuen Tab)</span>
+          </a>
+        </p>
       </div>
     </section>
 
-    <!-- ═══ 09 · Partner ═════════════════════════════════════════════════════ -->
+    <!-- ═══ 10 · Partner ═════════════════════════════════════════════════════ -->
     <section id="partner" aria-labelledby="partner-title" class="surface-deep py-section">
       <div class="shell">
         <h2 id="partner-title" data-reveal class="heading-section text-chalk">Unsere Partner</h2>
@@ -506,19 +719,106 @@
       </div>
     </section>
 
+    <!-- ═══ 11 · Kontakt · Badge öffnet das Formular an Ort und Stelle ═══════ -->
+    <section id="kontakt" aria-labelledby="kontakt-title" class="py-section-lg">
+      <div class="shell flex flex-col items-center">
+
+        <h2 id="kontakt-title" class="sr-only">Kontakt</h2>
+
+        <button
+          type="button"
+          class="badge-round badge-round--white"
+          data-disclosure="kontakt-formular"
+          aria-expanded="false"
+          aria-controls="kontakt-formular"
+          data-reveal
+        >
+          <span class="block px-7">Kontakt?<br>Schreibt uns!</span>
+          <svg class="pointer-events-none absolute bottom-0 right-0 w-[clamp(2rem,3.3vw,2.8rem)] translate-x-[38%] translate-y-[52%]"
+               viewBox="0 0 30 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"
+               aria-hidden="true" focusable="false">
+            <path d="M4.2 2.6 L4.6 30.4 L11.3 23.6 L15.9 35.6 L21.2 33.3 L16.6 21.6 L26.2 20.4 Z" />
+          </svg>
+        </button>
+
+        <div id="kontakt-formular" class="disclosure w-full max-w-[42rem]">
+          <div>
+            <form class="mt-10 space-y-6" data-contact-form novalidate tabindex="-1" data-disclosure-focus>
+
+              <div class="grid gap-6 sm:grid-cols-2">
+                <div data-field>
+                  <label class="field-label" for="kontakt-vorname">Vorname</label>
+                  <input class="field-input" id="kontakt-vorname" name="vorname" type="text" autocomplete="given-name" required>
+                  <p class="field-error">Bitte trag deinen Vornamen ein.</p>
+                </div>
+
+                <div data-field>
+                  <label class="field-label" for="kontakt-name">Name</label>
+                  <input class="field-input" id="kontakt-name" name="name" type="text" autocomplete="family-name" required>
+                  <p class="field-error">Bitte trag deinen Namen ein.</p>
+                </div>
+              </div>
+
+              <div data-field>
+                <label class="field-label" for="kontakt-email">E-Mail</label>
+                <input class="field-input" id="kontakt-email" name="email" type="email" autocomplete="email" required>
+                <p class="field-error">Bitte prüf die E-Mail-Adresse.</p>
+              </div>
+
+              <div data-field>
+                <label class="field-label" for="kontakt-nachricht">Nachricht</label>
+                <textarea class="field-input" id="kontakt-nachricht" name="nachricht" rows="6" required></textarea>
+                <p class="field-error">Schreib uns kurz, worum es geht.</p>
+              </div>
+
+              <div data-field>
+                <label class="flex items-start gap-3 text-small" for="kontakt-datenschutz">
+                  <input class="mt-0.5 h-5 w-5 shrink-0 rounded-[4px] border-2 border-chalk/70 bg-transparent text-club-red"
+                         id="kontakt-datenschutz" name="datenschutz" type="checkbox" required>
+                  <span>Ich habe die <a class="underline underline-offset-4" href="/datenschutz">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Daten einverstanden.</span>
+                </label>
+                <p class="field-error">Ohne diese Zustimmung dürfen wir die Nachricht nicht verarbeiten.</p>
+              </div>
+
+              <p class="form-note" data-form-note>
+                Demo-Modus: Das Formular ist noch nicht an einen Versand angebunden. In WordPress übernimmt das
+                Contact Form 7, WPForms oder ein eigener Endpunkt – die Felder und Namen bleiben dabei gleich.
+              </p>
+
+              <div class="pt-2">
+                <button type="submit" class="btn-chip">
+                  <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+                  absenden
+                </button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
   <!-- ═══ WP: footer.php ═══════════════════════════════════════════════════ -->
   <footer class="surface-deep pb-14 pt-10">
-    <div class="shell">
+    <div class="shell flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:justify-between">
+
+      <a href="#top" class="flex items-center gap-3 text-chalk">
+        <img src="assets/img/TUSDabergotz_Logo.svg" alt="" aria-hidden="true" width="48" height="48" class="site-logo h-12 w-12">
+        <span class="font-sans text-nav">TuS Dabergotz</span>
+      </a>
+
       <nav aria-label="Rechtliches und Service">
         <ul class="flex flex-wrap justify-center gap-x-8 gap-y-3 lg:justify-end">
-          <li><a class="nav-link text-chalk" href="/chronik-lang">Chronik lang</a></li>
+          <li><a class="nav-link text-chalk" href="#chronik-lang">Chronik lang</a></li>
           <li><a class="nav-link text-chalk" href="/datenschutz">Datenschutz</a></li>
           <li><a class="nav-link text-chalk" href="/impressum">Impressum</a></li>
-          <li><a class="nav-link text-chalk" href="/kontakt">Kontakt</a></li>
+          <li><a class="nav-link text-chalk" href="#kontakt">Kontakt</a></li>
         </ul>
       </nav>
+
     </div>
   </footer>
 </body>

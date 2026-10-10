@@ -1,6 +1,6 @@
 {
   "name": "tus-dabergotz",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "Onepager des TuS Dabergotz – statisches Frontend-Mockup als Vorstufe zum WordPress-Theme",
   "scripts": {
