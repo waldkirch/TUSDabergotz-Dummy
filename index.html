@@ -32,9 +32,17 @@
   <!-- Projekteigene Stile – immer NACH Tailwind einbinden -->
   <link rel="stylesheet" href="assets/css/site.css">
 
+  <script src="assets/js/shop-produkte.js" defer></script>
   <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/fussballde.js" defer></script>
 </head>
-<body>
+<!--
+  data-fussballde-key: Schlüssel des offiziellen fussball.de-Widgets.
+  Auf fussball.de im Vereinsbereich für die eigene Domain erzeugen und hier
+  eintragen – dann holt die Seite Spiele und Tabellen bei jedem Aufruf selbst.
+  Siehe Kopfkommentar in assets/js/fussballde.js.
+-->
+<body data-fussballde-key="">
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
   <!-- ═══ WP: header.php → template-parts/header/site-nav.php ═══════════════ -->
@@ -42,7 +50,7 @@
     <div class="mx-auto flex h-nav w-full max-w-[1366px] items-center justify-between px-gutter lg:px-6">
 
       <a href="#top" class="flex items-center gap-3 text-chalk">
-        <img src="assets/img/TUSDabergotz_Logo.svg" alt="" aria-hidden="true" width="44" height="44" class="site-logo h-11 w-11">
+        <img src="assets/img/TUSDabergotz_Logo.svg" alt="" aria-hidden="true" width="46" height="50" class="site-logo h-[2.75rem]">
         <span class="font-sans text-nav">TuS Dabergotz</span>
       </a>
 
@@ -204,7 +212,9 @@
 
           <figure data-reveal style="--reveal-delay: 200ms" class="text-center text-chalk">
             <div class="zoom mx-auto aspect-square w-[14.75rem] rounded-full bg-club-red-dark">
-              <img src="assets/img/TUSD-Web-img-TrainerU30-01.jpg" width="896" height="588"
+              <img src="assets/img/avatar-trainer-default.svg"
+                   data-photo="assets/img/trainer/B-Jugend-Trainer.jpg"
+                   width="472" height="472"
                    alt="Porträt von Trainer Robert Schröder" class="object-cover" loading="lazy" decoding="async">
             </div>
             <figcaption class="mt-4 text-lead">Trainer Robert Schröder</figcaption>
@@ -219,7 +229,7 @@
 
       <figure class="band-photo">
         <img
-          src="assets/img/U35.jpg"
+          src="assets/img/%C3%9C35.jpg"
           width="1344" height="896" data-parallax
           alt="Die Altherrenmannschaft des TuS Dabergotz auf dem Sportplatz"
           class="h-[115%] w-full object-cover" loading="lazy" decoding="async"
@@ -245,7 +255,9 @@
 
           <figure data-reveal style="--reveal-delay: 200ms" class="text-center text-chalk">
             <div class="zoom mx-auto aspect-square w-[14.75rem] rounded-full bg-club-red">
-              <img src="assets/img/TUSD-Web-img-TrainerU30-01.jpg" width="896" height="588"
+              <img src="assets/img/avatar-trainer-default.svg"
+                   data-photo="assets/img/trainer/Ue35-Trainer.jpg"
+                   width="472" height="472"
                    alt="Porträt von Trainer Patrick Renner" class="object-cover" loading="lazy" decoding="async">
             </div>
             <figcaption class="mt-4 text-lead">Trainer Patrick Renner</figcaption>
@@ -382,33 +394,200 @@
 
         <div id="chronik-lang" class="disclosure">
           <div>
-            <div class="mx-auto mt-10 max-w-[72ch] space-y-5 text-left" tabindex="-1" data-disclosure-focus>
-              <h3 class="font-display text-[clamp(1.5rem,2.6vw,2.25rem)] uppercase leading-tight text-club-red">Die ganze Chronik</h3>
-          <p>Platzhaltertext. Die folgenden Absätze stehen stellvertretend für die ausführliche Vereinschronik und werden durch den endgültigen Text ersetzt. Umfang und Gliederung entsprechen dem, was an dieser Stelle vorgesehen ist. Die Schiedsrichterfrage veränderte sich trotz knapper Kassen, sodass der Spielbetrieb nie ernsthaft gefährdet war. Der Wochenendspielplan verschob sich in diesen Jahren, ohne dass jemand darüber viele Worte verlor. Das Vereinsleben wuchs parallel zum Ausbau des Geländes, und gab dem Verein ein eigenes Gesicht. Einige Namen tauchen über Jahrzehnte hinweg in den Aufstellungen auf. Der Platzbau festigte sich nach einer langen Pause, und sorgte für volle Ränge an den Spieltagen.</p>
-          <p>Die Zusammenarbeit mit den Nachbarvereinen verschob sich dank der vielen freiwilligen Stunden, und prägte den Verein bis heute. Die Zahlen schwankten, der Kern der Mannschaft blieb jedoch über Jahre zusammen. Die Frauenabteilung veränderte sich dank der vielen freiwilligen Stunden, und blieb über Jahrzehnte die Grundlage der Arbeit. Wer damals dabei war, erinnert sich vor allem an die langen Abende nach dem Abpfiff. Die Schiedsrichterfrage veränderte sich dank der vielen freiwilligen Stunden, und sorgte für volle Ränge an den Spieltagen. Die Trainingsgruppe organisierte sich neu mit jedem neuen Jahrgang, und gab dem Verein ein eigenes Gesicht. Die Mitgliederversammlung veränderte sich trotz knapper Kassen, was den Zusammenhalt sichtbar stärkte. Die Vereinsfeste finanzierten einen guten Teil der laufenden Kosten mit.</p>
-          <figure class="zoom my-10 aspect-[16/9] w-full rounded-note bg-ink">
-            <img src="assets/img/TUSD-Web-img-MannschaftHistorisch-01.jpg" width="1400" height="868" loading="lazy" decoding="async"
-                 alt="Mannschaftsaufnahme aus der Frühzeit des Vereins" class="object-cover">
-          </figure>
-          <p>Die Altherrenmannschaft entwickelte sich nach einer langen Pause, was den Zusammenhalt sichtbar stärkte. Die Vereinsfeste finanzierten einen guten Teil der laufenden Kosten mit. Die Jugendarbeit erholte sich über mehrere Spielzeiten hinweg, weil immer jemand bereit war, mit anzupacken. Zwischen den Generationen gab es wenig Abstand, auf dem Platz wie daneben. Die Zusammenarbeit mit den Nachbarvereinen verschob sich im Zuge des Umbaus, was den Zusammenhalt sichtbar stärkte. Die Zusammenarbeit mit den Nachbarvereinen entwickelte sich mit Unterstützung der Gemeinde, und prägte den Verein bis heute. Das Sommerfest erholte sich nach einer langen Pause, und prägte den Verein bis heute.</p>
-          <p>Der Spielbetrieb erholte sich dank der vielen freiwilligen Stunden, und wurde zur festen Größe im Dorfkalender. Der Förderverein veränderte sich trotz knapper Kassen, weil immer jemand bereit war, mit anzupacken. Die Mitgliederversammlung verschob sich über mehrere Spielzeiten hinweg, und prägte den Verein bis heute. Die Trainingsgruppe entwickelte sich dank der vielen freiwilligen Stunden, was den Zusammenhalt sichtbar stärkte. Die Zahlen schwankten, der Kern der Mannschaft blieb jedoch über Jahre zusammen.</p>
-          <p>Die Frauenabteilung veränderte sich nach dem Wechsel im Vorstand, sodass der Spielbetrieb nie ernsthaft gefährdet war. Das Vereinsleben festigte sich im Zuge des Umbaus, und gab dem Verein ein eigenes Gesicht. Fahrten zu Auswärtsspielen wurden gemeinsam organisiert, oft mit privaten Fahrzeugen. Die Altherrenmannschaft festigte sich nach dem Wechsel im Vorstand, und prägte den Verein bis heute. Die Trainingsgruppe veränderte sich nach einer langen Pause, und sorgte für volle Ränge an den Spieltagen. Das Vereinsleben veränderte sich parallel zum Ausbau des Geländes, was sich im Rückblick als Glücksfall erwies.</p>
-          <figure class="zoom my-10 aspect-[16/9] w-full rounded-note bg-ink">
-            <img src="assets/img/TUSD-Web-img-MannschaftU30-01.jpg" width="1344" height="896" loading="lazy" decoding="async"
-                 alt="Mannschaftskreis vor dem Anpfiff" class="object-cover">
-          </figure>
-          <p>Die Vereinsfeste finanzierten einen guten Teil der laufenden Kosten mit. Fahrten zu Auswärtsspielen wurden gemeinsam organisiert, oft mit privaten Fahrzeugen. Die Kabine am Sportplatz entwickelte sich dank der vielen freiwilligen Stunden, sodass der Spielbetrieb nie ernsthaft gefährdet war. Das Trainerteam festigte sich dank der vielen freiwilligen Stunden, und sorgte für volle Ränge an den Spieltagen. Die Jugendarbeit festigte sich mit Unterstützung der Gemeinde, sodass der Spielbetrieb nie ernsthaft gefährdet war. Wer damals dabei war, erinnert sich vor allem an die langen Abende nach dem Abpfiff.</p>
-          <p>Die Schiedsrichterfrage erholte sich trotz knapper Kassen, sodass der Spielbetrieb nie ernsthaft gefährdet war. Die Protokolle aus dieser Zeit sind knapp gehalten, aber sie lassen erkennen, wie viel Arbeit hinter jedem Heimspiel steckte. Zwischen den Generationen gab es wenig Abstand, auf dem Platz wie daneben. Das Trainerteam organisierte sich neu trotz knapper Kassen, was den Zusammenhalt sichtbar stärkte. Wer damals dabei war, erinnert sich vor allem an die langen Abende nach dem Abpfiff. Die Protokolle aus dieser Zeit sind knapp gehalten, aber sie lassen erkennen, wie viel Arbeit hinter jedem Heimspiel steckte. Der Platzbau verschob sich parallel zum Ausbau des Geländes, und wurde zur festen Größe im Dorfkalender. Die Frauenabteilung stabilisierte sich mit jedem neuen Jahrgang, und wurde zur festen Größe im Dorfkalender.</p>
-          <p>Die Kabine am Sportplatz veränderte sich in diesen Jahren, sodass der Spielbetrieb nie ernsthaft gefährdet war. Die Vereinsfeste finanzierten einen guten Teil der laufenden Kosten mit. Die Protokolle aus dieser Zeit sind knapp gehalten, aber sie lassen erkennen, wie viel Arbeit hinter jedem Heimspiel steckte. Zwischen den Generationen gab es wenig Abstand, auf dem Platz wie daneben. Das Vereinsleben festigte sich nach einer langen Pause, ohne dass jemand darüber viele Worte verlor. Der Spielbetrieb veränderte sich im Zuge des Umbaus, ohne dass jemand darüber viele Worte verlor. Der Förderverein veränderte sich dank der vielen freiwilligen Stunden, und gab dem Verein ein eigenes Gesicht.</p>
-          <figure class="zoom my-10 aspect-[16/9] w-full rounded-note bg-ink">
-            <img src="assets/img/TUSD-Web-img-Header-01.jpg" width="1456" height="840" loading="lazy" decoding="async"
-                 alt="Ball auf dem Sportplatz in Dabergotz" class="object-cover">
-          </figure>
-          <p>Die Vereinsfeste finanzierten einen guten Teil der laufenden Kosten mit. Aus den Jugendmannschaften kamen regelmäßig Spieler in die erste Mannschaft nach. Der Förderverein festigte sich dank der vielen freiwilligen Stunden, was sich im Rückblick als Glücksfall erwies. Der Platzbau erholte sich mit Unterstützung der Gemeinde, und prägte den Verein bis heute. Die Schiedsrichterfrage organisierte sich neu über mehrere Spielzeiten hinweg, und gab dem Verein ein eigenes Gesicht. Der Spielbetrieb wuchs über mehrere Spielzeiten hinweg, sodass der Spielbetrieb nie ernsthaft gefährdet war. Einige Namen tauchen über Jahrzehnte hinweg in den Aufstellungen auf. Wer damals dabei war, erinnert sich vor allem an die langen Abende nach dem Abpfiff.</p>
-          <p>Die Protokolle aus dieser Zeit sind knapp gehalten, aber sie lassen erkennen, wie viel Arbeit hinter jedem Heimspiel steckte. Das Sommerfest organisierte sich neu in diesen Jahren, und sorgte für volle Ränge an den Spieltagen. Der Spielbetrieb erholte sich nach einer langen Pause, und sorgte für volle Ränge an den Spieltagen. Der Förderverein verschob sich nach dem Wechsel im Vorstand, weil immer jemand bereit war, mit anzupacken. Das Vereinsleben wuchs parallel zum Ausbau des Geländes, und sorgte für volle Ränge an den Spieltagen.</p>
-          <p>Die Vereinsfeste finanzierten einen guten Teil der laufenden Kosten mit. Der Platz musste nach jedem nassen Winter neu hergerichtet werden. Die Mitgliederversammlung erholte sich mit jedem neuen Jahrgang, weil immer jemand bereit war, mit anzupacken. Einige Namen tauchen über Jahrzehnte hinweg in den Aufstellungen auf. Der Platzbau festigte sich in diesen Jahren, und gab dem Verein ein eigenes Gesicht. Das Sommerfest erholte sich mit Unterstützung der Gemeinde, und gab dem Verein ein eigenes Gesicht. Der Förderverein erholte sich im Zuge des Umbaus, weil immer jemand bereit war, mit anzupacken. Die Protokolle aus dieser Zeit sind knapp gehalten, aber sie lassen erkennen, wie viel Arbeit hinter jedem Heimspiel steckte.</p>
-          <p>Der Förderverein organisierte sich neu parallel zum Ausbau des Geländes, was den Zusammenhalt sichtbar stärkte. Die Schiedsrichterfrage organisierte sich neu parallel zum Ausbau des Geländes, und gab dem Verein ein eigenes Gesicht. Die Schiedsrichterfrage erholte sich nach dem Wechsel im Vorstand, und wurde zur festen Größe im Dorfkalender. Zwischen den Generationen gab es wenig Abstand, auf dem Platz wie daneben. Das Vereinsleben stabilisierte sich über mehrere Spielzeiten hinweg, was sich im Rückblick als Glücksfall erwies.</p>
-          <p>Zwischen den Generationen gab es wenig Abstand, auf dem Platz wie daneben. Die Mitgliederversammlung wuchs über mehrere Spielzeiten hinweg, weil immer jemand bereit war, mit anzupacken. Die Mitgliederversammlung wuchs mit jedem neuen Jahrgang, und prägte den Verein bis heute. Einige Namen tauchen über Jahrzehnte hinweg in den Aufstellungen auf. Die Schiedsrichterfrage veränderte sich mit jedem neuen Jahrgang, ohne dass jemand darüber viele Worte verlor. Das Trainerteam organisierte sich neu in diesen Jahren, sodass der Spielbetrieb nie ernsthaft gefährdet war. Der Wochenendspielplan erholte sich im Zuge des Umbaus, und blieb über Jahrzehnte die Grundlage der Arbeit. Die Trainingsgruppe stabilisierte sich nach einer langen Pause, ohne dass jemand darüber viele Worte verlor.</p>
+            <div class="mx-auto mt-10 max-w-[72ch] text-left" tabindex="-1" data-disclosure-focus>
+              <h3 class="font-display text-[clamp(1.5rem,2.6vw,2.25rem)] uppercase leading-tight">Die ganze Chronik</h3>
+              <p class="mt-3 text-micro opacity-75">
+                Nach Epochen geordnet. Jeder Abschnitt lässt sich einzeln öffnen.
+              </p>
+
+              <div class="mt-8">
+          <div class="epoch">
+            <h4>
+              <button
+                type="button"
+                class="epoch__toggle"
+                data-disclosure="chronik-bis-1945"
+                aria-expanded="false"
+                aria-controls="chronik-bis-1945"
+              >
+                <span>Bis 1945<span class="block font-sans text-micro normal-case tracking-normal opacity-75">Gründung, Turnen, die ersten Fußballjahre</span></span>
+                <span class="epoch__sign" aria-hidden="true"></span>
+              </button>
+            </h4>
+
+            <div id="chronik-bis-1945" class="disclosure">
+              <div>
+                <div class="epoch__body" tabindex="-1" data-disclosure-focus>
+                  <p>In den 1920er Jahren entstanden überall in Deutschland Sportvereine, auf dem Land ebenso wie in den Städten. Fußball stand dabei selten im Mittelpunkt. Getragen wurden die Gründungen meist von Turnerriegen oder von Radfahrgruppen. In Dabergotz war es nicht anders: Es gab bereits eine starke Turnergilde, und die Radsportler begannen sich zu organisieren.</p>
+                  <p>Wer genau am Gründungsabend zusammensaß, lässt sich heute nicht mehr vollständig belegen. Sicher ist, dass der damalige Bürgermeister Richard Krebs beteiligt war; der Dorfschullehrer Ernst Schulz dürfte im Hintergrund mitgewirkt haben. Im Juni 1929 gründeten sportinteressierte Dabergotzer in der Gaststätte Paries den TuS Dabergotz 1929. Wer den Verein als Erster führte, geht aus den Unterlagen nicht hervor.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/09/parieshausneuwp.jpg" alt="Gasthaus Paries in Dabergotz" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Gasthaus Paries – hier wurde der Verein im Juni 1929 gegründet.</figcaption>
+                  </figure>
+                  <p>Der junge Verein hatte zwei Abteilungen: die Radsportler und die zahlenmäßig deutlich größere Turnabteilung. Trainiert wurde im Saal der Gaststätte Paries oder im Saal der zweiten Dabergotzer Gaststätte. Die Turnriegen maßen sich mit Mannschaften aus dem damaligen Kreis Ruppin, die Radsportler fuhren Rennen in der Umgebung.</p>
+                  <p>Anfang der dreißiger Jahre erreichte die Fußballbegeisterung die Dörfer. In Dabergotz fanden sich genug Spieler für eine Mannschaft zusammen; der Lehrer Walter Sählbrandt setzte sich für das neue Team ein. Gespielt wurde zunächst auf einer Wiese an der Neuen Straße. Ab 1932 trug der TuS seine Punktspiele auf einem neu hergerichteten Sportplatz in der Bahnhofstraße aus.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/10/erste1936beitrag.jpg" alt="Mannschaftsfoto des TuS Dabergotz aus dem Jahr 1936" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Das erste überlieferte Dabergotzer Mannschaftsfoto, aufgenommen 1936.</figcaption>
+                  </figure>
+                  <p>Mitte der dreißiger Jahre entstand mit Unterstützung von Pfarrer Weber ein neuer Fußballplatz auf einem Stück Kirchenacker. Rund um den Platz wurden Maulbeerbäume gepflanzt, um die sich die Schulkinder kümmerten. Helmut Heinke erinnerte sich später daran, dass als Drittklässler jeder Schüler einen Baum übernahm.</p>
+                  <p>Der Verein spielte in der Kreisklasse Ruppin. Für die Mannschaft um 1936 sind die Namen Reinhold Braasch, Emil Krüger, Martin Pieper, Erich Schnell, Werner Zerhan, Ernst Düring und Werner Protz überliefert, dazu die Sportkameraden Bösel, Weiß, Havemann, Scheppenhorst und Grabow. Wenig später stießen Helmut Krebs, Siegfried Engel und Gerhardt Schwarz dazu.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/10/cherste1940wp.jpg" alt="Mannschaftsfoto des TuS Dabergotz aus dem Jahr 1938" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Teamfoto von 1938. Arnold Paries stand hier mit 16 Jahren als Torwart im Männerteam.</figcaption>
+                  </figure>
+                  <p>1938/39 kam Arnold Paries in die Mannschaft – mit 16 Jahren hütete er bereits das Tor der Männer. Dann brach der Krieg den Spielbetrieb ab.</p>
+                  <p class="text-micro opacity-75">
+                    Quelle: <a class="underline underline-offset-4" href="https://tusdabergotz.wordpress.com/vereinsgeschichte/vereinsvorsitzende/" target="_blank" rel="noopener">Vereinschronik auf tusdabergotz.wordpress.com</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="epoch">
+            <h4>
+              <button
+                type="button"
+                class="epoch__toggle"
+                data-disclosure="chronik-1945-1990"
+                aria-expanded="false"
+                aria-controls="chronik-1945-1990"
+              >
+                <span>1945 bis 1990<span class="block font-sans text-micro normal-case tracking-normal opacity-75">Neuanfang, zwanzig Jahre Bezirksklasse</span></span>
+                <span class="epoch__sign" aria-hidden="true"></span>
+              </button>
+            </h4>
+
+            <div id="chronik-1945-1990" class="disclosure">
+              <div>
+                <div class="epoch__body" tabindex="-1" data-disclosure-focus>
+                  <p>Nach dem Krieg ging es im Dorf zunächst um anderes als um Sport. 1947 nahm das Vereinsleben wieder Fahrt auf, nun unter dem Namen SG Dabergotz. Eine Fußballmannschaft bestritt erst Freundschaftsspiele und stieg dann in die Ruppiner Meisterschaft ein. Auch die Frauen wurden aktiv: Fritz Schulz betreute eine Handballmannschaft. Dazu kam eine Volkstanz- und Gymnastikgruppe.</p>
+                  <p>Geld war knapp. Die Maschinenausleihstation Kränzlin bot Unterstützung an, und damit änderte sich der Name: Aus der SG Dabergotz wurde die BSG Traktor Kränzlin. Gespielt wurde weiterhin in Dabergotz. Die Namensgebung folgte dem Muster der Zeit – Lokomotive, Stahl, Aufbau, Dynamo und auf dem Land vor allem Traktor.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/10/cherste1948wp.jpg" alt="Mannschaftsfoto der BSG Kränzlin von 1948" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Teamfoto Kränzlin, 1948. Einige Spieler aus der Vorkriegszeit waren noch dabei. Foto: Schlecht</figcaption>
+                  </figure>
+                  <p>1948 lief der Punktspielbetrieb wieder an, und in der Mannschaft standen noch Spieler aus der Zeit vor dem Krieg. 1952 stellte sich der erste größere Erfolg ein. Ein Jahr später gewann die BSG Traktor Kränzlin die Neuruppiner Kreismeisterschaft und stieg in die Bezirksklasse auf. Im selben Jahr löste sich die Volkstanz- und Gymnastikgruppe auf. 1956 ging es zurück in die Kreisklasse.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/10/cherste1952wp.jpg" alt="Mannschaftsfoto von 1952" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Teamfoto von 1952. Foto: Schlecht</figcaption>
+                  </figure>
+                  <p>1960 holte die Mannschaft den Kreismeistertitel zurück und spielte anschließend rund zwanzig Jahre in der Bezirksklasse. Vorsitzender war in dieser Zeit Walter Schreiber, der die Interessen der Mitglieder vertrat. Anfang der sechziger Jahre löste sich die Frauen-Handballmannschaft auf, weil der Nachwuchs fehlte.</p>
+                  <p>Die sechziger Jahre brachten eine ganze Reihe von Pokalerfolgen im Wettbewerb um den Goldenen Traktor: neun Siege auf Kreisebene, drei auf Bezirksebene und drei gewonnene Endspiele im FDGB-Pokal.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/09/goldenertraktorwp.jpg" alt="Pokal Goldener Traktor" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Der Goldene Traktor. Foto: Möller</figcaption>
+                  </figure>
+                  <p>Klaus Frömer war für seine Freistöße gefürchtet und lenkte das Spiel aus dem Mittelfeld. Bernd Schreiber und Dieter Socher sorgten für die Tore, Horst Plötz und Arno Dreschler gehörten ebenfalls zum Gerüst der Mannschaft. Schreiber, Socher, Plötz und Dreschler wurden in die Kreisauswahl Neuruppin berufen, einige von ihnen mehrfach. Zum Kader zählten außerdem Harry Maaß, Dieter Palmowske, Peter Bötcher, Frank Schreiber sowie die Sportkameraden Kutschera, Schulz, Breuer, Böhme und Matschekowski.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/10/cherste1957wp.jpg" alt="Sportplatz Dabergotz mit beiden Mannschaften" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Der Dabergotzer Sportplatz mit beiden Mannschaften, 1957. Foto: Grothe</figcaption>
+                  </figure>
+                  <p>Im November 1973 übernahm Manfred Kleeßen den Vorsitz. In diesen Jahren entstand ein Kabinengebäude auf dem Gelände der früheren Badeanstalt, 1976 wurde hinter dem alten Spielfeld ein neuer Sportplatz angelegt.</p>
+                  <p>In der Saison 1980/81 endete nach zwanzig Jahren die Zeit in der Bezirksklasse, die Mannschaft stieg in die Neuruppiner Kreisklasse ab. Trainer in den achtziger Jahren war Günther Dreschler. 1984 bildete sich wieder eine Frauengruppe, zunächst unter Marianne Vogler, später unter Uta Müncho. Eine Volleyballmannschaft spielte in der 2. Kreisklasse, finanziell gestützt vom KfL Kränzlin.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/10/cherste1986wp.jpg" alt="Mannschaftsfoto aus den 1980er Jahren" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Die Mannschaft in den achtziger Jahren. Foto: Möller</figcaption>
+                  </figure>
+                  <p>1987 schlossen sich die BSG FHN und die BSG Traktor Kränzlin zur BSG FHN Kränzlin zusammen; Wolfgang Bork hatte daran maßgeblichen Anteil. Der neue Verein hatte Abteilungen für Fußball, Tischtennis, Volleyball, Kegeln, Badminton und Handball sowie eine Gymnastikgruppe. Hauptsponsor war der Fertighausbau Neuruppin mit Sitz in Werder.</p>
+                  <p class="text-micro opacity-75">
+                    Quelle: <a class="underline underline-offset-4" href="https://tusdabergotz.wordpress.com/vereinsgeschichte/chronik-von-1945-bis-1990/" target="_blank" rel="noopener">Vereinschronik auf tusdabergotz.wordpress.com</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="epoch">
+            <h4>
+              <button
+                type="button"
+                class="epoch__toggle"
+                data-disclosure="chronik-ab-1990"
+                aria-expanded="false"
+                aria-controls="chronik-ab-1990"
+              >
+                <span>Ab 1990<span class="block font-sans text-micro normal-case tracking-normal opacity-75">Landesklasse, Tribüne, Nachwuchs</span></span>
+                <span class="epoch__sign" aria-hidden="true"></span>
+              </button>
+            </h4>
+
+            <div id="chronik-ab-1990" class="disclosure">
+              <div>
+                <div class="epoch__body" tabindex="-1" data-disclosure-focus>
+                  <p>Mit der Wende änderte sich erneut der Name: Aus der Fußballsektion der BSG FHN Kränzlin wurde 1990 der SV BAUFA Neuruppin. Auf dem Gelände kamen zwei Bungalows und die Gaststätte „Sportlerklause“ hinzu, der zweite Platz bekam eine Flutlichtanlage. Hauptsponsor war der Fertighausbau Neuruppin, unterstützt vom Baugeschäft Ralph Nyga.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/10/mamerste1990ebeitrag.jpg" alt="Mannschaftsfoto von 1990" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Die Mannschaft von 1990.</figcaption>
+                  </figure>
+                  <p>Sportlich lief es gut: 1990/91 wurde die Mannschaft Neuruppiner Kreismeister und Pokalsieger und stieg nach der Relegation gegen den SV Altlüdersdorf in die Bezirksklasse auf. Ein Jahr später reichte Platz sechs für den Sprung in die Landesklasse, in der das Team bis 2001 spielte.</p>
+                  <p>1993 brach der Hauptsponsor weg. Im Juni desselben Jahres gab sich der Verein seinen alten Namen zurück und hieß wieder TuS Dabergotz. Die übrigen Abteilungen schlossen sich anderen Neuruppiner Vereinen an, allein die Frauengymnastikgruppe blieb. Das erste Spiel unter dem alten Namen war ein Freundschaftsspiel gegen Hertha BSC aus der 2. Bundesliga – 1.300 Zuschauer kamen auf den Dabergotzer Sportplatz.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/10/cherste1992wp.jpg" alt="Mannschaftsfoto von 1993" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Teamfoto von 1993.</figcaption>
+                  </figure>
+                  <p>Neuer Hauptsponsor wurde das Baugeschäft von Dr. Ulrich Kaatzsch. Auf seine Initiative hin erhielt der Hauptplatz 1996 eine Tribüne. Die Frauengymnastik unter Ute Müncho trainierte weiter in der Gaststätte Paries, Frank Neumann betreute die Mannschaft über Jahre als Trainer.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/09/platz1bwp.jpg" alt="Hauptplatz des TuS Dabergotz mit Tribüne" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Der Hauptplatz mit der 1996 errichteten Tribüne.</figcaption>
+                  </figure>
+                  <p>Vom 18. bis 20. Juni 1999 feierte der Verein sein 70-jähriges Bestehen. Zum Spiel gegen das Old Star Team Ost mit ehemaligen DDR-Nationalspielern kamen rund 600 Zuschauer, die Frauengruppe trat als „Sheerleader“ auf. Im selben Jahr lösten sich die A-Junioren unter Joachim Krebs und die C-Junioren unter Roland Möller auf, weil zu wenige Spieler da waren. Danach ruhte die Nachwuchsarbeit für längere Zeit.</p>
+                  <p>2001 stieg die erste Mannschaft aus der Landesklasse in die OPR-Kreisliga ab, die zweite Mannschaft verließ die 1. Kreisklasse und wurde später aufgelöst. Die Sponsorengelder gingen deutlich zurück. Vom 11. bis 13. Juni 2004 wurde das 75-jährige Bestehen in kleinem Rahmen begangen.</p>
+                  <p>Im März 2006 übergab Manfred Kleeßen den Vorsitz nach 33 Jahren an Christian Maisenhölder. Im November desselben Jahres meldete die Kirche als Eigentümerin Ansprüche auf einen großen Teil des Geländes an; im Dezember wurde der Sportplatz gesperrt. Erst 2007 kam es mit Hilfe der Gemeinde Dabergotz und des Temnitzer Amtsdirektors Matthias Wittmoser zu einer Einigung über Flächentausch und Ankauf – für Gemeinde und Verein eine kostspielige Lösung.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/10/chsportplatz2006wp.jpg" alt="Christian Maisenhölder auf dem Sportplatz" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Christian Maisenhölder führte den Verein von 2006 bis 2017.</figcaption>
+                  </figure>
+                  <p>2007 erreichte die Mannschaft unter Trainer Glenn Gober eine gute Platzierung in der Kreisklasse, ab 2010 ging es Schritt für Schritt aufwärts. Das Gelände hielten Helmut Gober, Siegfried Lengenfelder und Roland Möller in Schuss; beim Umbau und bei der Sanierung halfen unter anderen Tom Stielow, Margit Krebs, Dietmar Engel und Joszef Gabriel mit. Die Gemeinde baute das Gelände der früheren Badeanstalt zum Festplatz um.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/09/sanierungwp.jpg" alt="Sanierungsarbeiten am Vereinsgebäude" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Sanierung des Vereinsgebäudes in Eigenleistung.</figcaption>
+                  </figure>
+                  <p>2016 gründete Roland Möller eine neue Jugendgruppe, der sich schnell 14 Kinder anschlossen. Am 31. Dezember 2017 schloss die Gaststätte Paries – nach 88 Jahren, in denen sie den Verein begleitet und der Frauengruppe wöchentlich kostenlos ihren Saal überlassen hatte.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/09/gasthaus2015wp.jpg" alt="Gasthaus Paries kurz vor der Schließung" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Das Gasthaus Paries, Gründungsort des Vereins, schloss Ende 2017.</figcaption>
+                  </figure>
+                  <p>Bei den Wahlen im Juni 2017 löste Glenn Gober den bisherigen Vorsitzenden Maisenhölder ab. In den Vorstand kamen Christopher Kutzer, Guido Plötz, Susann Lehmann und Robert Birkholz, dazu gehörten weiterhin Manfred Kleeßen und Tom Stielow dem Gremium an. 2018 begann die Gemeinde mit der Planung eines neuen Vereinsheims für den TuS, den Jugendclub und die Elterninitiative Dabergotz.</p>
+                  <p>Zur Saison 2018/19 zog der Verein die Männermannschaft aus der Kreisliga zurück. Damit endete nach 90 Jahren der Männerfußball in Dabergotz. Das 90-jährige Bestehen im Juli 2019 fiel entsprechend gedämpft aus. Der Rücktritt Gobers vor Ablauf der Amtszeit sorgte für Unruhe im Vorstand.</p>
+                  <p>Der Nachwuchs entwickelte sich dagegen weiter: Zur E-Jugend unter Trainer Robert Schröder kamen eine F-Jugend und eine Bambini-Mannschaft hinzu. Bei der Vorstandswahl 2021 wurde Philipp Gotscha zum Vorsitzenden gewählt, dazu Christopher Wandke, Christian Noack und Robert Birkholz als Beisitzer – der Vorstand wechselte damit fast vollständig. 2023 stand der Umzug in das neue Vereinsheim der Gemeinde an. Im selben Zeitraum schrumpfte die Jugendarbeit wieder, weil der Vorstand um Sebastian Zimmermann und Oliver Kaiser keine neuen Trainer fand.</p>
+                  <p class="text-micro opacity-75">
+                    Quelle: <a class="underline underline-offset-4" href="https://tusdabergotz.wordpress.com/vereinsgeschichte/chronik-ab-1990/" target="_blank" rel="noopener">Vereinschronik auf tusdabergotz.wordpress.com</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+              </div>
             </div>
           </div>
         </div>
@@ -494,10 +673,10 @@
 
           <li data-reveal style="--reveal-delay: 0ms">
             <a href="https://tus-dabergotz.fan12.de/" target="_blank" rel="noopener" class="group block">
-              <div class="zoom aspect-[3/4] bg-shelf">
-                <img src="assets/img/TUSD-Web-img-TrainerU30-01.jpg" width="896" height="588" loading="lazy" decoding="async"
-                     alt="Beiger Oversize-Hoodie für Herren mit Vereinswappen auf der Brust" class="object-cover">
-              </div>
+              <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="hoodie-oversize">
+                  <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
+                       alt="Beiger Oversize-Hoodie für Herren mit Vereinswappen auf der Brust" class="is-placeholder">
+                </div>
               <h4 class="mt-3 text-small text-ink group-hover:underline">Hoodie Heavyweight Oversize Herren</h4>
               <p class="mt-0.5 text-small font-bold text-ink">49,95&nbsp;€</p>
             </a>
@@ -505,10 +684,10 @@
 
           <li data-reveal style="--reveal-delay: 80ms">
             <a href="https://tus-dabergotz.fan12.de/" target="_blank" rel="noopener" class="group block">
-              <div class="zoom aspect-[3/4] bg-shelf">
-                <img src="assets/img/TUSD-Web-img-MannschaftU30-01.jpg" width="1344" height="896" loading="lazy" decoding="async"
-                     alt="Roter Hoodie für Herren mit Dabergotz-Schriftzug" class="object-cover">
-              </div>
+              <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="hoodie-hometown">
+                  <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
+                       alt="Roter Hoodie für Herren mit Dabergotz-Schriftzug" class="is-placeholder">
+                </div>
               <h4 class="mt-3 text-small text-ink group-hover:underline">Hoodie Hometown Herren</h4>
               <p class="mt-0.5 text-small font-bold text-ink">39,95&nbsp;€</p>
             </a>
@@ -516,10 +695,10 @@
 
           <li data-reveal style="--reveal-delay: 160ms">
             <a href="https://tus-dabergotz.fan12.de/" target="_blank" rel="noopener" class="group block">
-              <div class="zoom aspect-[3/4] bg-shelf">
-                <img src="assets/img/TUSD-Web-img-Header-01.jpg" width="1456" height="840" loading="lazy" decoding="async"
-                     alt="Rote Kinder-Sweatjacke mit Reißverschluss und Vereinswappen" class="object-cover">
-              </div>
+              <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="zipper-kids">
+                  <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
+                       alt="Rote Kinder-Sweatjacke mit Reißverschluss und Vereinswappen" class="is-placeholder">
+                </div>
               <h4 class="mt-3 text-small text-ink group-hover:underline">Zipper Basic Kids</h4>
               <p class="mt-0.5 text-small font-bold text-ink">39,95&nbsp;€</p>
             </a>
@@ -527,10 +706,10 @@
 
           <li data-reveal style="--reveal-delay: 240ms">
             <a href="https://tus-dabergotz.fan12.de/" target="_blank" rel="noopener" class="group block">
-              <div class="zoom aspect-[3/4] bg-shelf">
-                <img src="assets/img/TUSD-Web-img-MannschaftHistorisch-01.jpg" width="1400" height="868" loading="lazy" decoding="async"
-                     alt="Brotdose aus Edelstahl mit aufgedrucktem Vereinswappen" class="object-cover">
-              </div>
+              <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="brotdose">
+                  <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
+                       alt="Brotdose aus Edelstahl mit aufgedrucktem Vereinswappen" class="is-placeholder">
+                </div>
               <h4 class="mt-3 text-small text-ink group-hover:underline">Brotdose Logo</h4>
               <p class="mt-0.5 text-small font-bold text-ink">19,95&nbsp;€</p>
             </a>
@@ -557,55 +736,65 @@
           Diese Artikel liegen aktuell im Vereinsshop bei Fan12. Jeder Link führt direkt zum Produkt.
         </p>
 
-        <ul class="mt-8 grid grid-cols-2 gap-3.5 lg:mt-10 lg:grid-cols-5">
+        <ul class="mt-8 grid grid-cols-2 gap-3.5 sm:grid-cols-3 lg:mt-10 lg:grid-cols-6">
 
           <li data-reveal style="--reveal-delay: 0ms">
             <a href="https://tus-dabergotz.fan12.de/schluesselanhaenger-trikot/" target="_blank" rel="noopener" class="group block">
-              <div class="zoom aspect-[3/4] bg-shelf">
-                <img src="assets/img/TUSD-Web-img-Header-01.jpg" width="1456" height="840" loading="lazy" decoding="async"
-                     alt="Schlüsselanhänger im Trikotdesign" class="object-cover">
-              </div>
+              <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="schluesselanhaenger">
+                  <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
+                       alt="Schlüsselanhänger im Trikotdesign" class="is-placeholder">
+                </div>
               <h4 class="mt-3 text-small text-ink group-hover:underline">Schlüsselanhänger Trikot</h4>
             </a>
           </li>
 
           <li data-reveal style="--reveal-delay: 60ms">
             <a href="https://tus-dabergotz.fan12.de/farbige-beanie/" target="_blank" rel="noopener" class="group block">
-              <div class="zoom aspect-[3/4] bg-shelf">
-                <img src="assets/img/TUSD-Web-img-MannschaftU30-01.jpg" width="1344" height="896" loading="lazy" decoding="async"
-                     alt="Beanie mit gesticktem Vereinslogo" class="object-cover">
-              </div>
+              <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="beanie">
+                  <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
+                       alt="Beanie mit gesticktem Vereinslogo" class="is-placeholder">
+                </div>
               <h4 class="mt-3 text-small text-ink group-hover:underline">Beanie mit Sticklogo</h4>
             </a>
           </li>
 
           <li data-reveal style="--reveal-delay: 120ms">
             <a href="https://tus-dabergotz.fan12.de/fanschal-identity/" target="_blank" rel="noopener" class="group block">
-              <div class="zoom aspect-[3/4] bg-shelf">
-                <img src="assets/img/TUSD-Web-img-MannschaftHistorisch-01.jpg" width="1400" height="868" loading="lazy" decoding="async"
-                     alt="Fanschal in den Vereinsfarben" class="object-cover">
-              </div>
+              <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="fanschal">
+                  <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
+                       alt="Fanschal in den Vereinsfarben" class="is-placeholder">
+                </div>
               <h4 class="mt-3 text-small text-ink group-hover:underline">Fanschal Identity</h4>
             </a>
           </li>
 
           <li data-reveal style="--reveal-delay: 180ms">
             <a href="https://tus-dabergotz.fan12.de/kabinenposter/" target="_blank" rel="noopener" class="group block">
-              <div class="zoom aspect-[3/4] bg-shelf">
-                <img src="assets/img/TUSD-Web-img-TrainerU30-01.jpg" width="896" height="588" loading="lazy" decoding="async"
-                     alt="Kabinenposter für die Mannschaft" class="object-cover">
-              </div>
+              <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="kabinenposter">
+                  <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
+                       alt="Kabinenposter für die Mannschaft" class="is-placeholder">
+                </div>
               <h4 class="mt-3 text-small text-ink group-hover:underline">Kabinenposter</h4>
             </a>
           </li>
 
           <li data-reveal style="--reveal-delay: 240ms">
             <a href="https://tus-dabergotz.fan12.de/shirt-forza/" target="_blank" rel="noopener" class="group block">
-              <div class="zoom aspect-[3/4] bg-shelf">
-                <img src="assets/img/TUSD-Web-img-MannschaftU30-01.jpg" width="1344" height="896" loading="lazy" decoding="async"
-                     alt="Vereinsshirt Forza" class="object-cover">
-              </div>
+              <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="shirt-forza">
+                  <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
+                       alt="Vereinsshirt Forza" class="is-placeholder">
+                </div>
               <h4 class="mt-3 text-small text-ink group-hover:underline">Shirt Forza</h4>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 300ms">
+            <a href="https://tus-dabergotz.fan12.de/" target="_blank" rel="noopener" class="group block">
+              <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="weihnachtstasse">
+                <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
+                     alt="Weihnachtstasse 2026 im Vereinsdesign" class="is-placeholder">
+              </div>
+              <h4 class="mt-3 text-small text-ink group-hover:underline">Weihnachtstasse 2026</h4>
             </a>
           </li>
 
@@ -634,70 +823,171 @@
       </div>
     </section>
 
-    <!-- ═══ 09 · Spielergebnisse ═════════════════════════════════════════════ -->
-    <section id="spielergebnisse" aria-labelledby="spielergebnisse-title" class="py-section">
+    <!-- ═══ 09 · Spielergebnisse ═════════════════════════════════════════════
+         Holt die Daten bei jedem Seitenaufruf frisch von fussball.de, sobald
+         einer der beiden Wege eingerichtet ist (siehe assets/js/fussballde.js):
+           A) data-fussballde-key am <body> → offizielles Widget
+           B) data-endpoint hier unten → eigener Server als Vermittler
+         Bis dahin steht der unten eingetragene Stand im Markup – lesbar für
+         Suchmaschinen und für Besucher ohne JavaScript.
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section
+      id="spielergebnisse"
+      aria-labelledby="spielergebnisse-title"
+      class="py-section"
+      data-fussballde
+      data-endpoint=""
+    >
       <div class="shell">
         <h2 id="spielergebnisse-title" data-reveal class="heading-section text-chalk">Aktuelle Spielergebnisse</h2>
 
         <!-- Nächstes Spiel -->
-        <div data-reveal class="mx-auto mt-10 max-w-[46rem] rounded-[2rem] bg-chalk p-6 text-ink on-light lg:p-8">
+        <div data-reveal class="on-light mx-auto mt-10 max-w-[46rem] rounded-[2rem] bg-chalk p-6 text-ink lg:p-8">
           <p class="text-micro font-semibold uppercase tracking-wide text-club-red">Nächstes Spiel</p>
           <p class="mt-2 text-lead font-bold">SpG MSV Neuruppin/TuS Dabergotz – TSV Wustrau</p>
           <p class="mt-1 text-body text-ink-soft">
-            <time datetime="2026-10-14T19:00">Mittwoch, 14.10.2026, 19:00 Uhr</time> · Herren Ü35, Alt-Herren Kreispokal 11er
+            <time datetime="2026-11-06T19:30">Freitag, 06.11.2026, 19:30 Uhr</time> · Herren Ü35, 1. Kreisklasse
           </p>
         </div>
 
-        <!-- Vereinsüberblick -->
-        <div data-reveal class="mt-10">
-          <h3 class="text-center font-sans text-lead font-bold text-chalk">Die nächsten Begegnungen</h3>
+        <!-- Beide Mannschaften nebeneinander -->
+        <div data-reveal class="mt-10 grid gap-6 text-chalk lg:grid-cols-2 lg:gap-8">
+          <article class="team-card" data-team-id="b-jugend" data-competition="">
+            <h3 class="font-sans text-lead font-bold">B-Junioren</h3>
+            <p class="mt-1 text-micro opacity-85">Kreisliga B-Junioren, Staffel B · Kreispokal</p>
 
-          <ul class="mx-auto mt-6 max-w-[56rem] text-chalk">
-            <li class="fixture">
-              <span><time datetime="2026-11-06T19:30">Fr, 06.11.2026, 19:30</time></span>
-              <span>SV Rot-Weiß Kyritz – SpG MSV Neuruppin/TuS Dabergotz</span>
-              <span class="text-micro opacity-80">Ü35, 1. Kreisklasse</span>
-            </li>
-            <li class="fixture">
-              <span><time datetime="2026-11-07T11:30">Sa, 07.11.2026, 11:30</time></span>
-              <span>SV Union Neuruppin – TuS Dabergotz (9)</span>
-              <span class="text-micro opacity-80">B-Junioren, Kreisliga</span>
-            </li>
-            <li class="fixture">
-              <span><time datetime="2026-11-13T19:00">Fr, 13.11.2026, 19:00</time></span>
-              <span>SpG MSV Neuruppin/TuS Dabergotz – SpG Schwarz-Weiß Zaatzke/MTV Freyenstein</span>
-              <span class="text-micro opacity-80">Ü35, 1. Kreisklasse</span>
-            </li>
-            <li class="fixture">
-              <span><time datetime="2026-11-14T10:00">Sa, 14.11.2026, 10:00</time></span>
-              <span>SG Eintracht Friesack (9) – TuS Dabergotz (9)</span>
-              <span class="text-micro opacity-80">B-Junioren, Kreisliga</span>
-            </li>
-            <li class="fixture">
-              <span><time datetime="2026-11-27T19:00">Fr, 27.11.2026, 19:00</time></span>
-              <span>SpG MSV Neuruppin/TuS Dabergotz – SV Rot-Weiß Kyritz</span>
-              <span class="text-micro opacity-80">Ü35, 1. Kreisklasse</span>
-            </li>
-          </ul>
+            <p class="feed-state mt-4" data-feed-state hidden></p>
 
-          <p class="mx-auto mt-6 max-w-[56rem] text-micro text-chalk/85">
-            Stand 10.10.2026, Quelle fussball.de. Für die laufende Saison sind dort noch keine Ergebnisse
-            eingetragen, der Spielplan ist vom Staffelleiter noch nicht freigegeben. Sobald Ergebnisse
-            vorliegen, erscheinen sie hier.
-          </p>
+            <h4 class="mt-6 text-card font-semibold">Spiele</h4>
+            <!-- Zielbehälter des offiziellen Widgets (bleibt leer, bis ein Schlüssel hinterlegt ist) -->
+            <div id="widget-b-jugend-spiele" data-widget-matches></div>
+            <ul class="mt-2" data-matches>
+              <li class="match" data-static>
+                <span><time datetime="2026-11-07T11:30">Sa, 07.11.2026, 11:30</time></span>
+                <span>SV Union Neuruppin – TuS Dabergotz (9)</span>
+                <span class="text-micro opacity-80">Kreisliga</span>
+              </li>
+              <li class="match" data-static>
+                <span><time datetime="2026-11-14T10:00">Sa, 14.11.2026, 10:00</time></span>
+                <span>SG Eintracht Friesack (9) – TuS Dabergotz (9)</span>
+                <span class="text-micro opacity-80">Kreisliga</span>
+              </li>
+              <li class="match" data-static>
+                <span><time datetime="2027-03-07T11:00">So, 07.03.2027, 11:00</time></span>
+                <span>TuS Dabergotz (9) – SV Belafarm Beetz/Sommerfeld (9)</span>
+                <span class="text-micro opacity-80">Kreisliga</span>
+              </li>
+              <li class="match" data-static>
+                <span><time datetime="2027-03-14T11:30">So, 14.03.2027, 11:30</time></span>
+                <span>SG Sieversdorf II (9) – TuS Dabergotz (9)</span>
+                <span class="text-micro opacity-80">Kreisliga</span>
+              </li>
+            </ul>
 
-          <!-- WordPress: an dieser Stelle entweder das offizielle fussball.de-Vereinswidget
-               einsetzen (Widget-Generator auf fussball.de, liefert eine Kennung für
-               https://widget2.fussball.de/…) oder den Shortcode des Ergebnis-Plugins ausgeben.
-               Ein <iframe> direkt auf die Vereinsseite funktioniert nicht, fussball.de
-               unterbindet das Einbetten per X-Frame-Options. -->
+            <h4 class="mt-7 text-card font-semibold">Tabelle</h4>
+            <div id="widget-b-jugend-tabelle" data-widget-table></div>
+            <table class="ladder mt-2">
+              <caption class="sr-only">Tabellenstand B-Junioren</caption>
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Mannschaft</th>
+                  <th scope="col" class="num">Sp</th>
+                  <th scope="col" class="num">Tore</th>
+                  <th scope="col" class="num">Pkt</th>
+                </tr>
+              </thead>
+              <tbody data-table>
+                <tr data-static>
+                  <td colspan="5" class="opacity-85">
+                    Für diese Saison ist auf fussball.de noch keine Tabelle veröffentlicht.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p class="mt-5">
+              <a href="https://www.fussball.de/mannschaft/tus-dabergotz-9-tus-dabergotz-1929-brandenburg/-/saison/2627/team-id/02TBNV33O4000000VS5489BSVV9JRPRB#!/" target="_blank" rel="noopener" class="btn-chip">
+                <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+                Mannschaft auf fussball.de<span class="sr-only"> (TuS Dabergotz (9), öffnet in einem neuen Tab)</span>
+              </a>
+            </p>
+          </article>
+
+          <article class="team-card" data-team-id="ue35" data-competition="">
+            <h3 class="font-sans text-lead font-bold">Herren Ü35</h3>
+            <p class="mt-1 text-micro opacity-85">1. Kreisklasse · Alt-Herren Kreispokal 11er</p>
+
+            <p class="feed-state mt-4" data-feed-state hidden></p>
+
+            <h4 class="mt-6 text-card font-semibold">Spiele</h4>
+            <!-- Zielbehälter des offiziellen Widgets (bleibt leer, bis ein Schlüssel hinterlegt ist) -->
+            <div id="widget-ue35-spiele" data-widget-matches></div>
+            <ul class="mt-2" data-matches>
+              <li class="match" data-static>
+                <span><time datetime="2026-11-06T19:30">Fr, 06.11.2026, 19:30</time></span>
+                <span>SV Rot-Weiß Kyritz – SpG MSV Neuruppin/TuS Dabergotz</span>
+                <span class="text-micro opacity-80">1. Kreisklasse</span>
+              </li>
+              <li class="match" data-static>
+                <span><time datetime="2026-11-13T19:00">Fr, 13.11.2026, 19:00</time></span>
+                <span>SpG MSV Neuruppin/TuS Dabergotz – SpG Schwarz-Weiß Zaatzke/MTV Freyenstein</span>
+                <span class="text-micro opacity-80">1. Kreisklasse</span>
+              </li>
+              <li class="match" data-static>
+                <span><time datetime="2026-11-27T19:00">Fr, 27.11.2026, 19:00</time></span>
+                <span>SpG MSV Neuruppin/TuS Dabergotz – SV Rot-Weiß Kyritz</span>
+                <span class="text-micro opacity-80">1. Kreisklasse</span>
+              </li>
+              <li class="match" data-static>
+                <span><time datetime="2027-04-09T19:30">Fr, 09.04.2027, 19:30</time></span>
+                <span>SV Blumenthal-Grabow (Ü35) – SpG MSV Neuruppin/TuS Dabergotz</span>
+                <span class="text-micro opacity-80">1. Kreisklasse</span>
+              </li>
+            </ul>
+
+            <h4 class="mt-7 text-card font-semibold">Tabelle</h4>
+            <div id="widget-ue35-tabelle" data-widget-table></div>
+            <table class="ladder mt-2">
+              <caption class="sr-only">Tabellenstand Herren Ü35</caption>
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Mannschaft</th>
+                  <th scope="col" class="num">Sp</th>
+                  <th scope="col" class="num">Tore</th>
+                  <th scope="col" class="num">Pkt</th>
+                </tr>
+              </thead>
+              <tbody data-table>
+                <tr data-static>
+                  <td colspan="5" class="opacity-85">
+                    Für diese Saison ist auf fussball.de noch keine Tabelle veröffentlicht.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p class="mt-5">
+              <a href="https://www.fussball.de/mannschaft/spg-msv-neuruppin-tus-dabergotz-msv-1919-neuruppin-brandenburg/-/saison/2627/team-id/02PNA3D80O000000VS5489B2VT4FEOV2#!/" target="_blank" rel="noopener" class="btn-chip">
+                <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+                Mannschaft auf fussball.de<span class="sr-only"> (SpG MSV Neuruppin/TuS Dabergotz, öffnet in einem neuen Tab)</span>
+              </a>
+            </p>
+          </article>
         </div>
 
-        <p data-reveal class="mt-10 text-center">
-          <a href="https://www.fussball.de/verein/tus-dabergotz-1929-brandenburg/-/id/00ES8GNBL000004HVV0AG08LVUPGND5I#!/"
-             target="_blank" rel="noopener" class="btn-chip">
+        <p class="mx-auto mt-8 max-w-[56rem] text-micro text-chalk/85">
+          Gespeicherter Stand: <time data-stand datetime="2026-10-20">20.10.2026</time>, Quelle fussball.de.
+          Für die Saison 2026/27 sind dort bislang keine Ergebnisse eingetragen; der Spielplan ist vom
+          Staffelleiter noch nicht freigegeben. Sobald einer der beiden Abrufwege eingerichtet ist, ersetzen
+          die Live-Daten diesen Stand bei jedem Seitenaufruf.
+        </p>
+
+        <p data-reveal class="mt-8 text-center">
+          <a href="https://www.fussball.de/verein/tus-dabergotz-1929-brandenburg/-/id/00ES8GNBL000004HVV0AG08LVUPGND5I#!/" target="_blank" rel="noopener" class="btn-chip">
             <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
-            alle Spiele auf fussball.de<span class="sr-only"> (öffnet in einem neuen Tab)</span>
+            alle Spiele des Vereins auf fussball.de<span class="sr-only"> (öffnet in einem neuen Tab)</span>
           </a>
         </p>
       </div>
@@ -708,13 +998,16 @@
       <div class="shell">
         <h2 id="partner-title" data-reveal class="heading-section text-chalk">Unsere Partner</h2>
 
-        <ul class="mt-10 grid grid-cols-2 items-center gap-6 sm:grid-cols-3 lg:mt-12 lg:grid-cols-6">
-          <li data-reveal style="--reveal-delay: 0ms"><div class="zoom aspect-[2/1] rounded-note bg-chalk/10"><img src="assets/img/TUSD-Web-img-Header-01.jpg" width="1456" height="840" loading="lazy" alt="Platzhalter Logo Partner 1" class="object-cover"></div></li>
-          <li data-reveal style="--reveal-delay: 60ms"><div class="zoom aspect-[2/1] rounded-note bg-chalk/10"><img src="assets/img/TUSD-Web-img-MannschaftU30-01.jpg" width="1344" height="896" loading="lazy" alt="Platzhalter Logo Partner 2" class="object-cover"></div></li>
-          <li data-reveal style="--reveal-delay: 120ms"><div class="zoom aspect-[2/1] rounded-note bg-chalk/10"><img src="assets/img/TUSD-Web-img-TrainerU30-01.jpg" width="896" height="588" loading="lazy" alt="Platzhalter Logo Partner 3" class="object-cover"></div></li>
-          <li data-reveal style="--reveal-delay: 180ms"><div class="zoom aspect-[2/1] rounded-note bg-chalk/10"><img src="assets/img/TUSD-Web-img-MannschaftHistorisch-01.jpg" width="1400" height="868" loading="lazy" alt="Platzhalter Logo Partner 4" class="object-cover"></div></li>
-          <li data-reveal style="--reveal-delay: 240ms"><div class="zoom aspect-[2/1] rounded-note bg-chalk/10"><img src="assets/img/TUSD-Web-img-Header-01.jpg" width="1456" height="840" loading="lazy" alt="Platzhalter Logo Partner 5" class="object-cover"></div></li>
-          <li data-reveal style="--reveal-delay: 300ms"><div class="zoom aspect-[2/1] rounded-note bg-chalk/10"><img src="assets/img/TUSD-Web-img-MannschaftU30-01.jpg" width="1344" height="896" loading="lazy" alt="Platzhalter Logo Partner 6" class="object-cover"></div></li>
+        <p data-reveal class="mx-auto mt-6 max-w-[58ch] text-center text-body text-chalk/90">
+          Ohne sie gäbe es weder Trikots noch Flutlicht. Danke dafür.
+        </p>
+
+        <ul class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:mt-12 lg:grid-cols-5 lg:gap-5">
+          <li data-reveal style="--reveal-delay: 0ms"><a class="partner-tile" href="https://www.spk-opr.de/" target="_blank" rel="noopener"><img src="assets/img/partner/partner-sparkasse.png" loading="lazy" decoding="async" alt="Logo Sparkasse Ostprignitz-Ruppin"><span class="sr-only"> (öffnet in einem neuen Tab)</span></a></li>
+          <li data-reveal style="--reveal-delay: 70ms"><div class="partner-tile"><img src="assets/img/partner/partner-huch.png" loading="lazy" decoding="async" alt="Logo HUCH"></div></li>
+          <li data-reveal style="--reveal-delay: 140ms"><a class="partner-tile" href="https://www.eatn.de/" target="_blank" rel="noopener"><img src="assets/img/partner/partner-eatn.png" loading="lazy" decoding="async" alt="Logo e.ATN"><span class="sr-only"> (öffnet in einem neuen Tab)</span></a></li>
+          <li data-reveal style="--reveal-delay: 210ms"><a class="partner-tile" href="https://www.db-farbdesign.de/" target="_blank" rel="noopener"><img src="assets/img/partner/partner-db-farbdesign.png" loading="lazy" decoding="async" alt="Logo d&amp;b Farbdesign GmbH, Malermeister"><span class="sr-only"> (öffnet in einem neuen Tab)</span></a></li>
+          <li data-reveal style="--reveal-delay: 280ms"><a class="partner-tile" href="https://www.audita-team.de/" target="_blank" rel="noopener"><img src="assets/img/partner/partner-audita.png" loading="lazy" decoding="async" alt="Logo Audita-Team, Wirtschaftsprüfer, Steuerberater und Consultants"><span class="sr-only"> (öffnet in einem neuen Tab)</span></a></li>
         </ul>
       </div>
     </section>
@@ -775,7 +1068,7 @@
                 <label class="flex items-start gap-3 text-small" for="kontakt-datenschutz">
                   <input class="mt-0.5 h-5 w-5 shrink-0 rounded-[4px] border-2 border-chalk/70 bg-transparent text-club-red"
                          id="kontakt-datenschutz" name="datenschutz" type="checkbox" required>
-                  <span>Ich habe die <a class="underline underline-offset-4" href="/datenschutz">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Daten einverstanden.</span>
+                  <span>Ich habe die <a class="underline underline-offset-4" href="assets/dokumente/Datenschutzerkl%C3%A4rung%20TuS.pdf">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Daten einverstanden.</span>
                 </label>
                 <p class="field-error">Ohne diese Zustimmung dürfen wir die Nachricht nicht verarbeiten.</p>
               </div>
@@ -806,7 +1099,7 @@
     <div class="shell flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:justify-between">
 
       <a href="#top" class="flex items-center gap-3 text-chalk">
-        <img src="assets/img/TUSDabergotz_Logo.svg" alt="" aria-hidden="true" width="48" height="48" class="site-logo h-12 w-12">
+        <img src="assets/img/TUSDabergotz_Logo.svg" alt="" aria-hidden="true" width="52" height="56" class="site-logo h-14">
         <span class="font-sans text-nav">TuS Dabergotz</span>
       </a>
 
