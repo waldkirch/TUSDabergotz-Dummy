@@ -50,8 +50,8 @@ Glyphe und den Rest als Luft.
 | Datei | Verwendet in |
 |-------|--------------|
 | `TUSDabergotz_Logo.svg` | Kopfleiste, Footer, Favicon |
-| `B Jugend.jpg` | Bildband B-Jugend |
-| `Ü35.jpg` | Bildband Ü35 |
+| `b-jugend.jpg` | Bildband B-Jugend |
+| `ue35.jpg` | Bildband Ü35 |
 | `TUSD-Web-img-Header-01.jpg` | Hero, Maske „T“, Fanshop, Partner |
 | `TUSD-Web-img-MannschaftU30-01.jpg` | Maske „U“, Chronik 1990er, Fanshop, Partner |
 | `TUSD-Web-img-TrainerU30-01.jpg` | beide Trainerporträts, Fanshop, Partner |

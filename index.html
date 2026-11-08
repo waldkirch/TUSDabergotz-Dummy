@@ -16,18 +16,12 @@
 
   <link rel="icon" href="assets/img/TUSDabergotz_Logo.svg" type="image/svg+xml">
 
-  <!-- Schriften: Gochi Hand für die handschriftlichen Versalien,
-       Figtree für Fließtext und die TUS-Maske (900) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;900&family=Gochi+Hand&display=swap">
+  <!-- Schriften liegen lokal in assets/fonts (kein Google-Fonts-Abruf) -->
+  <link rel="preload" href="assets/fonts/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css">
 
-  <!-- ENTWICKLUNG: Tailwind über das Play-CDN, Theme aus assets/js/tailwind.theme.js.
-       PRODUKTION: die nächsten drei Zeilen löschen und stattdessen einbinden:
-       <link rel="stylesheet" href="assets/css/tailwind.css">  (npm run build) -->
-  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
-  <script src="assets/js/tailwind.theme.js"></script>
-  <script src="assets/js/tailwind-cdn.js"></script>
+  <!-- Tailwind: gebautes CSS (npm run build) -->
+  <link rel="stylesheet" href="assets/css/tailwind.css">
 
   <!-- Projekteigene Stile – immer NACH Tailwind einbinden -->
   <link rel="stylesheet" href="assets/css/site.css">
@@ -144,37 +138,59 @@
         <!-- Spaltenabstand und Schriftgrad der Buchstaben kommen aus .mask-grid -->
         <ul class="mask-grid mt-10 grid grid-cols-1 gap-y-14 sm:grid-cols-3 lg:mt-12">
 
-          <li data-reveal style="--reveal-delay: 0ms">
-            <a href="/aktuelles/training-im-winter" class="group flex flex-col items-center">
-              <span class="mask-letter" style="background-image: url('assets/img/BJugend.jpg')" aria-hidden="true">T</span>
-              <h3 class="mt-8 px-2 text-center text-card font-bold text-chalk">Training im Winter</h3>
-              <span class="btn-chip mt-4">
-                <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
-                lesen
-              </span>
-            </a>
+          <li data-reveal style="--reveal-delay: 0ms" class="flex flex-col items-center">
+            <span class="mask-letter" style="background-image: url('assets/img/b-jugend.jpg')" aria-hidden="true">T</span>
+            <h3 class="mt-8 px-2 text-center text-card font-bold text-chalk">Training im Winter</h3>
+            <button type="button" class="btn-chip mt-4" data-disclosure="aktuelles-winter" aria-expanded="false" aria-controls="aktuelles-winter"
+                    data-label-open="lesen" data-label-close="schließen">
+              <span class="toggle-icon" aria-hidden="true">
+                  <svg class="icon-open h-4 w-3" viewBox="0 0 12 14" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+                  <svg class="icon-close h-4 w-4" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" focusable="false"><path d="M2 2l10 10M12 2L2 12"/></svg>
+                </span>
+              <span data-disclosure-label>lesen</span>
+            </button>
+            <div id="aktuelles-winter" class="disclosure w-full">
+              <div>
+                <p class="mx-auto mt-5 max-w-[34ch] text-center text-micro text-chalk" tabindex="-1" data-disclosure-focus>
+                  Auch bei Kälte rollt der Ball. Trainingszeiten und Ort erfährst du bei den Trainern oder über das Kontaktformular.
+                </p>
+              </div>
+            </div>
           </li>
 
-          <li data-reveal style="--reveal-delay: 120ms">
-            <a href="/aktuelles/social-media" class="group flex flex-col items-center">
-              <span class="mask-letter" style="background-image: url('assets/img/u35.jpg')" aria-hidden="true">U</span>
-              <h3 class="mt-8 px-2 text-center text-card font-bold text-chalk">TuS Dabergotz auf social media</h3>
-              <span class="btn-chip mt-4">
+          <li data-reveal style="--reveal-delay: 120ms" class="flex flex-col items-center">
+            <span class="mask-letter" style="background-image: url('assets/img/ue35.jpg')" aria-hidden="true">U</span>
+            <h3 class="mt-8 px-2 text-center text-card font-bold text-chalk">TuS Dabergotz auf social media</h3>
+            <div class="mt-4 flex flex-wrap justify-center gap-3">
+              <a href="https://www.instagram.com/tus.dabergotz1929/" target="_blank" rel="noopener" class="btn-chip">
                 <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
-                lesen
-              </span>
-            </a>
+                Instagram<span class="sr-only"> (öffnet in einem neuen Tab)</span>
+              </a>
+              <a href="https://www.facebook.com/tusdabergotz.ah/" target="_blank" rel="noopener" class="btn-chip">
+                <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+                Facebook<span class="sr-only"> (öffnet in einem neuen Tab)</span>
+              </a>
+            </div>
           </li>
 
-          <li data-reveal style="--reveal-delay: 240ms">
-            <a href="/aktuelles/feiern-mit-dem-verein" class="group flex flex-col items-center">
-              <span class="mask-letter" style="background-image: url('assets/img/TUSD-Web-img-MannschaftHistorisch-01.jpg')" aria-hidden="true">S</span>
-              <h3 class="mt-8 px-2 text-center text-card font-bold text-chalk">Feiern mit dem Verein</h3>
-              <span class="btn-chip mt-4">
-                <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
-                lesen
-              </span>
-            </a>
+          <li data-reveal style="--reveal-delay: 240ms" class="flex flex-col items-center">
+            <span class="mask-letter" style="background-image: url('assets/img/TUSD-Web-img-MannschaftHistorisch-01.jpg')" aria-hidden="true">S</span>
+            <h3 class="mt-8 px-2 text-center text-card font-bold text-chalk">Feiern mit dem Verein</h3>
+            <button type="button" class="btn-chip mt-4" data-disclosure="aktuelles-feiern" aria-expanded="false" aria-controls="aktuelles-feiern"
+                    data-label-open="lesen" data-label-close="schließen">
+              <span class="toggle-icon" aria-hidden="true">
+                  <svg class="icon-open h-4 w-3" viewBox="0 0 12 14" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+                  <svg class="icon-close h-4 w-4" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" focusable="false"><path d="M2 2l10 10M12 2L2 12"/></svg>
+                </span>
+              <span data-disclosure-label>lesen</span>
+            </button>
+            <div id="aktuelles-feiern" class="disclosure w-full">
+              <div>
+                <p class="mx-auto mt-5 max-w-[34ch] text-center text-micro text-chalk" tabindex="-1" data-disclosure-focus>
+                  Ob Spielerabend oder Vereinsfest: Bei uns wird gemeinsam gefeiert. Aktuelle Termine kommen hier und im Kontaktbereich.
+                </p>
+              </div>
+            </div>
           </li>
 
         </ul>
@@ -186,7 +202,7 @@
 
       <figure class="band-photo">
         <img
-          src="assets/img/BJugend.jpg"
+          src="assets/img/b-jugend.jpg"
           width="1344" height="896" data-parallax
           alt="Die B-Jugend des TuS Dabergotz auf dem Sportplatz"
           class="h-[115%] w-full object-cover" loading="lazy" decoding="async"
@@ -229,7 +245,7 @@
 
       <figure class="band-photo">
         <img
-          src="assets/img/u35.jpg"
+          src="assets/img/ue35.jpg"
           width="1344" height="896" data-parallax
           alt="Die Altherrenmannschaft des TuS Dabergotz auf dem Sportplatz"
           class="h-[115%] w-full object-cover" loading="lazy" decoding="async"
@@ -672,7 +688,7 @@
         <ul class="mt-8 grid grid-cols-2 gap-3.5 lg:mt-10 lg:grid-cols-4">
 
           <li data-reveal style="--reveal-delay: 0ms">
-            <a href="https://tus-dabergotz.fan12.de/" target="_blank" rel="noopener" class="group block">
+            <a href="https://tus-dabergotz.fan12.de/shop/hoodie-heavyweight-oversize-herren/" target="_blank" rel="noopener" class="group block">
               <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="hoodie-oversize">
                   <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
                        alt="Beiger Oversize-Hoodie für Herren mit Vereinswappen auf der Brust" class="is-placeholder">
@@ -683,7 +699,7 @@
           </li>
 
           <li data-reveal style="--reveal-delay: 80ms">
-            <a href="https://tus-dabergotz.fan12.de/" target="_blank" rel="noopener" class="group block">
+            <a href="https://tus-dabergotz.fan12.de/shop/hoodie-hometown-herren/" target="_blank" rel="noopener" class="group block">
               <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="hoodie-hometown">
                   <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
                        alt="Roter Hoodie für Herren mit Dabergotz-Schriftzug" class="is-placeholder">
@@ -694,7 +710,7 @@
           </li>
 
           <li data-reveal style="--reveal-delay: 160ms">
-            <a href="https://tus-dabergotz.fan12.de/" target="_blank" rel="noopener" class="group block">
+            <a href="https://tus-dabergotz.fan12.de/shop/zipper-basic-kids/" target="_blank" rel="noopener" class="group block">
               <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="zipper-kids">
                   <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
                        alt="Rote Kinder-Sweatjacke mit Reißverschluss und Vereinswappen" class="is-placeholder">
@@ -705,7 +721,7 @@
           </li>
 
           <li data-reveal style="--reveal-delay: 240ms">
-            <a href="https://tus-dabergotz.fan12.de/" target="_blank" rel="noopener" class="group block">
+            <a href="https://tus-dabergotz.fan12.de/shop/brotdose-logo/" target="_blank" rel="noopener" class="group block">
               <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="brotdose">
                   <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
                        alt="Brotdose aus Edelstahl mit aufgedrucktem Vereinswappen" class="is-placeholder">
@@ -739,7 +755,7 @@
         <ul class="mt-8 grid grid-cols-2 gap-3.5 sm:grid-cols-3 lg:mt-10 lg:grid-cols-6">
 
           <li data-reveal style="--reveal-delay: 0ms">
-            <a href="https://tus-dabergotz.fan12.de/schluesselanhaenger-trikot/" target="_blank" rel="noopener" class="group block">
+            <a href="https://tus-dabergotz.fan12.de/shop/schluesselanhaenger-spielertrikot/" target="_blank" rel="noopener" class="group block">
               <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="schluesselanhaenger">
                   <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
                        alt="Schlüsselanhänger im Trikotdesign" class="is-placeholder">
@@ -749,7 +765,7 @@
           </li>
 
           <li data-reveal style="--reveal-delay: 60ms">
-            <a href="https://tus-dabergotz.fan12.de/farbige-beanie/" target="_blank" rel="noopener" class="group block">
+            <a href="https://tus-dabergotz.fan12.de/shop/beanie-sticklogo/" target="_blank" rel="noopener" class="group block">
               <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="beanie">
                   <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
                        alt="Beanie mit gesticktem Vereinslogo" class="is-placeholder">
@@ -759,7 +775,7 @@
           </li>
 
           <li data-reveal style="--reveal-delay: 120ms">
-            <a href="https://tus-dabergotz.fan12.de/fanschal-identity/" target="_blank" rel="noopener" class="group block">
+            <a href="https://tus-dabergotz.fan12.de/shop/fanschal-identity/" target="_blank" rel="noopener" class="group block">
               <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="fanschal">
                   <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
                        alt="Fanschal in den Vereinsfarben" class="is-placeholder">
@@ -769,7 +785,7 @@
           </li>
 
           <li data-reveal style="--reveal-delay: 180ms">
-            <a href="https://tus-dabergotz.fan12.de/kabinenposter/" target="_blank" rel="noopener" class="group block">
+            <a href="https://tus-dabergotz.fan12.de/shop/kabinenposter/" target="_blank" rel="noopener" class="group block">
               <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="kabinenposter">
                   <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
                        alt="Kabinenposter für die Mannschaft" class="is-placeholder">
@@ -779,7 +795,7 @@
           </li>
 
           <li data-reveal style="--reveal-delay: 240ms">
-            <a href="https://tus-dabergotz.fan12.de/shirt-forza/" target="_blank" rel="noopener" class="group block">
+            <a href="https://tus-dabergotz.fan12.de/shop/oversized-shirt-forza-herren/" target="_blank" rel="noopener" class="group block">
               <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="shirt-forza">
                   <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
                        alt="Vereinsshirt Forza" class="is-placeholder">
@@ -789,7 +805,7 @@
           </li>
 
           <li data-reveal style="--reveal-delay: 300ms">
-            <a href="https://tus-dabergotz.fan12.de/" target="_blank" rel="noopener" class="group block">
+            <a href="https://tus-dabergotz.fan12.de/shop/weihnachtstasse-2026/" target="_blank" rel="noopener" class="group block">
               <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="weihnachtstasse">
                 <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
                      alt="Weihnachtstasse 2026 im Vereinsdesign" class="is-placeholder">
@@ -1036,7 +1052,13 @@
 
         <div id="kontakt-formular" class="disclosure w-full max-w-[42rem]">
           <div>
-            <form class="mt-10 space-y-6" data-contact-form novalidate tabindex="-1" data-disclosure-focus>
+            <form class="mt-10 space-y-6" data-contact-form action="api/kontakt.php" method="post" novalidate tabindex="-1" data-disclosure-focus>
+
+              <!-- Spamschutz: Honigtopf (für Menschen unsichtbar) und Zeitstempel -->
+              <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
+                <label>Website nicht ausfüllen <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+              </div>
+              <input type="hidden" name="ts" value="">
 
               <div class="grid gap-6 sm:grid-cols-2">
                 <div data-field>
@@ -1073,10 +1095,7 @@
                 <p class="field-error">Ohne diese Zustimmung dürfen wir die Nachricht nicht verarbeiten.</p>
               </div>
 
-              <p class="form-note" data-form-note>
-                Demo-Modus: Das Formular ist noch nicht an einen Versand angebunden. In WordPress übernimmt das
-                Contact Form 7, WPForms oder ein eigener Endpunkt – die Felder und Namen bleiben dabei gleich.
-              </p>
+              <p class="form-note" data-form-note role="status" aria-live="polite"></p>
 
               <div class="pt-2">
                 <button type="submit" class="btn-chip">
@@ -1106,8 +1125,8 @@
       <nav aria-label="Rechtliches und Service">
         <ul class="flex flex-wrap justify-center gap-x-8 gap-y-3 lg:justify-end">
           <li><a class="nav-link text-chalk" href="#chronik-lang">Chronik lang</a></li>
-          <li><a class="nav-link text-chalk" href="/datenschutz">Datenschutz</a></li>
-          <li><a class="nav-link text-chalk" href="/impressum">Impressum</a></li>
+          <li><a class="nav-link text-chalk" href="datenschutz.html">Datenschutz</a></li>
+          <li><a class="nav-link text-chalk" href="impressum.html">Impressum</a></li>
           <li><a class="nav-link text-chalk" href="#kontakt">Kontakt</a></li>
         </ul>
       </nav>

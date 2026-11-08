@@ -3,24 +3,52 @@
 Statisches Frontend des Vereins-Onepagers. Vorstufe zum späteren WordPress-Theme:
 HTML5, Tailwind CSS, Vanilla JavaScript (ES6), ohne Build-Zwang lauffähig.
 
-## Schnellstart
-
-```bash
-npx serve .          # oder: python3 -m http.server 8000
-```
-
-Die Seite muss über einen Server laufen oder mit dem kompletten Ordner geöffnet
-werden – wird nur `index.html` weitergegeben, fehlen Bilder, CSS und JS.
-
-## Produktions-Build
+## Hosting
 
 ```bash
 npm install
-npm run build        # erzeugt assets/css/tailwind.css
+npm run build      # erzeugt dist/ (fertiges CSS + nur die auslieferbaren Dateien)
+npm run preview    # dist/ lokal auf http://localhost:8080 ansehen
 ```
 
-Danach im `<head>` die drei CDN-Zeilen löschen und ersetzen durch
-`<link rel="stylesheet" href="assets/css/tailwind.css">`.
+Der Inhalt von `dist/` ist die komplette Seite und kann auf jeden statischen
+Webspace (Netlify, Cloudflare Pages, GitHub Pages, Apache/nginx, Strato, IONOS …).
+Für Netlify liegt `netlify.toml` bereit (Build `npm run build`, Ordner `dist`);
+`_headers` setzt Sicherheits- und Cache-Header (Netlify/Cloudflare Pages).
+Bei Apache/nginx den Ordner `dist/` als Webroot verwenden und `404.html` als
+Fehlerseite eintragen.
+
+**ISPConfig:** `npm run build` erzeugt zusätzlich `ispconfig/web/`. Dessen Inhalt
+(inklusive der versteckten `.htaccess`) per SFTP in das `web`-Verzeichnis der
+Website laden. Läuft die Seite auf nginx, den Text aus `ispconfig/nginx-directives.txt`
+in ISPConfig unter „nginx Directives“ eintragen. Quelle beider Dateien: `server/`.
+
+**Kontaktformular und Nachrichtenseite (PHP):**
+- Das Formular sendet an `api/kontakt.php`. Die Nachrichten landen als Dateien im
+  Ordner `private/tus-submissions/` **neben** dem `web`-Ordner (bei ISPConfig
+  `.../webN/private/`, also nicht öffentlich abrufbar).
+- Ansehen unter `/admin/`: Passwort-Anmeldung, Liste, gelesen/ungelesen, Löschen,
+  CSV-Export.
+- Passwort setzen oder ändern: `npm run passwort` (zufälliges Passwort) oder
+  `npm run passwort -- "EigenesPasswort"` (mind. 10 Zeichen), danach `npm run build`
+  und neu hochladen. Es wird nur der Hash gespeichert, in `server/php/inc/config.php`.
+- E-Mail bei neuer Nachricht: in `server/php/inc/config.php` `notify_email` und
+  `mail_from` eintragen, bauen, hochladen.
+- Spamschutz: Honigtopf-Feld, Mindestzeit, höchstens 5 Nachrichten je Stunde und
+  Besucher; Anmeldung: höchstens 5 Versuche je 15 Minuten.
+- Lokal testen: `npm run build`, dann `npm run preview` (braucht PHP im Pfad).
+- In der Datenschutzerklärung die Speicherung der Kontaktanfragen ergänzen.
+  Eingegangene Nachrichten regelmäßig löschen, wenn sie nicht mehr gebraucht werden.
+
+- Schriften (Figtree, Gochi Hand) liegen lokal in `assets/fonts/` – kein Abruf bei Google.
+- Tailwind wird beim Build erzeugt; das CDN-Skript ist entfernt.
+- `impressum.html` und `datenschutz.html` sind **Platzhalter** und müssen vor
+  dem Livegang mit echten Angaben gefüllt werden. Die Kurztexte unter „Aktuelles“ (Aufklapp-Buttons) sind Platzhaltertexte, und der
+  Social-Media-Buttons führen zu Instagram und Facebook des Vereins.
+- Vor dem Livegang `<link rel="canonical">` und Open-Graph-URL mit der echten Domain ergänzen.
+
+Entwicklung: `npm run dev` hält `assets/css/tailwind.css` aktuell, dazu
+`npx serve .` in einem zweiten Terminal.
 
 ## Struktur
 
@@ -124,7 +152,7 @@ Standardavatar mit Vereinswappen.
 **Shop-Produktfotos** – Bildadressen in `assets/js/shop-produkte.js`
 eintragen, siehe `assets/img/fanshop/README.txt`.
 
-**Mannschaftsbilder** – `B Jugend.jpg` und `Ü35.jpg` liegen bereits, sind aber
+**Mannschaftsbilder** – `b-jugend.jpg` und `ue35.jpg` liegen bereits, sind aber
 noch Kopien desselben Motivs.
 
 ## Besonderheiten
@@ -157,10 +185,10 @@ erreichbar.
 schließt es. Ohne diese Unterscheidung würde der Klick das gerade per Hover
 geöffnete Menü sofort wieder schließen.
 
-**Kontaktformular.** Prüft im Browser und zeigt Fehlermeldungen pro Feld. Es
-versendet noch nichts – der Submit blendet einen Hinweis ein. In WordPress
-übernimmt Contact Form 7, WPForms oder ein eigener Endpunkt; die Feldnamen
-(`vorname`, `name`, `email`, `nachricht`, `datenschutz`) bleiben gleich.
+**Kontaktformular.** Prüft im Browser, zeigt Fehlermeldungen pro Feld und sendet
+per `fetch` an `api/kontakt.php` (siehe Abschnitt Hosting). Für ein späteres
+WordPress-Theme bleiben die Feldnamen (`vorname`, `name`, `email`, `nachricht`,
+`datenschutz`) gleich.
 
 **Barrierefreiheit.** Skip-Link, sichtbare Fokusringe in beiden Farbwelten,
 `aria-expanded`/`aria-controls` an Burgermenü und allen Aufklappbereichen,
@@ -173,7 +201,7 @@ Buttons behalten das volle Markenrot, dort genügt 3:1.
 ## Offene Punkte
 
 - Chronikbilder liegen noch auf wordpress.com statt lokal.
-- Shop-Produktfotos fehlen (siehe oben).
+- Shop-Produktfotos liegen lokal in `assets/img/fanshop/` (Stand der Shop-Seite beim Kopieren; bei neuen Artikeln Bild nachladen und in `assets/js/shop-produkte.js` eintragen).
 - Partnerlinks sind vermutete Adressen und sollten geprüft werden; für HUCH
   war keine zu ermitteln.
 - Zielseiten `/impressum` und die Beitragsseiten unter `/aktuelles/…`

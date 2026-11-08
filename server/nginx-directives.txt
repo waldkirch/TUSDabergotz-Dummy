@@ -1,0 +1,16 @@
+Nur nötig, wenn die Website in ISPConfig auf einem nginx-Server läuft (Dateien aus
+.htaccess werden von nginx ignoriert). Inhalt unten in ISPConfig einfügen unter:
+  Websites > deine Domain > Reiter "Optionen" > Feld "nginx Directives" > Speichern
+
+error_page 404 /404.html;
+
+add_header X-Content-Type-Options "nosniff" always;
+add_header X-Frame-Options "SAMEORIGIN" always;
+add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+
+gzip on;
+gzip_types text/css application/javascript image/svg+xml text/plain;
+
+location ~* \.woff2$ { expires 1y; }
+location ~* \.(jpe?g|png|svg)$ { expires 30d; }
+location ~* \.(css|js)$ { expires 1d; }

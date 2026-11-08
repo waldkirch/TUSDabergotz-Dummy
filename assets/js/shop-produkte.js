@@ -30,17 +30,17 @@
   else root.TUSD_SHOP_BILDER = factory();
 })(typeof self !== 'undefined' ? self : this, function () {
   return {
-    'weihnachtstasse':      '',
-    'schluesselanhaenger':  '',
-    'beanie':               '',
-    'fanschal':             '',
-    'kabinenposter':        '',
-    'shirt-forza':          '',
+    'weihnachtstasse':      'assets/img/fanshop/weihnachtstasse.jpg',
+    'schluesselanhaenger':  'assets/img/fanshop/schluesselanhaenger.jpg',
+    'beanie':               'assets/img/fanshop/beanie.jpg',
+    'fanschal':             'assets/img/fanshop/fanschal.jpg',
+    'kabinenposter':        'assets/img/fanshop/kabinenposter.jpg',
+    'shirt-forza':          'assets/img/fanshop/shirt-forza.jpg',
 
     /* Die vier Artikel des oberen Blocks „Unsere Hingucker“ */
-    'hoodie-oversize':      '',
-    'hoodie-hometown':      '',
-    'zipper-kids':          '',
-    'brotdose':             ''
+    'hoodie-oversize':      'assets/img/fanshop/hoodie-oversize.jpg',
+    'hoodie-hometown':      'assets/img/fanshop/hoodie-hometown.jpg',
+    'zipper-kids':          'assets/img/fanshop/zipper-kids.jpg',
+    'brotdose':             'assets/img/fanshop/brotdose.jpg'
   };
 });

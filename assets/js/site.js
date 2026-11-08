@@ -141,21 +141,31 @@
   if (window.location.hash) openFromHash(window.location.hash);
 
   /* ── 3 · Kontaktformular ────────────────────────────────────────────────
-     Reiner Browser-Check. Das Versenden übernimmt später WordPress
-     (Contact Form 7, WPForms o. Ä.) oder ein eigener Endpunkt.
+     Prüft im Browser und schickt die Felder per fetch an api/kontakt.php.
+     Der Server prüft noch einmal und speichert die Nachricht.
      --------------------------------------------------------------------- */
 
   const form = document.querySelector('[data-contact-form]');
 
   if (form) {
     const note = form.querySelector('[data-form-note]');
+    const submitButton = form.querySelector('button[type="submit"]');
+    const submitLabel = submitButton.lastChild;
+    const tsField = form.querySelector('input[name="ts"]');
+    if (tsField) tsField.value = String(Date.now());
 
     const showError = (field, show) => {
       const wrapper = field.closest('[data-field]');
       if (wrapper) wrapper.toggleAttribute('data-invalid', show);
     };
 
-    form.addEventListener('submit', (event) => {
+    const showNote = (text, isError) => {
+      note.textContent = text;
+      note.classList.add('is-visible');
+      note.setAttribute('role', isError ? 'alert' : 'status');
+    };
+
+    form.addEventListener('submit', async (event) => {
       event.preventDefault();
 
       let firstInvalid = null;
@@ -170,8 +180,38 @@
         return;
       }
 
-      note.classList.add('is-visible');
-      note.setAttribute('role', 'status');
+      const idleText = submitLabel.textContent;
+      submitButton.disabled = true;
+      submitLabel.textContent = ' wird gesendet …';
+      note.classList.remove('is-visible');
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        });
+        let result = null;
+        try { result = await response.json(); } catch (e) { /* keine JSON-Antwort */ }
+
+        if (result && result.ok) {
+          form.reset();
+          if (tsField) tsField.value = String(Date.now());
+          showNote(result.message, false);
+        } else {
+          const errors = (result && result.errors) || {};
+          Object.keys(errors).forEach((name) => {
+            const field = form.elements[name];
+            if (field) showError(field, true);
+          });
+          showNote((result && result.message) || 'Das Senden hat leider nicht geklappt. Bitte versuche es später noch einmal.', true);
+        }
+      } catch (e) {
+        showNote('Keine Verbindung. Bitte prüf dein Netz und versuche es noch einmal.', true);
+      } finally {
+        submitButton.disabled = false;
+        submitLabel.textContent = idleText;
+      }
     });
 
     form.querySelectorAll('[data-field] input, [data-field] textarea').forEach((field) => {

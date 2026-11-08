@@ -1,0 +1,5 @@
+node_modules/
+dist/
+assets/css/tailwind.css
+ispconfig/
+server/php/inc/config.php

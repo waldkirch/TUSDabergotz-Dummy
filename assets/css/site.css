@@ -310,11 +310,9 @@ textarea.field-input { min-height: 9rem; resize: vertical; }
 
 /* ── TUS-Maske ─────────────────────────────────────────────────────────────
    Der Buchstabe ist echter Text, das Bild liegt als Hintergrund dahinter und
-   wird auf die Glyphe zugeschnitten. background-attachment: fixed verankert
-   das Motiv am Viewport – beim Scrollen wandert nur der Buchstabe darüber.
-
-   Wichtig: kein transform, filter oder container-type auf einem Elternelement,
-   das bricht den Fixed-Bezug.
+   wird auf die Glyphe zugeschnitten. Das Bild wandert mit dem Buchstaben
+   (background-attachment: scroll). Die ursprüngliche Variante mit "fixed"
+   blieb in Chrome beim Scrollen hängen und sprang erst bei Richtungswechsel.
 
    Größenlogik: Der Schriftgrad hängt an der Spaltenbreite, nicht am Viewport.
    Dadurch bleibt zwischen den Buchstaben in jeder Breite ein echter Abstand.
@@ -355,7 +353,7 @@ textarea.field-input { min-height: 9rem; resize: vertical; }
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: scroll;
   -webkit-background-clip: text;
   background-clip: text;
 }
@@ -366,10 +364,6 @@ textarea.field-input { min-height: 9rem; resize: vertical; }
     --mask-fit: 1.4;
     font-size: min(60vw, calc(var(--mask-col) * var(--mask-fit)));
   }
-}
-/* iOS/Android setzen background-attachment: fixed nicht zuverlässig um */
-@media (max-width: 1023px), (prefers-reduced-motion: reduce) {
-  .mask-letter { background-attachment: scroll; }
 }
 @supports not ((-webkit-background-clip: text) or (background-clip: text)) {
   .mask-letter { color: var(--chalk); background-image: none !important; }
@@ -389,6 +383,15 @@ textarea.field-input { min-height: 9rem; resize: vertical; }
 }
 html[data-scroll-dir="up"] [data-reveal] { --reveal-shift: -32px; }
 [data-reveal].is-visible { opacity: 1; transform: none; }
+
+/* Die TUS-Buchstaben haben ein fixiertes Hintergrundbild. Ein transform am Eltern-
+   element (auch ein auslaufender) löst den Fixed-Bezug auf und lässt das Bild
+   unten kleben, bis gescrollt wird. Deshalb dort nur einblenden, nicht verschieben. */
+.mask-grid [data-reveal],
+.mask-grid [data-reveal].is-visible {
+  transform: none;
+  transition: opacity 0.7s var(--ease-out) var(--reveal-delay, 0ms);
+}
 
 [data-parallax] { will-change: transform; }
 
