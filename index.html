@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth" data-scroll-dir="down">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>TuS Dabergotz – Fußball im Verein seit 1929</title>
+  <meta name="description" content="TuS Dabergotz: Aktuelles aus dem Verein, B-Jugend, Ü35-Altherren, Vereinsgeschichte seit 1929, Formulare, Fanshop und Spielergebnisse.">
+  <meta name="theme-color" content="#F51A21">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="TuS Dabergotz">
+  <meta property="og:title" content="TuS Dabergotz – Willkommen im Club!">
+  <meta property="og:description" content="Training, Teams und Vereinsleben in Dabergotz. Schreib uns – wir freuen uns auf dich.">
+
+  <link rel="icon" href="assets/img/TUSDabergotz_Logo.svg" type="image/svg+xml">
+
+  <!-- Schriften: Gochi Hand für die handschriftlichen Versalien,
+       Figtree für Fließtext und die TUS-Maske (900) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;900&family=Gochi+Hand&display=swap">
+
+  <!-- ENTWICKLUNG: Tailwind über das Play-CDN, Theme aus assets/js/tailwind.theme.js.
+       PRODUKTION: die nächsten drei Zeilen löschen und stattdessen einbinden:
+       <link rel="stylesheet" href="assets/css/tailwind.css">  (npm run build) -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <script src="assets/js/tailwind.theme.js"></script>
+  <script src="assets/js/tailwind-cdn.js"></script>
+
+  <!-- Projekteigene Stile – immer NACH Tailwind einbinden -->
+  <link rel="stylesheet" href="assets/css/site.css">
+
+  <script src="assets/js/shop-produkte.js" defer></script>
+  <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/fussballde.js" defer></script>
+</head>
+<!--
+  data-fussballde-key: Schlüssel des offiziellen fussball.de-Widgets.
+  Auf fussball.de im Vereinsbereich für die eigene Domain erzeugen und hier
+  eintragen – dann holt die Seite Spiele und Tabellen bei jedem Aufruf selbst.
+  Siehe Kopfkommentar in assets/js/fussballde.js.
+-->
+<body data-fussballde-key="">
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <!-- ═══ WP: header.php → template-parts/header/site-nav.php ═══════════════ -->
+  <header id="site-header" class="sticky top-0 z-50 bg-club-red">
+    <div class="mx-auto flex h-nav w-full max-w-[1366px] items-center justify-between px-gutter lg:px-6">
+
+      <a href="#top" class="flex items-center gap-3 text-chalk">
+        <img src="assets/img/TUSDabergotz_Logo.svg" alt="" aria-hidden="true" width="46" height="50" class="site-logo h-[2.75rem]">
+        <span class="font-sans text-nav">TuS Dabergotz</span>
+      </a>
+
+      <!-- Rechte Gruppe: Menü und Burger liegen zusammen, damit der Burger
+           auf jeder Breite am rechten Rand bleibt. -->
+      <div class="flex items-center">
+        <nav aria-label="Hauptnavigation">
+          <ul
+            id="primary-menu"
+            class="hidden absolute inset-x-0 top-full flex-col gap-1 border-t border-chalk/25 bg-club-red px-gutter pb-6 pt-3 shadow-card
+                   lg:static lg:flex lg:flex-row lg:items-center lg:gap-7 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none xl:gap-10"
+          >
+            <li><a href="#aktuelles" class="nav-link text-chalk">Aktuelles</a></li>
+            <li><a href="#b-jugend"  class="nav-link text-chalk">B-Jugend</a></li>
+            <li><a href="#ue35"      class="nav-link text-chalk">Ü35</a></li>
+            <li><a href="#damen"     class="nav-link text-chalk">Damen</a></li>
+            <li><a href="#chronik"   class="nav-link text-chalk">Chronik</a></li>
+            <li><a href="#formulare" class="nav-link text-chalk">Formulare</a></li>
+            <li><a href="#fanshop"   class="nav-link text-chalk">Fanshop</a></li>
+            <li><a href="#kontakt"   class="nav-link text-chalk">Kontakt</a></li>
+          </ul>
+        </nav>
+
+        <button
+          id="nav-toggle"
+          type="button"
+          class="-mr-2 inline-flex h-11 w-11 items-center justify-center rounded-note text-chalk lg:hidden"
+          aria-expanded="false"
+          aria-controls="primary-menu"
+        >
+          <span class="sr-only">Menü öffnen</span>
+          <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- stufenlose Lesefortschritts-Linie -->
+    <div class="h-[3px] w-full bg-chalk/20" aria-hidden="true">
+      <div data-progress-bar class="h-full w-full origin-left bg-chalk" style="transform: scaleX(0)"></div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ═══ 01 · Hero ════════════════════════════════════════════════════════ -->
+    <section id="top" aria-labelledby="hero-title" class="relative isolate overflow-hidden bg-club-red-dark">
+
+      <img
+        src="assets/img/TUSD-Web-img-Header-01.jpg"
+        width="1456" height="840"
+        alt="Spieler in roten Stutzen setzt den Fuß auf den Ball auf dem Sportplatz"
+        class="absolute inset-0 -z-20 h-full w-full object-cover object-[38%_65%] lg:object-center"
+        fetchpriority="high" decoding="async"
+      >
+
+      <!-- Abdunklung oben: hält Weiß auf hellem Himmel über 3:1 (WCAG 1.4.3) -->
+      <div class="absolute inset-x-0 top-0 -z-10 h-2/5 bg-gradient-to-b from-black/40 to-transparent" aria-hidden="true"></div>
+
+      <div class="relative mx-auto flex min-h-[540px] w-full max-w-[1366px] flex-col md:min-h-[500px] lg:block lg:h-[clamp(480px,41.4vw,565px)]">
+
+        <h1 id="hero-title" data-reveal class="px-gutter pt-10 text-right font-display text-hero uppercase text-chalk lg:pr-[43px] lg:pt-[54px]">
+          Willkommen im Club!
+        </h1>
+
+        <a
+          href="#kontakt"
+          data-reveal style="--reveal-delay: 160ms"
+          class="badge-round badge-round--red group mx-gutter mt-8 self-end lg:absolute lg:left-[61.35%] lg:top-[144px] lg:m-0"
+        >
+          <span class="block px-7">Kontakt?<br>Schreibt uns!</span>
+
+          <svg
+            class="pointer-events-none absolute bottom-0 right-0 w-[clamp(2rem,3.3vw,2.8rem)] translate-x-[38%] translate-y-[52%]"
+            viewBox="0 0 30 40" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"
+            aria-hidden="true" focusable="false"
+          >
+            <path d="M4.2 2.6 L4.6 30.4 L11.3 23.6 L15.9 35.6 L21.2 33.3 L16.6 21.6 L26.2 20.4 Z" />
+          </svg>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ═══ 02 · Aktuelles (TUS-Maske) ═══════════════════════════════════════ -->
+    <section id="aktuelles" aria-labelledby="aktuelles-title" class="pb-section pt-5">
+      <div class="shell">
+        <h2 id="aktuelles-title" data-reveal class="heading-section text-chalk">Aktuelles</h2>
+
+        <!-- Spaltenabstand und Schriftgrad der Buchstaben kommen aus .mask-grid -->
+        <ul class="mask-grid mt-10 grid grid-cols-1 gap-y-14 sm:grid-cols-3 lg:mt-12">
+
+          <li data-reveal style="--reveal-delay: 0ms">
+            <a href="/aktuelles/training-im-winter" class="group flex flex-col items-center">
+              <span class="mask-letter" style="background-image: url('assets/img/TUSD-Web-img-Header-01.jpg')" aria-hidden="true">T</span>
+              <h3 class="mt-8 px-2 text-center text-card font-bold text-chalk">Training im Winter</h3>
+              <span class="btn-chip mt-4">
+                <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+                lesen
+              </span>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 120ms">
+            <a href="/aktuelles/social-media" class="group flex flex-col items-center">
+              <span class="mask-letter" style="background-image: url('assets/img/TUSD-Web-img-MannschaftU30-01.jpg')" aria-hidden="true">U</span>
+              <h3 class="mt-8 px-2 text-center text-card font-bold text-chalk">TuS Dabergotz auf social media</h3>
+              <span class="btn-chip mt-4">
+                <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+                lesen
+              </span>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 240ms">
+            <a href="/aktuelles/feiern-mit-dem-verein" class="group flex flex-col items-center">
+              <span class="mask-letter" style="background-image: url('assets/img/TUSD-Web-img-MannschaftHistorisch-01.jpg')" aria-hidden="true">S</span>
+              <h3 class="mt-8 px-2 text-center text-card font-bold text-chalk">Feiern mit dem Verein</h3>
+              <span class="btn-chip mt-4">
+                <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+                lesen
+              </span>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══ 03 · B-Jugend ════════════════════════════════════════════════════ -->
+    <section id="b-jugend" aria-labelledby="b-jugend-title">
+
+      <figure class="band-photo">
+        <img
+          src="assets/img/B%20Jugend.jpg"
+          width="1344" height="896" data-parallax
+          alt="Die B-Jugend des TuS Dabergotz auf dem Sportplatz"
+          class="h-[115%] w-full object-cover" loading="lazy" decoding="async"
+        >
+      </figure>
+
+      <div class="shell pb-section pt-band">
+        <h2 id="b-jugend-title" data-reveal class="heading-section text-chalk">B-Jugend</h2>
+
+        <div class="mt-10 grid gap-10 lg:grid-cols-[minmax(0,29rem)_auto_15rem] lg:items-start lg:gap-x-16">
+
+          <div data-reveal class="space-y-6 text-lead text-chalk">
+            <p>Wir trainieren dienstags und donnerstags um 17:45&nbsp;-&nbsp;19:15 Uhr auf dem Sportplatz in Dabergotz. Robert Schröder ist euer Trainer.</p>
+            <p>Wir sind Doublesieger in der Saison 2024/2025, Pokalsieger und Kreismeister. Mit dir erreichen wir noch mehr. Willkommen im Club!</p>
+          </div>
+
+          <a href="#kontakt" data-reveal style="--reveal-delay: 120ms" class="contact-scribble text-chalk lg:mt-12 lg:justify-self-center">
+            Kontakt?<br>Schreibt uns!
+            <svg class="pointer-events-none absolute -bottom-8 -right-8 w-10" viewBox="0 0 30 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true" focusable="false">
+              <path d="M4.2 2.6 L4.6 30.4 L11.3 23.6 L15.9 35.6 L21.2 33.3 L16.6 21.6 L26.2 20.4 Z" />
+            </svg>
+          </a>
+
+          <figure data-reveal style="--reveal-delay: 200ms" class="text-center text-chalk">
+            <div class="zoom mx-auto aspect-square w-[14.75rem] rounded-full bg-club-red-dark">
+              <img src="assets/img/avatar-trainer-default.svg"
+                   data-photo="assets/img/trainer/B-Jugend-Trainer.jpg"
+                   width="472" height="472"
+                   alt="Porträt von Trainer Robert Schröder" class="object-cover" loading="lazy" decoding="async">
+            </div>
+            <figcaption class="mt-4 text-lead">Trainer Robert Schröder</figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 04 · Ü35 ═════════════════════════════════════════════════════════ -->
+    <section id="ue35" aria-labelledby="ue35-title" class="surface-deep">
+
+      <figure class="band-photo">
+        <img
+          src="assets/img/%C3%9C35.jpg"
+          width="1344" height="896" data-parallax
+          alt="Die Altherrenmannschaft des TuS Dabergotz auf dem Sportplatz"
+          class="h-[115%] w-full object-cover" loading="lazy" decoding="async"
+        >
+      </figure>
+
+      <div class="shell pb-section pt-band">
+        <h2 id="ue35-title" data-reveal class="heading-section text-chalk">Ü 35 – Altherren</h2>
+
+        <div class="mt-10 grid gap-10 lg:grid-cols-[minmax(0,29rem)_auto_15rem] lg:items-start lg:gap-x-16">
+
+          <div data-reveal class="space-y-6 text-lead text-chalk">
+            <p>Wir trainieren mittwochs um 18:30 Uhr auf dem Sportplatz in Dabergotz. Patrick Renner ist euer Trainer.</p>
+            <p>Der Spaß und die Gemeinschaft stehen bei uns im Vordergrund. Mit dir haben wir noch mehr Freude am Sport. Willkommen im Club!</p>
+          </div>
+
+          <a href="#kontakt" data-reveal style="--reveal-delay: 120ms" class="contact-scribble text-chalk lg:mt-12 lg:justify-self-center">
+            Kontakt?<br>Schreibt uns!
+            <svg class="pointer-events-none absolute -bottom-8 -right-8 w-10" viewBox="0 0 30 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true" focusable="false">
+              <path d="M4.2 2.6 L4.6 30.4 L11.3 23.6 L15.9 35.6 L21.2 33.3 L16.6 21.6 L26.2 20.4 Z" />
+            </svg>
+          </a>
+
+          <figure data-reveal style="--reveal-delay: 200ms" class="text-center text-chalk">
+            <div class="zoom mx-auto aspect-square w-[14.75rem] rounded-full bg-club-red">
+              <img src="assets/img/avatar-trainer-default.svg"
+                   data-photo="assets/img/trainer/Ue35-Trainer.jpg"
+                   width="472" height="472"
+                   alt="Porträt von Trainer Patrick Renner" class="object-cover" loading="lazy" decoding="async">
+            </div>
+            <figcaption class="mt-4 text-lead">Trainer Patrick Renner</figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══ 04b · Damen ═══════════════════════════════════════════ -->
+    <section id="damen" aria-labelledby="damen-title">
+
+      <style>
+        /* Mannschaftsband ohne Foto: 200 px weiße Fläche mit roter Überschrift.
+           Sobald assets/img/Damen.jpg vorhanden ist, nimmt das Skript
+           am Ende dieses Blocks die Klasse weg und das Band verhält sich wie die
+           übrigen Bildbänder. Ohne Datei wird gar nicht erst angefragt – es gibt
+           also keinen 404 und kein kaputtes Bildsymbol. */
+        .band-fallback {
+          display: flex;
+          height: 200px;
+          align-items: center;
+          justify-content: center;
+          padding-inline: 1.5rem;
+          background-color: #fff;
+        }
+
+        .band-fallback > img {
+          display: none;
+        }
+
+        .band-fallback__title {
+          font-family: "Gochi Hand", ui-rounded, cursive;
+          font-size: clamp(1.875rem, 3.6vw, 3.125rem);
+          line-height: 1.15;
+          letter-spacing: 0.06em;
+          text-align: center;
+          text-transform: uppercase;
+          /* abgedunkeltes Markenrot: 6,0:1 auf Weiß, Markenrot selbst nur 4,16:1 */
+          color: #c6121a;
+        }
+      </style>
+
+      <!-- Bildband mit Rückfallebene. data-photo-src statt src: ohne Datei wird
+           nichts geladen, mit Datei setzt das Skript unten die Quelle. -->
+      <figure class="band-photo band-fallback" data-team-band>
+        <p class="band-fallback__title" aria-hidden="true">Damen</p>
+        <img
+          data-photo-src="assets/img/Damen.jpg"
+          width="1344" height="896" data-parallax
+          alt="Die Damen des TuS Dabergotz auf dem Sportplatz"
+          class="h-[115%] w-full object-cover" decoding="async"
+        >
+      </figure>
+
+      <div class="shell pb-section pt-band">
+        <h2 id="damen-title" data-reveal class="heading-section text-chalk">Damen</h2>
+
+        <!-- Gespiegeltes Raster: schmale Spalte links (Trainerin), Kontakt mittig,
+             Textspalte rechts. Bei B-Jugend und Ü35 ist es genau umgekehrt. -->
+        <div class="mt-10 grid gap-10 lg:grid-cols-[15rem_auto_minmax(0,29rem)] lg:items-start lg:gap-x-16">
+
+          <!-- 1 · Trainerin -->
+          <figure data-reveal class="text-center text-chalk">
+            <div class="zoom mx-auto aspect-square w-[14.75rem] rounded-full bg-club-red-dark">
+              <img src="assets/img/avatar-trainer-default.svg"
+                   data-photo="assets/img/trainer/Damen-Trainerin.jpg"
+                   width="472" height="472"
+                   alt="Porträt der Trainerin der Damen" class="object-cover" loading="lazy" decoding="async">
+            </div>
+            <!-- TODO: Namen eintragen, sobald bekannt -->
+            <figcaption class="mt-4 text-lead">Trainerin N.&nbsp;N.</figcaption>
+          </figure>
+
+          <!-- 2 · Kontakt -->
+          <a href="#kontakt" data-reveal style="--reveal-delay: 120ms" class="contact-scribble text-chalk lg:mt-12 lg:justify-self-center">
+            Kontakt?<br>Schreibt uns!
+            <svg class="pointer-events-none absolute -bottom-8 -right-8 w-10" viewBox="0 0 30 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true" focusable="false">
+              <path d="M4.2 2.6 L4.6 30.4 L11.3 23.6 L15.9 35.6 L21.2 33.3 L16.6 21.6 L26.2 20.4 Z" />
+            </svg>
+          </a>
+
+          <!-- 3 · Text · TODO: Trainingszeiten und Beschreibung bestätigen -->
+          <div data-reveal style="--reveal-delay: 200ms" class="space-y-6 text-lead text-chalk">
+            <p>Wir trainieren montags und mittwochs um 18:00&nbsp;-&nbsp;19:30 Uhr auf dem Sportplatz in Dabergotz.</p>
+            <p>Ob Wiedereinsteigerin oder zum ersten Mal am Ball: Bei uns zählt, dass du Lust auf Fußball und auf die Mannschaft hast. Komm einfach zum Training vorbei. Willkommen im Club!</p>
+          </div>
+
+        </div>
+      </div>
+
+      <script>
+        /* Tauscht das Fallback-Band gegen das Mannschaftsfoto, sobald es existiert.
+           Gleiches Prinzip wie bei den Trainerfotos in site.js: erst im
+           Hintergrund laden, dann einsetzen – nie ein kaputtes Bild zeigen. */
+        (() => {
+          const band = document.querySelector('#damen [data-team-band]');
+          if (!band) return;
+
+          const img = band.querySelector('img[data-photo-src]');
+          const title = band.querySelector('.band-fallback__title');
+          if (!img) return;
+
+          const probe = new Image();
+          probe.addEventListener('load', () => {
+            img.src = probe.src;
+            band.classList.remove('band-fallback');
+            if (title) title.remove();
+          }, { once: true });
+          probe.src = img.dataset.photoSrc;
+        })();
+      </script>
+
+    </section>
+
+    <!-- ═══ 05 · Vereinsgeschichte · weiße Fläche, roter Inhalt ══════════════ -->
+    <section id="chronik" aria-labelledby="chronik-title" class="surface-light on-light">
+
+      <figure class="band-photo bg-ink">
+        <img
+          src="assets/img/TUSD-Web-img-MannschaftHistorisch-01.jpg"
+          width="1400" height="868" data-parallax
+          alt="Historische Schwarz-Weiß-Aufnahme der Mannschaft in gestreiften Trikots"
+          class="h-[115%] w-full object-cover" loading="lazy" decoding="async"
+        >
+      </figure>
+
+      <div class="shell pb-section-lg pt-band">
+        <h2 id="chronik-title" data-reveal class="heading-section">Vereinsgeschichte</h2>
+
+        <p data-reveal class="mt-10 text-lead">
+          In den 1920er Jahren entstanden in Deutschland viele Sportvereine auf dem Land, meist gegründet von Turnern
+          oder Radfahrern. Im Juni 1929 gründeten sportinteressierte Dabergotzer den TuS Dabergotz 1929. Anfang der
+          dreißiger Jahre schwappte die Fußballbegeisterung der Deutschen von den Städten auf die Dörfer über. Auch in
+          Dabergotz kamen immer mehr Fußballinteressierte zusammen.
+        </p>
+
+        <div class="timeline relative mt-16" data-timeline>
+
+          <div class="absolute left-0 top-0 h-full w-1 overflow-hidden lg:hidden" aria-hidden="true">
+            <div class="h-full w-full opacity-25" style="background-image: repeating-linear-gradient(180deg, currentColor 0 14px, transparent 14px 26px)"></div>
+            <div class="timeline__rail-fill absolute inset-0" style="background-image: repeating-linear-gradient(180deg, currentColor 0 14px, transparent 14px 26px)"></div>
+          </div>
+
+          <svg data-timeline-track class="pointer-events-none absolute inset-x-0 top-1/2 hidden h-24 w-full -translate-y-1/2 lg:block"
+               viewBox="0 0 1200 96" fill="none" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            <defs>
+              <clipPath id="tl-clip" clipPathUnits="userSpaceOnUse">
+                <rect data-timeline-clip x="0" y="0" width="0" height="96"></rect>
+              </clipPath>
+            </defs>
+            <path data-timeline-path class="opacity-25"
+                  d="M10 74 C 130 6, 250 6, 370 62 S 610 96, 720 40 S 960 6, 1150 44"
+                  stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-dasharray="22 18" />
+            <g clip-path="url(#tl-clip)">
+              <path d="M10 74 C 130 6, 250 6, 370 62 S 610 96, 720 40 S 960 6, 1150 44"
+                    stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-dasharray="22 18" />
+              <path d="M1128 26 L1168 44 L1130 62" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+          </svg>
+
+          <span data-timeline-ball class="timeline__ball pointer-events-none absolute left-0 top-0 hidden lg:block" style="opacity: 0" aria-hidden="true">
+            <svg class="h-9 w-9" viewBox="0 0 36 36" fill="none">
+              <circle cx="18" cy="18" r="16" fill="currentColor" />
+              <path d="M18 7l5 3.6-1.9 5.9h-6.2L13 10.6 18 7zM7.2 20.6l4.6 1.4 1.7 5.4-3.3 2.4M28.8 20.6l-4.6 1.4-1.7 5.4 3.3 2.4" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round" />
+            </svg>
+          </span>
+
+          <ol class="relative grid gap-10 pl-8 lg:grid-cols-6 lg:gap-6 lg:pl-0">
+
+            <li class="timeline__item lg:pb-28 lg:text-center" data-timeline-item>
+              <figure>
+                <img src="assets/img/TUSD-Web-img-MannschaftHistorisch-01.jpg" width="1400" height="868" loading="lazy" decoding="async"
+                     alt="Spielszene auf dem alten Sportplatz in den 1930er Jahren"
+                     class="timeline__photo aspect-square w-32 rounded-full bg-ink object-cover lg:mx-auto lg:w-full lg:max-w-[9rem]">
+              </figure>
+              <h3 class="mt-4 font-sans text-body font-semibold"><span class="timeline__year">1929</span></h3>
+              <p class="mt-1 text-body">Gründung</p>
+            </li>
+
+            <li class="timeline__item lg:pt-28 lg:text-center" data-timeline-item>
+              <h3 class="font-sans text-body font-semibold"><span class="timeline__year">1932</span></h3>
+              <p class="mt-1 text-body">erstes Fußballteam &amp; erster Sportplatz</p>
+            </li>
+
+            <li class="timeline__item lg:pb-28 lg:text-center" data-timeline-item>
+              <figure>
+                <img src="assets/img/TUSD-Web-img-MannschaftHistorisch-01.jpg" width="1400" height="868" loading="lazy" decoding="async"
+                     alt="Mannschaftsfoto mit Medaillen aus der Nachkriegszeit"
+                     class="timeline__photo aspect-square w-32 rounded-full bg-ink object-cover object-[30%_50%] lg:mx-auto lg:w-full lg:max-w-[9rem]">
+              </figure>
+              <h3 class="mt-4 font-sans text-body font-semibold"><span class="timeline__year">1947</span></h3>
+              <p class="mt-1 text-body">Wiederaufnahme Spielbetrieb sowie aktive Frauen-, Volkstanz- und Gymnastikgruppe</p>
+            </li>
+
+            <li class="timeline__item lg:pt-28 lg:text-center" data-timeline-item>
+              <figure>
+                <img src="assets/img/TUSD-Web-img-MannschaftHistorisch-01.jpg" width="1400" height="868" loading="lazy" decoding="async"
+                     alt="Mannschaft nach dem Aufstieg in die Bezirksklasse"
+                     class="timeline__photo aspect-square w-32 rounded-full bg-ink object-cover object-[70%_50%] lg:mx-auto lg:w-full lg:max-w-[9rem]">
+              </figure>
+              <h3 class="mt-4 font-sans text-body font-semibold"><span class="timeline__year">1953</span></h3>
+              <p class="mt-1 text-body">Kreismeisterschaft und Aufstieg in Bezirksklasse</p>
+            </li>
+
+            <li class="timeline__item lg:pb-28 lg:text-center" data-timeline-item>
+              <h3 class="font-sans text-body font-semibold"><span class="timeline__year">1976</span></h3>
+              <p class="mt-1 text-body">neuer Sportplatz hinter dem alten Spielfeld</p>
+            </li>
+
+            <li class="timeline__item lg:pt-28 lg:text-center" data-timeline-item>
+              <figure>
+                <img src="assets/img/TUSD-Web-img-MannschaftU30-01.jpg" width="1344" height="896" loading="lazy" decoding="async"
+                     alt="Vereinsgelände nach dem Ausbau mit Tribüne und Flutlicht"
+                     class="timeline__photo aspect-square w-32 rounded-full bg-ink object-cover lg:mx-auto lg:w-full lg:max-w-[9rem]">
+              </figure>
+              <h3 class="mt-4 font-sans text-body font-semibold"><span class="timeline__year">1990er Jahre</span></h3>
+              <p class="mt-1 text-body">Vereinsgelände erweitert, Tribüne und Flutlichtanlage</p>
+            </li>
+
+          </ol>
+        </div>
+
+        <!-- Aufklappbare Langfassung der Chronik -->
+        <p data-reveal class="mt-12 text-center">
+          <button
+            type="button"
+            class="btn-chip"
+            data-disclosure="chronik-lang"
+            aria-expanded="false"
+            aria-controls="chronik-lang"
+          >
+            <span class="toggle-icon" aria-hidden="true">
+              <svg class="icon-open h-4 w-3" viewBox="0 0 12 14" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+              <svg class="icon-close h-4 w-4" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" focusable="false"><path d="M2 2l10 10M12 2L2 12"/></svg>
+            </span>
+            <span data-disclosure-label>ganze Chronik</span>
+          </button>
+        </p>
+
+        <div id="chronik-lang" class="disclosure">
+          <div>
+            <div class="mx-auto mt-10 max-w-[72ch] text-left" tabindex="-1" data-disclosure-focus>
+              <h3 class="font-display text-[clamp(1.5rem,2.6vw,2.25rem)] uppercase leading-tight">Die ganze Chronik</h3>
+              <p class="mt-3 text-micro opacity-75">
+                Nach Epochen geordnet. Jeder Abschnitt lässt sich einzeln öffnen.
+              </p>
+
+              <div class="mt-8">
+          <div class="epoch">
+            <h4>
+              <button
+                type="button"
+                class="epoch__toggle"
+                data-disclosure="chronik-bis-1945"
+                aria-expanded="false"
+                aria-controls="chronik-bis-1945"
+              >
+                <span>Bis 1945<span class="block font-sans text-micro normal-case tracking-normal opacity-75">Gründung, Turnen, die ersten Fußballjahre</span></span>
+                <span class="epoch__sign" aria-hidden="true"></span>
+              </button>
+            </h4>
+
+            <div id="chronik-bis-1945" class="disclosure">
+              <div>
+                <div class="epoch__body" tabindex="-1" data-disclosure-focus>
+                  <p>In den 1920er Jahren entstanden überall in Deutschland Sportvereine, auf dem Land ebenso wie in den Städten. Fußball stand dabei selten im Mittelpunkt. Getragen wurden die Gründungen meist von Turnerriegen oder von Radfahrgruppen. In Dabergotz war es nicht anders: Es gab bereits eine starke Turnergilde, und die Radsportler begannen sich zu organisieren.</p>
+                  <p>Wer genau am Gründungsabend zusammensaß, lässt sich heute nicht mehr vollständig belegen. Sicher ist, dass der damalige Bürgermeister Richard Krebs beteiligt war; der Dorfschullehrer Ernst Schulz dürfte im Hintergrund mitgewirkt haben. Im Juni 1929 gründeten sportinteressierte Dabergotzer in der Gaststätte Paries den TuS Dabergotz 1929. Wer den Verein als Erster führte, geht aus den Unterlagen nicht hervor.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/09/parieshausneuwp.jpg" alt="Gasthaus Paries in Dabergotz" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Gasthaus Paries – hier wurde der Verein im Juni 1929 gegründet.</figcaption>
+                  </figure>
+                  <p>Der junge Verein hatte zwei Abteilungen: die Radsportler und die zahlenmäßig deutlich größere Turnabteilung. Trainiert wurde im Saal der Gaststätte Paries oder im Saal der zweiten Dabergotzer Gaststätte. Die Turnriegen maßen sich mit Mannschaften aus dem damaligen Kreis Ruppin, die Radsportler fuhren Rennen in der Umgebung.</p>
+                  <p>Anfang der dreißiger Jahre erreichte die Fußballbegeisterung die Dörfer. In Dabergotz fanden sich genug Spieler für eine Mannschaft zusammen; der Lehrer Walter Sählbrandt setzte sich für das neue Team ein. Gespielt wurde zunächst auf einer Wiese an der Neuen Straße. Ab 1932 trug der TuS seine Punktspiele auf einem neu hergerichteten Sportplatz in der Bahnhofstraße aus.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/10/erste1936beitrag.jpg" alt="Mannschaftsfoto des TuS Dabergotz aus dem Jahr 1936" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Das erste überlieferte Dabergotzer Mannschaftsfoto, aufgenommen 1936.</figcaption>
+                  </figure>
+                  <p>Mitte der dreißiger Jahre entstand mit Unterstützung von Pfarrer Weber ein neuer Fußballplatz auf einem Stück Kirchenacker. Rund um den Platz wurden Maulbeerbäume gepflanzt, um die sich die Schulkinder kümmerten. Helmut Heinke erinnerte sich später daran, dass als Drittklässler jeder Schüler einen Baum übernahm.</p>
+                  <p>Der Verein spielte in der Kreisklasse Ruppin. Für die Mannschaft um 1936 sind die Namen Reinhold Braasch, Emil Krüger, Martin Pieper, Erich Schnell, Werner Zerhan, Ernst Düring und Werner Protz überliefert, dazu die Sportkameraden Bösel, Weiß, Havemann, Scheppenhorst und Grabow. Wenig später stießen Helmut Krebs, Siegfried Engel und Gerhardt Schwarz dazu.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/10/cherste1940wp.jpg" alt="Mannschaftsfoto des TuS Dabergotz aus dem Jahr 1938" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Teamfoto von 1938. Arnold Paries stand hier mit 16 Jahren als Torwart im Männerteam.</figcaption>
+                  </figure>
+                  <p>1938/39 kam Arnold Paries in die Mannschaft – mit 16 Jahren hütete er bereits das Tor der Männer. Dann brach der Krieg den Spielbetrieb ab.</p>
+                  <p class="text-micro opacity-75">
+                    Quelle: <a class="underline underline-offset-4" href="https://tusdabergotz.wordpress.com/vereinsgeschichte/vereinsvorsitzende/" target="_blank" rel="noopener">Vereinschronik auf tusdabergotz.wordpress.com</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="epoch">
+            <h4>
+              <button
+                type="button"
+                class="epoch__toggle"
+                data-disclosure="chronik-1945-1990"
+                aria-expanded="false"
+                aria-controls="chronik-1945-1990"
+              >
+                <span>1945 bis 1990<span class="block font-sans text-micro normal-case tracking-normal opacity-75">Neuanfang, zwanzig Jahre Bezirksklasse</span></span>
+                <span class="epoch__sign" aria-hidden="true"></span>
+              </button>
+            </h4>
+
+            <div id="chronik-1945-1990" class="disclosure">
+              <div>
+                <div class="epoch__body" tabindex="-1" data-disclosure-focus>
+                  <p>Nach dem Krieg ging es im Dorf zunächst um anderes als um Sport. 1947 nahm das Vereinsleben wieder Fahrt auf, nun unter dem Namen SG Dabergotz. Eine Fußballmannschaft bestritt erst Freundschaftsspiele und stieg dann in die Ruppiner Meisterschaft ein. Auch die Frauen wurden aktiv: Fritz Schulz betreute eine Handballmannschaft. Dazu kam eine Volkstanz- und Gymnastikgruppe.</p>
+                  <p>Geld war knapp. Die Maschinenausleihstation Kränzlin bot Unterstützung an, und damit änderte sich der Name: Aus der SG Dabergotz wurde die BSG Traktor Kränzlin. Gespielt wurde weiterhin in Dabergotz. Die Namensgebung folgte dem Muster der Zeit – Lokomotive, Stahl, Aufbau, Dynamo und auf dem Land vor allem Traktor.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/10/cherste1948wp.jpg" alt="Mannschaftsfoto der BSG Kränzlin von 1948" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Teamfoto Kränzlin, 1948. Einige Spieler aus der Vorkriegszeit waren noch dabei. Foto: Schlecht</figcaption>
+                  </figure>
+                  <p>1948 lief der Punktspielbetrieb wieder an, und in der Mannschaft standen noch Spieler aus der Zeit vor dem Krieg. 1952 stellte sich der erste größere Erfolg ein. Ein Jahr später gewann die BSG Traktor Kränzlin die Neuruppiner Kreismeisterschaft und stieg in die Bezirksklasse auf. Im selben Jahr löste sich die Volkstanz- und Gymnastikgruppe auf. 1956 ging es zurück in die Kreisklasse.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/10/cherste1952wp.jpg" alt="Mannschaftsfoto von 1952" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Teamfoto von 1952. Foto: Schlecht</figcaption>
+                  </figure>
+                  <p>1960 holte die Mannschaft den Kreismeistertitel zurück und spielte anschließend rund zwanzig Jahre in der Bezirksklasse. Vorsitzender war in dieser Zeit Walter Schreiber, der die Interessen der Mitglieder vertrat. Anfang der sechziger Jahre löste sich die Frauen-Handballmannschaft auf, weil der Nachwuchs fehlte.</p>
+                  <p>Die sechziger Jahre brachten eine ganze Reihe von Pokalerfolgen im Wettbewerb um den Goldenen Traktor: neun Siege auf Kreisebene, drei auf Bezirksebene und drei gewonnene Endspiele im FDGB-Pokal.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/09/goldenertraktorwp.jpg" alt="Pokal Goldener Traktor" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Der Goldene Traktor. Foto: Möller</figcaption>
+                  </figure>
+                  <p>Klaus Frömer war für seine Freistöße gefürchtet und lenkte das Spiel aus dem Mittelfeld. Bernd Schreiber und Dieter Socher sorgten für die Tore, Horst Plötz und Arno Dreschler gehörten ebenfalls zum Gerüst der Mannschaft. Schreiber, Socher, Plötz und Dreschler wurden in die Kreisauswahl Neuruppin berufen, einige von ihnen mehrfach. Zum Kader zählten außerdem Harry Maaß, Dieter Palmowske, Peter Bötcher, Frank Schreiber sowie die Sportkameraden Kutschera, Schulz, Breuer, Böhme und Matschekowski.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/10/cherste1957wp.jpg" alt="Sportplatz Dabergotz mit beiden Mannschaften" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Der Dabergotzer Sportplatz mit beiden Mannschaften, 1957. Foto: Grothe</figcaption>
+                  </figure>
+                  <p>Im November 1973 übernahm Manfred Kleeßen den Vorsitz. In diesen Jahren entstand ein Kabinengebäude auf dem Gelände der früheren Badeanstalt, 1976 wurde hinter dem alten Spielfeld ein neuer Sportplatz angelegt.</p>
+                  <p>In der Saison 1980/81 endete nach zwanzig Jahren die Zeit in der Bezirksklasse, die Mannschaft stieg in die Neuruppiner Kreisklasse ab. Trainer in den achtziger Jahren war Günther Dreschler. 1984 bildete sich wieder eine Frauengruppe, zunächst unter Marianne Vogler, später unter Uta Müncho. Eine Volleyballmannschaft spielte in der 2. Kreisklasse, finanziell gestützt vom KfL Kränzlin.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/10/cherste1986wp.jpg" alt="Mannschaftsfoto aus den 1980er Jahren" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Die Mannschaft in den achtziger Jahren. Foto: Möller</figcaption>
+                  </figure>
+                  <p>1987 schlossen sich die BSG FHN und die BSG Traktor Kränzlin zur BSG FHN Kränzlin zusammen; Wolfgang Bork hatte daran maßgeblichen Anteil. Der neue Verein hatte Abteilungen für Fußball, Tischtennis, Volleyball, Kegeln, Badminton und Handball sowie eine Gymnastikgruppe. Hauptsponsor war der Fertighausbau Neuruppin mit Sitz in Werder.</p>
+                  <p class="text-micro opacity-75">
+                    Quelle: <a class="underline underline-offset-4" href="https://tusdabergotz.wordpress.com/vereinsgeschichte/chronik-von-1945-bis-1990/" target="_blank" rel="noopener">Vereinschronik auf tusdabergotz.wordpress.com</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="epoch">
+            <h4>
+              <button
+                type="button"
+                class="epoch__toggle"
+                data-disclosure="chronik-ab-1990"
+                aria-expanded="false"
+                aria-controls="chronik-ab-1990"
+              >
+                <span>Ab 1990<span class="block font-sans text-micro normal-case tracking-normal opacity-75">Landesklasse, Tribüne, Nachwuchs</span></span>
+                <span class="epoch__sign" aria-hidden="true"></span>
+              </button>
+            </h4>
+
+            <div id="chronik-ab-1990" class="disclosure">
+              <div>
+                <div class="epoch__body" tabindex="-1" data-disclosure-focus>
+                  <p>Mit der Wende änderte sich erneut der Name: Aus der Fußballsektion der BSG FHN Kränzlin wurde 1990 der SV BAUFA Neuruppin. Auf dem Gelände kamen zwei Bungalows und die Gaststätte „Sportlerklause“ hinzu, der zweite Platz bekam eine Flutlichtanlage. Hauptsponsor war der Fertighausbau Neuruppin, unterstützt vom Baugeschäft Ralph Nyga.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/10/mamerste1990ebeitrag.jpg" alt="Mannschaftsfoto von 1990" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Die Mannschaft von 1990.</figcaption>
+                  </figure>
+                  <p>Sportlich lief es gut: 1990/91 wurde die Mannschaft Neuruppiner Kreismeister und Pokalsieger und stieg nach der Relegation gegen den SV Altlüdersdorf in die Bezirksklasse auf. Ein Jahr später reichte Platz sechs für den Sprung in die Landesklasse, in der das Team bis 2001 spielte.</p>
+                  <p>1993 brach der Hauptsponsor weg. Im Juni desselben Jahres gab sich der Verein seinen alten Namen zurück und hieß wieder TuS Dabergotz. Die übrigen Abteilungen schlossen sich anderen Neuruppiner Vereinen an, allein die Frauengymnastikgruppe blieb. Das erste Spiel unter dem alten Namen war ein Freundschaftsspiel gegen Hertha BSC aus der 2. Bundesliga – 1.300 Zuschauer kamen auf den Dabergotzer Sportplatz.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/10/cherste1992wp.jpg" alt="Mannschaftsfoto von 1993" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Teamfoto von 1993.</figcaption>
+                  </figure>
+                  <p>Neuer Hauptsponsor wurde das Baugeschäft von Dr. Ulrich Kaatzsch. Auf seine Initiative hin erhielt der Hauptplatz 1996 eine Tribüne. Die Frauengymnastik unter Ute Müncho trainierte weiter in der Gaststätte Paries, Frank Neumann betreute die Mannschaft über Jahre als Trainer.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/09/platz1bwp.jpg" alt="Hauptplatz des TuS Dabergotz mit Tribüne" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Der Hauptplatz mit der 1996 errichteten Tribüne.</figcaption>
+                  </figure>
+                  <p>Vom 18. bis 20. Juni 1999 feierte der Verein sein 70-jähriges Bestehen. Zum Spiel gegen das Old Star Team Ost mit ehemaligen DDR-Nationalspielern kamen rund 600 Zuschauer, die Frauengruppe trat als „Sheerleader“ auf. Im selben Jahr lösten sich die A-Junioren unter Joachim Krebs und die C-Junioren unter Roland Möller auf, weil zu wenige Spieler da waren. Danach ruhte die Nachwuchsarbeit für längere Zeit.</p>
+                  <p>2001 stieg die erste Mannschaft aus der Landesklasse in die OPR-Kreisliga ab, die zweite Mannschaft verließ die 1. Kreisklasse und wurde später aufgelöst. Die Sponsorengelder gingen deutlich zurück. Vom 11. bis 13. Juni 2004 wurde das 75-jährige Bestehen in kleinem Rahmen begangen.</p>
+                  <p>Im März 2006 übergab Manfred Kleeßen den Vorsitz nach 33 Jahren an Christian Maisenhölder. Im November desselben Jahres meldete die Kirche als Eigentümerin Ansprüche auf einen großen Teil des Geländes an; im Dezember wurde der Sportplatz gesperrt. Erst 2007 kam es mit Hilfe der Gemeinde Dabergotz und des Temnitzer Amtsdirektors Matthias Wittmoser zu einer Einigung über Flächentausch und Ankauf – für Gemeinde und Verein eine kostspielige Lösung.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/10/chsportplatz2006wp.jpg" alt="Christian Maisenhölder auf dem Sportplatz" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Christian Maisenhölder führte den Verein von 2006 bis 2017.</figcaption>
+                  </figure>
+                  <p>2007 erreichte die Mannschaft unter Trainer Glenn Gober eine gute Platzierung in der Kreisklasse, ab 2010 ging es Schritt für Schritt aufwärts. Das Gelände hielten Helmut Gober, Siegfried Lengenfelder und Roland Möller in Schuss; beim Umbau und bei der Sanierung halfen unter anderen Tom Stielow, Margit Krebs, Dietmar Engel und Joszef Gabriel mit. Die Gemeinde baute das Gelände der früheren Badeanstalt zum Festplatz um.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/09/sanierungwp.jpg" alt="Sanierungsarbeiten am Vereinsgebäude" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Sanierung des Vereinsgebäudes in Eigenleistung.</figcaption>
+                  </figure>
+                  <p>2016 gründete Roland Möller eine neue Jugendgruppe, der sich schnell 14 Kinder anschlossen. Am 31. Dezember 2017 schloss die Gaststätte Paries – nach 88 Jahren, in denen sie den Verein begleitet und der Frauengruppe wöchentlich kostenlos ihren Saal überlassen hatte.</p>
+                  <figure>
+                    <div class="zoom aspect-[16/9] w-full rounded-note bg-ink">
+                      <img src="https://tusdabergotz.wordpress.com/wp-content/uploads/2018/09/gasthaus2015wp.jpg" alt="Gasthaus Paries kurz vor der Schließung" loading="lazy" decoding="async" class="object-cover">
+                    </div>
+                    <figcaption>Das Gasthaus Paries, Gründungsort des Vereins, schloss Ende 2017.</figcaption>
+                  </figure>
+                  <p>Bei den Wahlen im Juni 2017 löste Glenn Gober den bisherigen Vorsitzenden Maisenhölder ab. In den Vorstand kamen Christopher Kutzer, Guido Plötz, Susann Lehmann und Robert Birkholz, dazu gehörten weiterhin Manfred Kleeßen und Tom Stielow dem Gremium an. 2018 begann die Gemeinde mit der Planung eines neuen Vereinsheims für den TuS, den Jugendclub und die Elterninitiative Dabergotz.</p>
+                  <p>Zur Saison 2018/19 zog der Verein die Männermannschaft aus der Kreisliga zurück. Damit endete nach 90 Jahren der Männerfußball in Dabergotz. Das 90-jährige Bestehen im Juli 2019 fiel entsprechend gedämpft aus. Der Rücktritt Gobers vor Ablauf der Amtszeit sorgte für Unruhe im Vorstand.</p>
+                  <p>Der Nachwuchs entwickelte sich dagegen weiter: Zur E-Jugend unter Trainer Robert Schröder kamen eine F-Jugend und eine Bambini-Mannschaft hinzu. Bei der Vorstandswahl 2021 wurde Philipp Gotscha zum Vorsitzenden gewählt, dazu Christopher Wandke, Christian Noack und Robert Birkholz als Beisitzer – der Vorstand wechselte damit fast vollständig. 2023 stand der Umzug in das neue Vereinsheim der Gemeinde an. Im selben Zeitraum schrumpfte die Jugendarbeit wieder, weil der Vorstand um Sebastian Zimmermann und Oliver Kaiser keine neuen Trainer fand.</p>
+                  <p class="text-micro opacity-75">
+                    Quelle: <a class="underline underline-offset-4" href="https://tusdabergotz.wordpress.com/vereinsgeschichte/chronik-ab-1990/" target="_blank" rel="noopener">Vereinschronik auf tusdabergotz.wordpress.com</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 06 · Formulare · Direktdownloads ═════════════════════════════════ -->
+    <section id="formulare" aria-labelledby="formulare-title" class="py-section">
+      <div class="shell">
+        <h2 id="formulare-title" data-reveal class="heading-section text-chalk">Formulare</h2>
+
+        <ul class="mt-10 grid grid-cols-1 gap-x-10 gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
+
+          <li data-reveal style="--reveal-delay: 0ms">
+            <a class="btn-pill" href="assets/dokumente/1012726%20-%20Beitrittserkl%C3%A4rung_Aufnahmevertrag.docx" download>
+              <svg class="icon h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M12 3v11m0 0 4-4m-4 4-4-4M4 19h16"/>
+              </svg>
+              Beitrittserklärung<span class="sr-only"> (Word-Datei herunterladen)</span>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 60ms">
+            <a class="btn-pill" href="assets/dokumente/Datenschutzerkl%C3%A4rung%20TuS.pdf" download>
+              <svg class="icon h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M12 3v11m0 0 4-4m-4 4-4-4M4 19h16"/>
+              </svg>
+              Datenschutzerklärung<span class="sr-only"> (PDF herunterladen)</span>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 120ms">
+            <a class="btn-pill" href="assets/dokumente/unfallmeldung_TuS_.pdf" download>
+              <svg class="icon h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M12 3v11m0 0 4-4m-4 4-4-4M4 19h16"/>
+              </svg>
+              Unfallmeldung<span class="sr-only"> (PDF herunterladen)</span>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 180ms">
+            <a class="btn-pill" href="assets/dokumente/Einverst%C3%A4ndniserkl%C3%A4rung%20Spielerbild%20TuS.pdf" download>
+              <svg class="icon h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M12 3v11m0 0 4-4m-4 4-4-4M4 19h16"/>
+              </svg>
+              Spielerbilderklärung<span class="sr-only"> (PDF herunterladen)</span>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 240ms">
+            <a class="btn-pill" href="assets/dokumente/antrag_zweitspielrecht_fuer_altherren-31-08-15.pdf" download>
+              <svg class="icon h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M12 3v11m0 0 4-4m-4 4-4-4M4 19h16"/>
+              </svg>
+              Zweitspielrecht<span class="sr-only"> (PDF herunterladen)</span>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 300ms">
+            <a class="btn-pill" href="assets/dokumente/003_antrag_spielrecht_fussball_2022.pdf" download>
+              <svg class="icon h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M12 3v11m0 0 4-4m-4 4-4-4M4 19h16"/>
+              </svg>
+              Spielrecht<span class="sr-only"> (PDF herunterladen)</span>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══ 07 · Fanshop · weiße Fläche ══════════════════════════════════════ -->
+    <section id="fanshop" aria-labelledby="fanshop-title" class="surface-light on-light py-section">
+      <div class="shell">
+        <h2 id="fanshop-title" data-reveal class="heading-section">Fanshop</h2>
+
+        <h3 data-reveal class="mt-10 text-center font-sans text-shop font-extrabold italic uppercase text-ink">Unsere Hingucker</h3>
+        <p data-reveal class="mx-auto mt-4 max-w-[62ch] text-center text-micro text-ink-soft">
+          Durchstöbere unsere Highlights im Fanshop und finde dein neues Lieblingsteil im Vereinsdesign.
+        </p>
+
+        <ul class="mt-8 grid grid-cols-2 gap-3.5 lg:mt-10 lg:grid-cols-4">
+
+          <li data-reveal style="--reveal-delay: 0ms">
+            <a href="https://tus-dabergotz.fan12.de/" target="_blank" rel="noopener" class="group block">
+              <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="hoodie-oversize">
+                  <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
+                       alt="Beiger Oversize-Hoodie für Herren mit Vereinswappen auf der Brust" class="is-placeholder">
+                </div>
+              <h4 class="mt-3 text-small text-ink group-hover:underline">Hoodie Heavyweight Oversize Herren</h4>
+              <p class="mt-0.5 text-small font-bold text-ink">49,95&nbsp;€</p>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 80ms">
+            <a href="https://tus-dabergotz.fan12.de/" target="_blank" rel="noopener" class="group block">
+              <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="hoodie-hometown">
+                  <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
+                       alt="Roter Hoodie für Herren mit Dabergotz-Schriftzug" class="is-placeholder">
+                </div>
+              <h4 class="mt-3 text-small text-ink group-hover:underline">Hoodie Hometown Herren</h4>
+              <p class="mt-0.5 text-small font-bold text-ink">39,95&nbsp;€</p>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 160ms">
+            <a href="https://tus-dabergotz.fan12.de/" target="_blank" rel="noopener" class="group block">
+              <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="zipper-kids">
+                  <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
+                       alt="Rote Kinder-Sweatjacke mit Reißverschluss und Vereinswappen" class="is-placeholder">
+                </div>
+              <h4 class="mt-3 text-small text-ink group-hover:underline">Zipper Basic Kids</h4>
+              <p class="mt-0.5 text-small font-bold text-ink">39,95&nbsp;€</p>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 240ms">
+            <a href="https://tus-dabergotz.fan12.de/" target="_blank" rel="noopener" class="group block">
+              <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="brotdose">
+                  <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
+                       alt="Brotdose aus Edelstahl mit aufgedrucktem Vereinswappen" class="is-placeholder">
+                </div>
+              <h4 class="mt-3 text-small text-ink group-hover:underline">Brotdose Logo</h4>
+              <p class="mt-0.5 text-small font-bold text-ink">19,95&nbsp;€</p>
+            </a>
+          </li>
+
+        </ul>
+
+        <p data-reveal class="mt-10 text-center">
+          <a href="https://tus-dabergotz.fan12.de/" target="_blank" rel="noopener" class="btn-chip">
+            <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+            zum Fanshop<span class="sr-only"> (öffnet tus-dabergotz.fan12.de in einem neuen Tab)</span>
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══ 08 · Fanshop · zweiter Block mit echten Shop-Artikeln ════════════ -->
+    <section id="fanshop-shop" aria-labelledby="fanshop-shop-title" class="surface-light on-light pb-section">
+      <div class="shell">
+        <h2 id="fanshop-shop-title" data-reveal class="heading-section">Direkt aus dem Shop</h2>
+
+        <h3 data-reveal class="mt-10 text-center font-sans text-shop font-extrabold italic uppercase text-ink">Neu im Sortiment</h3>
+        <p data-reveal class="mx-auto mt-4 max-w-[62ch] text-center text-micro text-ink-soft">
+          Diese Artikel liegen aktuell im Vereinsshop bei Fan12. Jeder Link führt direkt zum Produkt.
+        </p>
+
+        <ul class="mt-8 grid grid-cols-2 gap-3.5 sm:grid-cols-3 lg:mt-10 lg:grid-cols-6">
+
+          <li data-reveal style="--reveal-delay: 0ms">
+            <a href="https://tus-dabergotz.fan12.de/schluesselanhaenger-trikot/" target="_blank" rel="noopener" class="group block">
+              <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="schluesselanhaenger">
+                  <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
+                       alt="Schlüsselanhänger im Trikotdesign" class="is-placeholder">
+                </div>
+              <h4 class="mt-3 text-small text-ink group-hover:underline">Schlüsselanhänger Trikot</h4>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 60ms">
+            <a href="https://tus-dabergotz.fan12.de/farbige-beanie/" target="_blank" rel="noopener" class="group block">
+              <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="beanie">
+                  <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
+                       alt="Beanie mit gesticktem Vereinslogo" class="is-placeholder">
+                </div>
+              <h4 class="mt-3 text-small text-ink group-hover:underline">Beanie mit Sticklogo</h4>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 120ms">
+            <a href="https://tus-dabergotz.fan12.de/fanschal-identity/" target="_blank" rel="noopener" class="group block">
+              <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="fanschal">
+                  <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
+                       alt="Fanschal in den Vereinsfarben" class="is-placeholder">
+                </div>
+              <h4 class="mt-3 text-small text-ink group-hover:underline">Fanschal Identity</h4>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 180ms">
+            <a href="https://tus-dabergotz.fan12.de/kabinenposter/" target="_blank" rel="noopener" class="group block">
+              <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="kabinenposter">
+                  <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
+                       alt="Kabinenposter für die Mannschaft" class="is-placeholder">
+                </div>
+              <h4 class="mt-3 text-small text-ink group-hover:underline">Kabinenposter</h4>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 240ms">
+            <a href="https://tus-dabergotz.fan12.de/shirt-forza/" target="_blank" rel="noopener" class="group block">
+              <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="shirt-forza">
+                  <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
+                       alt="Vereinsshirt Forza" class="is-placeholder">
+                </div>
+              <h4 class="mt-3 text-small text-ink group-hover:underline">Shirt Forza</h4>
+            </a>
+          </li>
+
+          <li data-reveal style="--reveal-delay: 300ms">
+            <a href="https://tus-dabergotz.fan12.de/" target="_blank" rel="noopener" class="group block">
+              <div class="zoom flex aspect-[3/4] items-center justify-center bg-shelf" data-produkt="weihnachtstasse">
+                <img src="assets/img/TUSDabergotz_Logo.svg" width="744" height="999" loading="lazy" decoding="async"
+                     alt="Weihnachtstasse 2026 im Vereinsdesign" class="is-placeholder">
+              </div>
+              <h4 class="mt-3 text-small text-ink group-hover:underline">Weihnachtstasse 2026</h4>
+            </a>
+          </li>
+
+        </ul>
+
+        <ul class="mt-10 flex flex-wrap justify-center gap-4">
+          <li data-reveal>
+            <a href="https://tus-dabergotz.fan12.de/kollektion-travel" target="_blank" rel="noopener" class="btn-chip">
+              <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+              Kollektion Travel
+            </a>
+          </li>
+          <li data-reveal style="--reveal-delay: 60ms">
+            <a href="https://tus-dabergotz.fan12.de/kollektion-vintage/" target="_blank" rel="noopener" class="btn-chip">
+              <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+              Kollektion Vintage
+            </a>
+          </li>
+          <li data-reveal style="--reveal-delay: 120ms">
+            <a href="https://tus-dabergotz.fan12.de/shop/?product_tag=bestseller&amp;label=Bestseller" target="_blank" rel="noopener" class="btn-chip">
+              <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+              Bestseller
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══ 09 · Spielergebnisse ═════════════════════════════════════════════
+         Holt die Daten bei jedem Seitenaufruf frisch von fussball.de, sobald
+         einer der beiden Wege eingerichtet ist (siehe assets/js/fussballde.js):
+           A) data-fussballde-key am <body> → offizielles Widget
+           B) data-endpoint hier unten → eigener Server als Vermittler
+         Bis dahin steht der unten eingetragene Stand im Markup – lesbar für
+         Suchmaschinen und für Besucher ohne JavaScript.
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section
+      id="spielergebnisse"
+      aria-labelledby="spielergebnisse-title"
+      class="py-section"
+      data-fussballde
+      data-endpoint=""
+    >
+      <div class="shell">
+        <h2 id="spielergebnisse-title" data-reveal class="heading-section text-chalk">Aktuelle Spielergebnisse</h2>
+
+        <!-- Nächstes Spiel -->
+        <div data-reveal class="on-light mx-auto mt-10 max-w-[46rem] rounded-[2rem] bg-chalk p-6 text-ink lg:p-8">
+          <p class="text-micro font-semibold uppercase tracking-wide text-club-red">Nächstes Spiel</p>
+          <p class="mt-2 text-lead font-bold">SpG MSV Neuruppin/TuS Dabergotz – TSV Wustrau</p>
+          <p class="mt-1 text-body text-ink-soft">
+            <time datetime="2026-11-06T19:30">Freitag, 06.11.2026, 19:30 Uhr</time> · Herren Ü35, 1. Kreisklasse
+          </p>
+        </div>
+
+        <!-- Beide Mannschaften nebeneinander -->
+        <div data-reveal class="mt-10 grid gap-6 text-chalk lg:grid-cols-2 lg:gap-8">
+          <article class="team-card" data-team-id="b-jugend" data-competition="">
+            <h3 class="font-sans text-lead font-bold">B-Junioren</h3>
+            <p class="mt-1 text-micro opacity-85">Kreisliga B-Junioren, Staffel B · Kreispokal</p>
+
+            <p class="feed-state mt-4" data-feed-state hidden></p>
+
+            <h4 class="mt-6 text-card font-semibold">Spiele</h4>
+            <!-- Zielbehälter des offiziellen Widgets (bleibt leer, bis ein Schlüssel hinterlegt ist) -->
+            <div id="widget-b-jugend-spiele" data-widget-matches></div>
+            <ul class="mt-2" data-matches>
+              <li class="match" data-static>
+                <span><time datetime="2026-11-07T11:30">Sa, 07.11.2026, 11:30</time></span>
+                <span>SV Union Neuruppin – TuS Dabergotz (9)</span>
+                <span class="text-micro opacity-80">Kreisliga</span>
+              </li>
+              <li class="match" data-static>
+                <span><time datetime="2026-11-14T10:00">Sa, 14.11.2026, 10:00</time></span>
+                <span>SG Eintracht Friesack (9) – TuS Dabergotz (9)</span>
+                <span class="text-micro opacity-80">Kreisliga</span>
+              </li>
+              <li class="match" data-static>
+                <span><time datetime="2027-03-07T11:00">So, 07.03.2027, 11:00</time></span>
+                <span>TuS Dabergotz (9) – SV Belafarm Beetz/Sommerfeld (9)</span>
+                <span class="text-micro opacity-80">Kreisliga</span>
+              </li>
+              <li class="match" data-static>
+                <span><time datetime="2027-03-14T11:30">So, 14.03.2027, 11:30</time></span>
+                <span>SG Sieversdorf II (9) – TuS Dabergotz (9)</span>
+                <span class="text-micro opacity-80">Kreisliga</span>
+              </li>
+            </ul>
+
+            <h4 class="mt-7 text-card font-semibold">Tabelle</h4>
+            <div id="widget-b-jugend-tabelle" data-widget-table></div>
+            <table class="ladder mt-2">
+              <caption class="sr-only">Tabellenstand B-Junioren</caption>
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Mannschaft</th>
+                  <th scope="col" class="num">Sp</th>
+                  <th scope="col" class="num">Tore</th>
+                  <th scope="col" class="num">Pkt</th>
+                </tr>
+              </thead>
+              <tbody data-table>
+                <tr data-static>
+                  <td colspan="5" class="opacity-85">
+                    Für diese Saison ist auf fussball.de noch keine Tabelle veröffentlicht.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p class="mt-5">
+              <a href="https://www.fussball.de/mannschaft/tus-dabergotz-9-tus-dabergotz-1929-brandenburg/-/saison/2627/team-id/02TBNV33O4000000VS5489BSVV9JRPRB#!/" target="_blank" rel="noopener" class="btn-chip">
+                <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+                Mannschaft auf fussball.de<span class="sr-only"> (TuS Dabergotz (9), öffnet in einem neuen Tab)</span>
+              </a>
+            </p>
+          </article>
+
+          <article class="team-card" data-team-id="ue35" data-competition="">
+            <h3 class="font-sans text-lead font-bold">Herren Ü35</h3>
+            <p class="mt-1 text-micro opacity-85">1. Kreisklasse · Alt-Herren Kreispokal 11er</p>
+
+            <p class="feed-state mt-4" data-feed-state hidden></p>
+
+            <h4 class="mt-6 text-card font-semibold">Spiele</h4>
+            <!-- Zielbehälter des offiziellen Widgets (bleibt leer, bis ein Schlüssel hinterlegt ist) -->
+            <div id="widget-ue35-spiele" data-widget-matches></div>
+            <ul class="mt-2" data-matches>
+              <li class="match" data-static>
+                <span><time datetime="2026-11-06T19:30">Fr, 06.11.2026, 19:30</time></span>
+                <span>SV Rot-Weiß Kyritz – SpG MSV Neuruppin/TuS Dabergotz</span>
+                <span class="text-micro opacity-80">1. Kreisklasse</span>
+              </li>
+              <li class="match" data-static>
+                <span><time datetime="2026-11-13T19:00">Fr, 13.11.2026, 19:00</time></span>
+                <span>SpG MSV Neuruppin/TuS Dabergotz – SpG Schwarz-Weiß Zaatzke/MTV Freyenstein</span>
+                <span class="text-micro opacity-80">1. Kreisklasse</span>
+              </li>
+              <li class="match" data-static>
+                <span><time datetime="2026-11-27T19:00">Fr, 27.11.2026, 19:00</time></span>
+                <span>SpG MSV Neuruppin/TuS Dabergotz – SV Rot-Weiß Kyritz</span>
+                <span class="text-micro opacity-80">1. Kreisklasse</span>
+              </li>
+              <li class="match" data-static>
+                <span><time datetime="2027-04-09T19:30">Fr, 09.04.2027, 19:30</time></span>
+                <span>SV Blumenthal-Grabow (Ü35) – SpG MSV Neuruppin/TuS Dabergotz</span>
+                <span class="text-micro opacity-80">1. Kreisklasse</span>
+              </li>
+            </ul>
+
+            <h4 class="mt-7 text-card font-semibold">Tabelle</h4>
+            <div id="widget-ue35-tabelle" data-widget-table></div>
+            <table class="ladder mt-2">
+              <caption class="sr-only">Tabellenstand Herren Ü35</caption>
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Mannschaft</th>
+                  <th scope="col" class="num">Sp</th>
+                  <th scope="col" class="num">Tore</th>
+                  <th scope="col" class="num">Pkt</th>
+                </tr>
+              </thead>
+              <tbody data-table>
+                <tr data-static>
+                  <td colspan="5" class="opacity-85">
+                    Für diese Saison ist auf fussball.de noch keine Tabelle veröffentlicht.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p class="mt-5">
+              <a href="https://www.fussball.de/mannschaft/spg-msv-neuruppin-tus-dabergotz-msv-1919-neuruppin-brandenburg/-/saison/2627/team-id/02PNA3D80O000000VS5489B2VT4FEOV2#!/" target="_blank" rel="noopener" class="btn-chip">
+                <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+                Mannschaft auf fussball.de<span class="sr-only"> (SpG MSV Neuruppin/TuS Dabergotz, öffnet in einem neuen Tab)</span>
+              </a>
+            </p>
+          </article>
+        </div>
+
+        <p class="mx-auto mt-8 max-w-[56rem] text-micro text-chalk/85">
+          Gespeicherter Stand: <time data-stand datetime="2026-10-20">20.10.2026</time>, Quelle fussball.de.
+          Für die Saison 2026/27 sind dort bislang keine Ergebnisse eingetragen; der Spielplan ist vom
+          Staffelleiter noch nicht freigegeben. Sobald einer der beiden Abrufwege eingerichtet ist, ersetzen
+          die Live-Daten diesen Stand bei jedem Seitenaufruf.
+        </p>
+
+        <p data-reveal class="mt-8 text-center">
+          <a href="https://www.fussball.de/verein/tus-dabergotz-1929-brandenburg/-/id/00ES8GNBL000004HVV0AG08LVUPGND5I#!/" target="_blank" rel="noopener" class="btn-chip">
+            <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+            alle Spiele des Vereins auf fussball.de<span class="sr-only"> (öffnet in einem neuen Tab)</span>
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══ 10 · Partner ═════════════════════════════════════════════════════ -->
+    <section id="partner" aria-labelledby="partner-title" class="surface-deep py-section">
+      <div class="shell">
+        <h2 id="partner-title" data-reveal class="heading-section text-chalk">Unsere Partner</h2>
+
+        <p data-reveal class="mx-auto mt-6 max-w-[58ch] text-center text-body text-chalk/90">
+          Ohne sie gäbe es weder Trikots noch Flutlicht. Danke dafür.
+        </p>
+
+        <ul class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:mt-12 lg:grid-cols-5 lg:gap-5">
+          <li data-reveal style="--reveal-delay: 0ms"><a class="partner-tile" href="https://www.spk-opr.de/" target="_blank" rel="noopener"><img src="assets/img/partner/partner-sparkasse.png" loading="lazy" decoding="async" alt="Logo Sparkasse Ostprignitz-Ruppin"><span class="sr-only"> (öffnet in einem neuen Tab)</span></a></li>
+          <li data-reveal style="--reveal-delay: 70ms"><div class="partner-tile"><img src="assets/img/partner/partner-huch.png" loading="lazy" decoding="async" alt="Logo HUCH"></div></li>
+          <li data-reveal style="--reveal-delay: 140ms"><a class="partner-tile" href="https://www.eatn.de/" target="_blank" rel="noopener"><img src="assets/img/partner/partner-eatn.png" loading="lazy" decoding="async" alt="Logo e.ATN"><span class="sr-only"> (öffnet in einem neuen Tab)</span></a></li>
+          <li data-reveal style="--reveal-delay: 210ms"><a class="partner-tile" href="https://www.db-farbdesign.de/" target="_blank" rel="noopener"><img src="assets/img/partner/partner-db-farbdesign.png" loading="lazy" decoding="async" alt="Logo d&amp;b Farbdesign GmbH, Malermeister"><span class="sr-only"> (öffnet in einem neuen Tab)</span></a></li>
+          <li data-reveal style="--reveal-delay: 280ms"><a class="partner-tile" href="https://www.audita-team.de/" target="_blank" rel="noopener"><img src="assets/img/partner/partner-audita.png" loading="lazy" decoding="async" alt="Logo Audita-Team, Wirtschaftsprüfer, Steuerberater und Consultants"><span class="sr-only"> (öffnet in einem neuen Tab)</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══ 11 · Kontakt · Badge öffnet das Formular an Ort und Stelle ═══════ -->
+    <section id="kontakt" aria-labelledby="kontakt-title" class="py-section-lg">
+      <div class="shell flex flex-col items-center">
+
+        <h2 id="kontakt-title" class="sr-only">Kontakt</h2>
+
+        <button
+          type="button"
+          class="badge-round badge-round--white"
+          data-disclosure="kontakt-formular"
+          aria-expanded="false"
+          aria-controls="kontakt-formular"
+          data-reveal
+        >
+          <span class="block px-7">Kontakt?<br>Schreibt uns!</span>
+          <svg class="pointer-events-none absolute bottom-0 right-0 w-[clamp(2rem,3.3vw,2.8rem)] translate-x-[38%] translate-y-[52%]"
+               viewBox="0 0 30 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"
+               aria-hidden="true" focusable="false">
+            <path d="M4.2 2.6 L4.6 30.4 L11.3 23.6 L15.9 35.6 L21.2 33.3 L16.6 21.6 L26.2 20.4 Z" />
+          </svg>
+        </button>
+
+        <div id="kontakt-formular" class="disclosure w-full max-w-[42rem]">
+          <div>
+            <form class="mt-10 space-y-6" data-contact-form novalidate tabindex="-1" data-disclosure-focus>
+
+              <div class="grid gap-6 sm:grid-cols-2">
+                <div data-field>
+                  <label class="field-label" for="kontakt-vorname">Vorname</label>
+                  <input class="field-input" id="kontakt-vorname" name="vorname" type="text" autocomplete="given-name" required>
+                  <p class="field-error">Bitte trag deinen Vornamen ein.</p>
+                </div>
+
+                <div data-field>
+                  <label class="field-label" for="kontakt-name">Name</label>
+                  <input class="field-input" id="kontakt-name" name="name" type="text" autocomplete="family-name" required>
+                  <p class="field-error">Bitte trag deinen Namen ein.</p>
+                </div>
+              </div>
+
+              <div data-field>
+                <label class="field-label" for="kontakt-email">E-Mail</label>
+                <input class="field-input" id="kontakt-email" name="email" type="email" autocomplete="email" required>
+                <p class="field-error">Bitte prüf die E-Mail-Adresse.</p>
+              </div>
+
+              <div data-field>
+                <label class="field-label" for="kontakt-nachricht">Nachricht</label>
+                <textarea class="field-input" id="kontakt-nachricht" name="nachricht" rows="6" required></textarea>
+                <p class="field-error">Schreib uns kurz, worum es geht.</p>
+              </div>
+
+              <div data-field>
+                <label class="flex items-start gap-3 text-small" for="kontakt-datenschutz">
+                  <input class="mt-0.5 h-5 w-5 shrink-0 rounded-[4px] border-2 border-chalk/70 bg-transparent text-club-red"
+                         id="kontakt-datenschutz" name="datenschutz" type="checkbox" required>
+                  <span>Ich habe die <a class="underline underline-offset-4" href="assets/dokumente/Datenschutzerkl%C3%A4rung%20TuS.pdf">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Daten einverstanden.</span>
+                </label>
+                <p class="field-error">Ohne diese Zustimmung dürfen wir die Nachricht nicht verarbeiten.</p>
+              </div>
+
+              <p class="form-note" data-form-note>
+                Demo-Modus: Das Formular ist noch nicht an einen Versand angebunden. In WordPress übernimmt das
+                Contact Form 7, WPForms oder ein eigener Endpunkt – die Felder und Namen bleiben dabei gleich.
+              </p>
+
+              <div class="pt-2">
+                <button type="submit" class="btn-chip">
+                  <svg class="icon h-4 w-3" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M0 0 12 7 0 14Z" fill="currentColor"/></svg>
+                  absenden
+                </button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ WP: footer.php ═══════════════════════════════════════════════════ -->
+  <footer class="surface-deep pb-14 pt-10">
+    <div class="shell flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:justify-between">
+
+      <a href="#top" class="flex items-center gap-3 text-chalk">
+        <img src="assets/img/TUSDabergotz_Logo.svg" alt="" aria-hidden="true" width="52" height="56" class="site-logo h-14">
+        <span class="font-sans text-nav">TuS Dabergotz</span>
+      </a>
+
+      <nav aria-label="Rechtliches und Service">
+        <ul class="flex flex-wrap justify-center gap-x-8 gap-y-3 lg:justify-end">
+          <li><a class="nav-link text-chalk" href="#chronik-lang">Chronik lang</a></li>
+          <li><a class="nav-link text-chalk" href="/datenschutz">Datenschutz</a></li>
+          <li><a class="nav-link text-chalk" href="/impressum">Impressum</a></li>
+          <li><a class="nav-link text-chalk" href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </footer>
+</body>
+</html>
